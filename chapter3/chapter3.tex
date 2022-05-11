@@ -388,7 +388,70 @@ $\sqrt{G}_r(0,\theta)=1$ siehe Prop. 4 eine eindeutige Lösung:
 In allen Fällen ist $G$ unabhängig von $\theta$!
 \end{application}
 
+\section{Der Satz von Gauss-Bonnet}
 
+\begin{definition}
+    Ein \emph{geodätisches Dreieck} in $\Sigma \subset \mathbb{R}^3$ ist ein eingebettetes Dreieck, welches von drei geodätischen Segmenten begrenzt wird.
+\end{definition}
+
+\ctikzfig{eingebettetesDreieck}
+
+\begin{theorem}[Lokale Version von Gauss-Bonnet]
+    Sei $\triangle \subset \Sigma$ ein geodätisches Dreieck mit Innenwinkeln $\alpha, \beta, \gamma$. Dann gilt
+    \begin{align*}
+        \int_{\triangle} K \,dA = \alpha + \beta + \gamma - \pi 
+    \end{align*}
+\end{theorem}
+ 
+\begin{recall}
+    \emph{Flächenelement} $dA = \sqrt{EG-F^{2}}$ 
+\end{recall}
+
+\begin{remark}
+    Bei konstanter Krümmung $K = 0$ haben alle geodätischen Dreiecke die Innenwinkelsumme $\pi$
+\end{remark}
+
+\begin{geometric}
+    \ctikzfig{geodesicTriangleTheorem}
+\end{geometric}
+
+\begin{proof}
+    Wir nehmen zunächst an, es gäbe eine lokale Parametrisierung der Form
+    \(\varphi = exp : U \to \Sigma\) mit \(\triangle_A \subset \varphi(U)\)
+    und \(\varphi(0)\) sei ein Eckpunkt von $\triangle$, ebenso sei $B \in \varphi (U\cap \mathbb{R} \times \{0\})$
+    \ctikzfig{triangleUnderExp}
+
+
+Parametrisiere den Weg $\delta : [0,\alpha] \to \Sigma$ durch $\delta(\theta) = \exp(r(\theta), \theta)$. Berechne
+\begin{align*}
+    \int_{\triangle} K \,dA & = \int_{\varphi^{-1}(\triangle)} K(r,\theta) \sqrt{EG-F^{2}}\,drd\theta \\
+    & \overset{E=1, F=0, \text{ da } \varphi = \exp}{=}\int_{\varphi^{-1}(\triangle)} K\sqrt{G}  \,drd\theta \\ 
+    & \overset{\text{Prop. 5}}{=} \int_{\varphi^{-1}(\triangle)} -\sqrt{G}_{rr} \ drd\theta \\
+    & = - \int_{0}^{\alpha} \int_{0}^{r(\theta)} \sqrt{G}_{rr}\,drd\theta \\
+    & = - \int_{0}^{\alpha} \left [\sqrt{G}_r (r(\theta), \theta) - \sqrt{G}_r(0,\theta) \right ] \,d\theta \\
+    & = \alpha - \int_{0}^{\alpha} \sqrt{G}_r (r(\theta,\theta))  \,d\theta 
+\end{align*}
+
+\begin{lemma}
+    \begin{align*}
+        -\sqrt{G}_r (r(\theta, d\theta)) = \frac{\partial \psi}{\partial \theta}
+    \end{align*} wobei $\psi(\theta)$ der Winkel zwischen $e_r$ und $\dot{\delta(\theta)}$ ist.
+\end{lemma}
+Insbesondere gilt $\psi (0) = \pi - \beta $ und $\psi (\alpha) = \gamma$. Mit dem Lemma folgt also
+\begin{align*}
+    \int_{\triangle} K  \,dA &= \alpha + \int_{0}^{\alpha} \frac{\partial \psi}{\partial \theta} \,d\theta \\
+    &= \alpha + \psi(\alpha) - \psi(0) \\
+    &= \alpha + \beta + \gamma - \pi
+\end{align*}
+\end{proof}
+
+\begin{proof}[Lemma]
+    Berechne 
+    \begin{align*}
+        \sqrt{G}_r = \frac{1}{2} \frac{G_r}{\sqrt{G}} = \frac{1}{2*\sqrt{G}} \frac{\partial}{\partial r} \langle \varphi_{\theta} , \varphi{\theta} \rangle (=G) \\
+        = \frac{1}{\sqrt{G}} \langle \varphi_{r\theta}, \varphi_{\varphi_\theta} \rangle = \langle \frac{\partial \varphi _r}{\partial \theta} , \frac{\varphi_{\theta}}{||\varphi _{\theta}||} \rangle
+    \end{align*}
+\end{proof}
 
 
 \end{document}
