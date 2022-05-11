@@ -388,13 +388,31 @@ $\sqrt{G}_r(0,\theta)=1$ siehe Prop. 4 eine eindeutige Lösung:
 In allen Fällen ist $G$ unabhängig von $\theta$!
 \end{application}
 
+Kreisumfang:
+\begin{itemize}
+    \item $K=0$ siehe Weglänge $\int_0^T \sqrt{\dot{r}^{2}E + \dot{u}\dot{v}F + \dot{v}^2 G} \ dt $\\
+    $$U(r)= \int_0^{2\pi} \sqrt{G} \ d\theta = \int_0 ^{2\pi} r \ d\theta = 2\pi r$$
+    \item $K=1$ mit $\sin(x)=x-\frac{x^3}{3!} + \dots$ \\
+    $$U(r) = \int_0^{2\pi} \sqrt{G} \ d\theta = 2 \pi \sin(r)$$
+    \item $K=-1$ ``Umfang wächst exponentiell''\\
+    $$U(r)=2\pi \sinh (r) \sim e^r$$
+\end{itemize}
+
+\begin{theorem}[Minding 1839]
+    Seien $\Sigma_1, \Sigma_2$ reguläre Flächen mit derselben konstanten Krümmung $K$, und $p_1 \in \Sigma_1,p_2 \in \Sigma_2$.
+    Dann existiert $U_1 \subset \Sigma_1, U_2 \subset \Sigma_2$ offen mit $p_i \in U_i$ und eine lokale Isometrie $h : U_1 \to U_2$.
+\end{theorem}
+
+\begin{proof}
+    Bezüglich geodätischer Polarkoordinaten um $p_1, p_2$ sind die Koeffizientenfunktionen $E=1, F=0, G$ durch $K$ bestimmt, also identisch.
+    Wir folgern, dass $\Sigma_1, \Sigma_2$ lokal isometrisch sind (siehe Abschnitt Isometrien).
+\end{proof}
+
 \section{Der Satz von Gauss-Bonnet}
 
 \begin{definition}
     Ein \emph{geodätisches Dreieck} in $\Sigma \subset \mathbb{R}^3$ ist ein eingebettetes Dreieck, welches von drei geodätischen Segmenten begrenzt wird.
 \end{definition}
-
-\ctikzfig{eingebettetesDreieck}
 
 \begin{theorem}[Lokale Version von Gauss-Bonnet]
     Sei $\triangle \subset \Sigma$ ein geodätisches Dreieck mit Innenwinkeln $\alpha, \beta, \gamma$. Dann gilt
