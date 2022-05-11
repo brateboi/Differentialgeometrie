@@ -409,6 +409,20 @@ Kreisumfang:
 \end{proof}
 
 \section{Der Satz von Gauss-Bonnet}
+\begin{minipage}{30em}
+    Sei $\Sigma \subset \mathbb{R}^3$ eine glatte reguläre Fläche. Wir betrachten das Standarddreieck $\triangle \subset \mathbb{R}^3$ mit Eckpunkten $e_1,e_2,e_3$.
+\end{minipage}
+\begin{minipage}{8em}
+    \begin{tikzpicture}
+        \filldraw[fill = gray!20] (-0.75,-0.75) node[below] {$e_1$} -- (0,0.5) node[right] {$e_3$}-- (0.5,0) node[below] {$e_2$}-- cycle;
+        \draw (0,0) -- (-1,-1);
+        \draw (0,0) -- (1,0);
+        \draw (0,0) -- (0,1);
+    \end{tikzpicture}
+\end{minipage}
+
+Ein Dreieck in $\Sigma$ ist das Bild von $\triangle$ unter einer glatten Abbildung $\varphi : \triangle \to \Sigma$.
+Falls die Kanten von $\varphi (\triangle)$ Segmente von Geodäten sind, dann heisst das Dreieck geodätisch.
 
 \begin{definition}
     Ein \emph{geodätisches Dreieck} in $\Sigma \subset \mathbb{R}^3$ ist ein eingebettetes Dreieck, welches von drei geodätischen Segmenten begrenzt wird.
@@ -432,6 +446,25 @@ Kreisumfang:
 \begin{geometric}
     \ctikzfig{geodesicTriangleTheorem}
 \end{geometric}
+
+\begin{preparation}
+Additivität der Formel:
+$\triangle = \triangle _1 \cup \triangle _2$
+
+\begin{minipage}{8em}
+    \tikzfig{triangleAdditivity}
+\end{minipage}
+\begin{minipage}{32em}
+    $$\underbrace{\int_{\triangle} K \ dA}_{\alpha + \beta + \gamma - \pi } = \underbrace{\int_{\triangle_1}K \ dA }_{\alpha_1 + \beta_1 + \gamma_1 - \pi}+ \underbrace{\int_{\triangle_2}K \ dA}_{\alpha_2 + \beta_2 + \gamma_2 - \pi}$$
+    Ok, da $\alpha + \beta + \gamma - \pi = \alpha_1 + \beta_1 + \gamma_1 - \pi + \alpha_2 + \beta_2 + \gamma_2 - \pi$
+\end{minipage}
+\begin{minipage}{8em}
+    \tikzfig{triangleAdditivityVariant}
+\end{minipage}
+\begin{minipage}{32em}
+    $$\sum_{i=1}^{3} \alpha_i + \beta_i + \gamma_i = \alpha + \beta + \gamma + 2\pi \implies \int_{\triangle}K \ dA = \sum_{i=1}^{3}\int_{\triangle_i}K \ dA$$
+\end{minipage}
+\end{preparation}
 
 \begin{proof}
     Wir nehmen zunächst an, es gäbe eine lokale Parametrisierung der Form
