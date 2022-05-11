@@ -1,0 +1,492 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Untermannigfaltigkeiten und Flächen}
+Zentral für das Verständnisses dieser Vorlesung sind Untermannigfaltigkeiten (UMF). Der Prototyp einer Untermannigfaltigkeit hat immer die Form
+\begin{align*}
+    \mathbb{R}^k \times \{0\} \subset \mathbb{R}^n \quad \text{wobei } k<n
+\end{align*}
+Eine UMF sollte bis auf lokale Diffeomorphismen ``so aussehen''
+
+\ctikzfig{fig1}
+
+\begin{definition}
+Seien $U,V \subset \mathbb{R}^n$ offen. Eine Abbildung $\varphi : U \to V$ heisst Diffeomorphismus falls $\varphi$ bijektiv, und sowohl $\varphi$ und $\varphi ^{-1}$ unendlich oft differenzierbar. Schreibe auch $\varphi\in(C^\infty)$ bzw. $\varphi$ glatt.
+\end{definition}
+\begin{remark}
+In der Literatur wird manchmal auch nur $C^1$, also stetig differenzierbar gefordert.
+\end{remark}
+
+\begin{examples}
+\leavevmode
+\begin{enumerate}
+    \item $\begin{aligned}[t] 
+        \varphi \colon \mathbb{R} & \to \mathbb{R}_{>0} \text{ ist ein Diffeomorphismus mit Umkehrung} \log \colon \mathbb{R}_{>0} \to \mathbb{R} \\ x & \mapsto e^x
+    \end{aligned}$
+    
+    \item $\begin{aligned}[t] 
+        \varphi \colon \left(-\frac{\pi}{2},\frac{\pi}{2} \right) & \to \mathbb{R} \text{ ist ein Diffeomorphismus mit } \varphi^{-1} = \arctan \\ x & \mapsto \tan(x)
+    \end{aligned}$
+    
+    \item $\begin{aligned}[t] 
+        \varphi \colon \mathbb{R} & \to \mathbb{R} \text{ ist \emph{kein} Diffeomorphismus, } \varphi^{-1}(x) = \sqrt[3]{x} \text{ bei } x=0 \text{ nicht diff'bar} \\ x & \mapsto x^3
+    \end{aligned}$
+\end{enumerate}
+\end{examples}
+
+\begin{recall}[Umkehrsatz]
+Sei $f \colon \mathbb{R}^n \to \mathbb{R}^n$ in $C^1$ (also stetig diff'bar) und $p \in \mathbb{R}^n$ mit $\det(Df)_p \not = 0$. Dann existieren $U,V \in \mathbb{R}^n$ offen mit $p \in U$ und $V=f(U)$, so dass die Einschränkung $f\vert_U \colon U \to V$ ein Diffeomorphismus (im $C^1$-Sinn ist). ``f hat bei $p$ eine lokale Umkehrung in $C^1$.''
+\end{recall}
+
+\section{Untermannigfaltigkeit}
+
+\begin{definition}
+Eine abgeschlossene Teilmenge $M \subset \mathbb{R}^n$ heisst Untermannigfaltigkeit der Dimension $k$ falls
+$\forall p \in M$ zwei offene Mengen $U,V \subset \mathbb{R}^n$ mit $p \in U$ und $0 \in V$ existieren, sowie ein $C^1$-Diffeomorphismus $\varphi \colon U \to V$ mit $\varphi \left(U \cap M\right) = \left(\mathbb{R}^k \times \{0\}\right) \cap V$ und $\varphi(p)=0$
+\end{definition}
+
+\ctikzfig{umf}
+
+\begin{example}
+\begin{minipage}[t]{30em}
+Die $ \left( \text{x-Achse } \cup \text{ y-Achse}\right) \setminus \{0\} = M$ ist zwar lokal diffeomorph zu $\mathbb{R} \times \{0\} \subset \mathbb{R}^2$, ist aber nicht abgeschlossen. Also \underline{keine} UMF in $\mathbb{R}^2$! 
+\end{minipage}
+\begin{minipage}{1em}
+\tikzfig{bsp_non_umf}
+\end{minipage}
+
+\end{example}
+
+\begin{question}
+Wie konstruieren wir nicht triviale Beispiele von Untermannigfaltigkeiten?
+\end{question}
+
+\begin{definition}
+Sei $f \colon \mathbb{R}^n \to \mathbb{R}^m \ C^1$ mit $m<n$.
+Ein Punkt $p$ heisst \underline{regulär} (für f), falls das Differential $\left(Df\right)_p \colon \mathbb{R}^n
+\to \mathbb{R}^m$ surjektiv ist. Ein Wert $w \in \mathbb{R}^m$ heisst \underline{regulär}, falls alle $p \in f^{-1}(w)$ regulär sind. Nicht reguläre Punkte/Werte heissen \underline{kritisch}.
+\end{definition}
+
+\begin{remark}
+Falls $w \not \in \bild (f)$, dann ist $w$ auch regulär.
+\end{remark}
+
+\noindent\fbox{\begin{minipage}{30em}
+Im Spezialfall $k=2$ und $n=3$ heisst $M \subset \mathbb{R}^3$ eine \underline{reguläre Fläche}.
+\end{minipage}}
+
+\begin{theorem}
+Sei $f \colon \mathbb{R}^n \to \mathbb{R}^m \ C^1$ mit $m\leq n$ und $w \in \mathbb{R}^m$ ein regulärer Wert.
+Dann ist das Urbild $f^{-1}(w) = \{ p \in \mathbb{R}^n \ \vert \ f(p) = w \} \subset \mathbb{R}^n$ eine Untermannigfaltigkeit der Dimension $n-m$.
+\end{theorem}
+
+\begin{examples}
+\leavevmode
+\begin{enumerate}
+    \item $\begin{aligned}[t]
+        f \colon  \mathbb{R}^3 & \to \mathbb{R} \\
+        p  & \mapsto \langle p, e_3 \rangle
+    \end{aligned}$
+    Berechne $\forall p \in \mathbb{R}^3$ das Differential
+    $\begin{aligned}[t]\left(Df\right)_p \colon \mathbb{R}^3 & \to \mathbb{R} \\
+    h & \mapsto \langle h,e_3 \rangle
+    \end{aligned}$
+    
+    \begin{recall}[Dreigliedentwicklung]
+    \begin{align*}
+    f(p+h) &= f(p) + \left(Df\right)_p(h) + \left(Rf\right)_p(h) \\
+    \langle p+h, e_3 \rangle &= \langle p, e_3 \rangle + \langle h, e_3 \rangle + 0
+    \end{align*}
+    \end{recall}
+    Insbesondere ist $\forall p\in \mathbb{R}^3 \left(Df\right)_p \colon \mathbb{R}^3 \to \mathbb{R}$ surjektiv, da der Gradient $\\ \left(\nabla f \right)_p = e_3 \not = 0$ \quad \underline{Gradient}: Für $f \colon \mathbb{R}^n \to \mathbb{R}$ gilt $\left(Df\right)_p(h) = \langle \left(\nabla f\right)_p, h \rangle$. \\
+    Wir folgern, dass für alle $w \in \mathbb{R}$ die Menge $f^{-1}(w)=\mathbb{R}^2 \times \{0\} \subset \mathbb{R}^3$ eine Untermannigfaltigkeit der Dimension $3-1=2$
+    
+    \item $\begin{aligned}[t]
+        f \colon  \mathbb{R}^3 & \to \mathbb{R} \\
+        p  & \mapsto \langle p, p \rangle = ||p||^2 _2
+    \end{aligned}$
+    \quad (In Koordinaten $f(x,y,z)=x^2 + y^2 + z^2$) \\ \\ Berechne $\forall p \in \mathbb{R}^3$
+    \begin{align*}
+        \left(Df\right)_p \colon \mathbb{R}^3 & \to \mathbb{R} \\
+        h & \mapsto 2\langle p, h \rangle
+    \end{align*}
+    \begin{align*}
+        f(p+h) = \langle p+h, p+h \rangle = \underbrace{\langle p,p \rangle}_\textrm{$f(p)$} +
+        \underbrace{2\langle p,h \rangle}_\textrm{$(Df)_p(h)$} +
+        \underbrace{\langle h,h \rangle}_\textrm{$(Rf)_p(h)$}
+    \end{align*}
+    $\implies (\nabla f)_p = 2p$ \quad Also ist $(Df)_p \colon \mathbb{R}^3 \to \mathbb{R}$ surjektiv $\iff p \not =0$\\
+    Wir folgern, dass für alle $w \not = 0$ die Menge $f^{-1}(w) = \{p \in \mathbb{R}^3 \ \vert \ ||p||^2 _2 = w \}$ eine Untermannigfaltigkeit der Dimension $3-1 = 2$ ist.\\
+    
+    \begin{minipage}{2.5em} \underline{$w < 0$} \begin{align*} \emptyset \end{align*}
+    \end{minipage}
+    \qquad
+    \begin{minipage}{5em} \underline{$w = 0$} \begin{align*} \Dot{} \quad 0 \end{align*}
+    \end{minipage}
+    \begin{minipage}{5em} \underline{$w > 0$} \begin{align*} \end{align*}
+    \end{minipage}
+    \tikzfig{sphere_umf}
+    
+    \item
+    $f \colon \mathbb{R}^3 \to \mathbb{R}, \ f(x,y,z)=x^2+y^2-z^2$.
+    Berechne $(\nabla f)_p = (2x, 2y, -2z), p = (x,y,z)$
+    Also $(Df)_p \colon \mathbb{R}^3 \to \mathbb{R}$ surjektiv $\iff p \not = 0$.
+    \underline{Folgerung} $w \not = 0 \implies f^{-1} \subset \mathbb{R}^3$ UMF der Dimension $2$.
+    \ctikzfig{third_example_umf}
+\end{enumerate}
+\end{examples}
+
+\begin{proof}[Beweis von Theorem 1]
+Sei $p \in \mathbb{R}^n$ mit $f(p)=w$. Dann ist $(Df)_p \colon \mathbb{R}^n \to \mathbb{R}^m$ surjektiv.
+Nach dem Satz über implizite Funktionen existieren \emph{offene} Mengen:
+\begin{itemize}
+    \item $A \subset K = \ker\left((Df)_p\right)$
+    \item $B \subset \mathbb{R}^m$
+    \item $Y \subset \mathbb{R}^n$
+\end{itemize}
+mit $0\in A, \ w\in B$ und $p \in V$ sowie ein $C^1$-Diffeomorphismus $g\colon A \times B \to V$ mit
+\begin{enumerate}[i)]
+    \item $f(g(k,y))=y \ \forall k \in A, \ y\in B$
+    \item $g(k,y) - (p+k) \in K^{\perp}$
+\end{enumerate}
+Die Niveaumenge $f^{-1}$ ist lokal gleich dem Graphen einer Funktion der Form $k \mapsto g(k,y)$.
+Insbesondere gilt: $f^{-1} \cap V = g(A\times \{w\})$. Wir folgern, dass $f^{-1}(w)$ eine UMF (via $\varphi = g^{-1}$) der Dimension $k=n-m$ ist. Da $\dim K = \dim (\mathbb{R}^n)- \dim(\bild(Df)_p)$. \newline \newline
+\underline{Bild}:
+\ctikzfig{proof_theorem1}
+\end{proof}
+
+\newpage
+
+\section{Lokale Parametrisierung von Untermannigfaltigkeiten}
+\begin{definition}
+Eine $C^1$-Abilldung $f : \mathbb{R}^k \to \mathbb{R}^n$ heisst
+\underline{lokale Einbettung} beim Punkt $p \in \mathbb{R}^k$ falls $(Df)_p : \mathbb{R}^k \to \mathbb{R}^n$ \underline{injektiv} ist. $(k \leq n$
+\end{definition}
+
+\begin{theorem}
+Sei $f : \mathbb{R}^k \to \mathbb{R}^n$ eine lokale Einbettung bei $p \in \mathbb{R}^k$. Dann existiert eine offene Menge
+$W \subset \mathbb{R}^k$ mit $p \in W$, sodass $f(W) \subset \mathbb{R}^n $ eine \underline{offene Teilmenge} einer Untermannigfaltigkeit $M \subset \mathbb{R}^n$ ist. \newline
+In diesem Kontext heisst $f$ eine \underline{lokale Parametrisierung} von $M$ bei $f(p) \in M$.
+\end{theorem}
+
+\begin{examples}
+\leavevmode
+\begin{enumerate}
+    \item $M = \mathbb{R}^2 \times \{0\} \subset \mathbb{R}^3$. Dann ist \begin{align*}
+        \varphi : \mathbb{R}^2 & \to \mathbb{R}^3 \\
+        (u,v) & \mapsto (u,v,0)
+    \end{align*}
+    eine (globale) Parametrisierung von $M$. Tatsächlich ist $\varphi$ linear, mit Abbildungsmatrix 
+    $A =  \left(\begin{smallmatrix} 1 & 0 \\ 0 & 1 \\ 0 & 0
+    \end{smallmatrix} \right)$.
+    Die Jakobimatrix $(J\varphi )_p$ stimmt in jedem Punkt mit $A$ überein $\implies (D\varphi )_p : \mathbb{R}^2 \to \mathbb{R}^3$ injektiv.
+    
+    \item
+    $M = S^2 = \{ p \in \mathbb{R}^3 \vert \ ||p||_2 = 1 \} \subset \mathbb{R}^3$ (reguläre Fläche, siehe oben).
+    Definiere \begin{align*}
+        \varphi \colon D^2 & \to S^2 \\
+        (u,v) &\mapsto (u,v, \sqrt{1-u^2-v^2})
+    \end{align*}
+    Bereche $(J \varphi)_{(0,0,0)} = \left(\begin{smallmatrix} 1 & 0 \\ 0 & 1 \\ 0 & 0
+    \end{smallmatrix} \right)$ Also ist $\varphi$ eine lokale Parametrisierung von $S^2$ beim Nordpol $N=(0,0,1)=\varphi(0,0)$.
+    
+    
+    \item
+    Seien $a,b \in \mathbb{R} $ mit $0 < a < b$. Definiere den Rotationstorus \\
+    \begin{minipage}[b]{30em}
+        
+        \begin{align*}
+        \varphi \colon \mathbb{R}^2 & \to T \subset \mathbb{R}^3 \\
+        (u,v) & \mapsto \begin{pmatrix}(b+a \cos u)\cos v
+        \\(b+a \cos u)\sin
+        \\ a \sin u\end{pmatrix}
+    \end{align*}
+    In jedem Punkt $(u,v) \in \mathbb{R}^2$ ist $\varphi$ eine lokale Parametrisierung von $T$. Berechne dazu
+    \end{minipage}
+    \begin{minipage}[b]{10em}\tikzfig{torus}
+    \end{minipage}
+    
+    
+    $(J \varphi)_{u,v} = \begin{pmatrix}
+    -a \sin u \cos v & -(b+ a \cos u) \sin v \\
+    -a \sin u \sin v & (b+ a \cos u) \cos v \\
+    a \cos u & 0
+    \end{pmatrix}$. \\
+    Es gilt $\forall (u,v) \in \mathbb{R}^2 \colon \Rang (J\varphi )_{(0,0)} = 2 \implies (D\varphi )_{(u,v)} : \mathbb{R}^2 \to \mathbb{R}^3$ injektiv.
+\end{enumerate}
+\end{examples}
+\begin{question}
+Besitzt jede Untermannigfaltigkeit $M \subset \mathbb{R}^n$ bei jedem Punkt eine lokale Parametrisierung?
+\end{question}
+
+\begin{proposition}
+Jede Untermannigfaltigkeit $M \subset \mathbb{R}^n$ besitzt bei allen Punkten $p \in M$ eine lokale Parametrisierung.
+\end{proposition}
+\begin{proof}
+Da $M \subset \mathbb{R}^n$ eine UMF ist, existieren für alle $p \in M$ offene Mengen $U,V \subset \mathbb{R}^n$ mit $p \in U, \ 0 \in V$ sowie $g : U \to V$ ein Diffeomorphismus mit $g(p)=0$ und \\
+$g(U \cap M )=(\mathbb{R}^k \times \{0\} ) \cap V$.
+Definiere nun \begin{align*}
+    \varphi : g^{-1} \vert_{(\mathbb{R}^k \times \{0\})\cap V} \colon (\mathbb{R}^k \times \{0\})\cap V
+    & \to M \cap U \\
+    q & \mapsto g^{-1}(q)
+\end{align*}
+Es gilt: $\varphi (0) = p$ und $(D\varphi )_0 = \left(Dg^{-1}\right)_0 \vert_{ \mathbb{R}^k \times \{0\}}
+ = (Dg)^{-1}_{p} \vert_{\mathbb{R}^k \times \{0\}}$. Nach Konstruktion \\(g ist ein Diffeomorphismus) ist
+ $(Dg)_p : \mathbb{R}^n \to \mathbb{R}^n$ ist ein Isomorphismus, ebenso \\$(Dg)_p ^{-1} : \mathbb{R}^n \to \mathbb{R}^n \implies (Dg)^{-1}_{p} \vert_{\mathbb{R}^k \times \{0\}} \text{ist injektiv} \implies
+ (D\varphi )_0 : \mathbb{R}^k \times \{0\} \to \mathbb{R}^n$ injektiv. Also ist $\varphi$ eine lokale Parametrisierung bei $p \in M$.
+\end{proof}
+\begin{proof}[Beweis von Theorem 2]
+Zur Vereinfachung nehmen wir $p=0$ und $f(p)=0$ an.
+Setze $B = \bild(Df)_p < \mathbb{R}^n$, ein Untervektorraum der Dimension $k$ (da $(Df)_p$ injektiv.
+Weiterhin $S = B^{\perp} < \mathbb{R}^n$, sodass gilt $\mathbb{R}^n = B \oplus S, \ \dim (S) = n-k$.
+Definiere \begin{align*}
+    F : \mathbb{R}^k \times S & \to \mathbb{R}^n \\
+    (q,s) & \mapsto f(q) + s
+\end{align*}
+$F$ ist stetig differenzierbar. Dreigliedentwicklung im Punkt $(p,0)=\mathbb{R}^k \times S \colon \\$
+Sei $h_1 \in \mathbb{R}^k, h_2 \in S$. Berechne:
+\begin{align*}
+    F(p+h_1, 0 + h_2) = f(p+h_1) + h_2 = f(p) + (Df)_p(h_1)+ (Rf)_p(h_1) + h_2 \\
+    \implies (DF)_{(p,0)}\left((h_1,h_2)\right) = (Df)_p(h_1) + h_2
+\end{align*}
+\begin{claim}
+$(DF)_{(p,0)} : \mathbb{R}^k \times S \to \mathbb{R}^n$ ist ein Isomorphismus
+\end{claim}
+\begin{proof}
+Es reicht zu zeigen: $(DF)_{(p,0)}$ ist injektiv (da $k + (n-k) = n)$.\\
+Sei $(h_1,h_2) \in \ker(DF)_{(p,0)}$
+\begin{align*}
+    %(Df)_p(h_1) + h_2 =0
+    \underbrace{(Df)_p(h_1)}_\textrm{$\in B$} + \underbrace{h_2}_\textrm{$\in S$} = 0 \underbrace{\implies}_\textrm{$B \cap S = \{0\}$} (Df)_p(h_1) = 0 \text{ und } h_2 = 0
+    \underbrace{\implies}_\textrm{$(Df)_p$ injektiv} h_1 = 0
+\end{align*}
+Da also $\ker(DF)_{(p,0)} = 0$, ist $(DF)_{(p,0)}$ injektiv
+\end{proof}
+
+Nach Umkehrsatz existieren $U \subset \mathbb{R}^k \times S, \ V \subset \mathbb{R}^n$ offen mit
+$(p,0) \in U$ und $f(p) = F(p,0) \in V$, sodass $F\vert_U : U \to V$ ein Diffeomorphismus ist.
+Nach Definition von $F$ gilt $F(U \cap \mathbb{R}^k \times \{0\}) =  \underbrace{f(\mathbb{R}^k)}_\textrm{$\bild(f)$} \ \cap \ V$. \\
+Wir schliessen, dass $\bild (f) \subset \mathbb{R}^n$ lokal um den Punkt $f(p)$ die Bedingungen einer Untermannigfaltigkeit erfüllt. 
+\end{proof}
+
+\begin{remark}
+Sei $f: \mathbb{R}^k \to \mathbb{R}^n$ eine $C^1$-Abbildung, welche in jedem Punkt eine lokale Einbettung ist.
+Dann braucht $f$ nicht injektiv zu sein. Weiterhin ist $f(\mathbb{R}^k) \subset \mathbb{R}^n$ im Allgemeinen keine Untermannigfaltigkeit.
+\end{remark}
+\begin{example}
+Betrachte die Funktion
+\begin{align*}
+    f \colon \mathbb{R} & \to \mathbb{R}^2 \\
+    t & \mapsto (t^2,t^3-t)
+\end{align*}
+Berechne $(Jf)_t = \begin{pmatrix}2t \\ 3t^2 -1\end{pmatrix} \not  = 0 \ \forall t \in \mathbb{R}$
+$\implies (Df)_t : \mathbb{R} \to \mathbb{R}^2$ ist injektiv für alle $t \in \mathbb{R}$
+\\ \\
+\ctikzfig{counterexample}
+Wir sehen, dass f nicht injektiv ist. Also ist $\bild (f)$ keine Untermannigfaltigkeit (lokal um den Punkt $(1,0)$).
+\end{example}
+
+\section{Der Tangentialraum einer Untermannigfaltigkeit}
+
+\begin{goal}
+Beschreibung der Menge aller Tangentialvektoren in einem Punkt einer Untermannigfaltigkeit.
+\end{goal}
+
+\begin{definition}
+Sei $M \subset \mathbb{R}^n$ eine $C^1$-UMF der Dimension $k$ und $p \in M$. Wähle eine lokale $C^1$-Parametrisierung $\varphi : U \to M$ um $p$, d.h. $U \subset \mathbb{R}^k$ offen, $\varphi : U \to
+\mathbb{R}^n$ stetig differenzierbar mit $\varphi(U) \subset M, \varphi (0)=p \ (0 \in U), \varphi$ injektiv und für alle $p\in U$ ist $(D\varphi)_q : \mathbb{R}^k \to \mathbb{R}^n $ injektiv. Setze
+\begin{align*}
+    T_pM = \bild\left((D\varphi)_0\right) < \mathbb{R}^n
+\end{align*} der \underline{Tangentialraum} von $M$ bei $p$.
+\end{definition}
+
+\begin{remark}
+Die Dimension von $T_pM < \mathbb{R}^n$ ist $k$, da $(D\varphi)_0 : \mathbb{R}^k \to \mathbb{R}^n$ injektiv ist. Im Falle $k=2$ (d.h. $M$ ist eine Fläche) nennen wir $T_pM$ \underline{Tangentialebene} 
+\end{remark}
+
+
+\begin{example}
+Sei $h : \mathbb{R}^k \to \mathbb{R}$ in $C^1$. Betrachte den Graphen $\Gamma = \{(x,y,z) \in \mathbb{R}^3 | \ z = h(x,y)\} \subset \mathbb{R}^3$ und die (globale) Parametrisierung
+\begin{align*}
+    \varphi : \mathbb{R}^2 & \to \Gamma \subset \mathbb{R}^3 \\
+    (u,v) & \mapsto (u,v, h(u,v))
+\end{align*}
+Bereche die Jakobimatrix im Punkt $q=(u,v)$
+\begin{align*}
+    &(J\varphi)_{(u,v)}= \begin{pmatrix}1 & 0
+        \\0 & 1
+        \\ \frac{\partial h}{\partial u}(u,v) & \frac{\partial h}{\partial v}(u,v)\end{pmatrix}
+    \text{Rang }2 \implies (D\varphi )_q : \mathbb{R}^2 \to \mathbb{R}^3 \text{ injektiv}\\
+    & T_{\varphi(q)}\Gamma = \spann\Bigg\{
+        \begin{pmatrix}1 \\ 0 \\ \frac{\partial h}{\partial u}(u,v)\end{pmatrix},
+        \begin{pmatrix}0 \\ 1 \\ \frac{\partial h}{\partial v}(u,v)\end{pmatrix}\Bigg\}
+\end{align*}
+Im Spezialfall $h=0 \colon T_{\varphi(q)}\Gamma = \spann\{e_1, e_2\}$
+
+\end{example}
+\begin{lemma}
+$T_pM$ hängt nicht von der lokalen Parametrisierung $\varphi : U \to M$ ab.
+\end{lemma}
+\begin{proof}
+Seien $\varphi_1 : U_1 \to M \quad \varphi_2 : U_2 \to M$ lokale $C^1$-Parametrisierungen mit $\varphi_1(0)=\varphi_2(0) = p \in M$. Setze $V = \varphi_1(U_1) \cap \varphi_2(U_2) \subset M$ offen und
+$V_1 = \varphi_1^{-1} \subset U_1$ und $V_2 = \varphi_2^{-1} \subset U_2$. \\
+Wir erhalten ein kommutatives Diagramm von Abbildungen
+\ctikzfig{diagram_tpm}
+Nach der Kettenregel für $\varphi_2^{-1} \circ \varphi_1$ im Punkt $0$ gilt:
+\begin{align*}
+A = (D\varphi_2^{-1} \circ \varphi_1)_0 = (D\varphi_2^{-1})_{\varphi_1(0)} \circ (D\varphi_1)_0 = 
+(D\varphi_2)_0^{-1} \circ (D\varphi_1)_0 \implies (D\varphi_1)_0 = (D\varphi_2)_0 \circ A \\
+\end{align*} \\[-2\baselineskip] Damit formen wir um:
+\begin{align*}
+    \implies T_pM = \bild(D\varphi_1)_0 & = \bild((D\varphi_2)_0 \circ A) \\
+    &\overset{(1)}{=} (D\varphi_2)_0 \circ A\left(\mathbb{R}^k\right) \\
+    &= (D\varphi_2)_0 \left(\mathbb{R}^k\right) \\
+    &= \bild(D\varphi_2)_0
+\end{align*}
+In (1) wird benutzt, dass $A$ invertierbar ist, mit $A^{-1} = (D\varphi_1)_0^{-1} \circ (D\varphi_2)_0$ und damit ist $A\left(\mathbb{R}^k\right) = \mathbb{R}^k$.
+\end{proof}
+
+\subsection*{Interpretation des Tangentialraums via Geschwindigkeitsvektoren}
+
+\begin{proposition}
+Sei $p \in M$. Der Tangentialraum $T_pM$ besteht aus allen Geschwindigkeitsvektoren der Form
+$\gamma ' (0)$ für $C^1$-Wege $\gamma : (-\varepsilon, \varepsilon) \to M$ mit $\gamma (0)=p$.\\
+\ctikzfig{tangentplane}
+\end{proposition}
+\begin{proof}
+\begin{enumerate}[(i)]
+    \item Sei $\gamma : (-\varepsilon,\varepsilon) \to M$ stetig differenzierbar mit $\gamma(0)=p$. Betrachte eine lokale $C^1$-Parametrisierung $\varphi : U \to M$ mit $\varphi(0)=p$.\\
+    Wähle $\delta >0$, sodass $\gamma\big((-\delta,\delta)\big) \subset \varphi (U)$.
+    Definiere $\begin{aligned}[t] \bar \gamma : (-\varepsilon, \varepsilon) & \to \mathbb{R}^k \\
+    t &\mapsto \varphi^{-1} \circ \gamma(t)
+    \end{aligned}$\\
+    Dann gilt $\gamma \vert_{(-\delta,\delta)} = \varphi \circ \bar \gamma$ \\
+    \begin{align*}
+        \implies \gamma'(0) = \frac{d}{dt}\left(\varphi \circ \bar \gamma\right)(0) = (D\varphi)_{\bar \gamma(0)}\left(\bar \gamma'(0)\right) = (D\varphi)_0 \left(\bar \gamma'(0)\right) \in \bild(D\varphi)_0 = T_pM
+    \end{align*}
+    \item 
+    Sei $v \in T_pM = \bild\big((D\varphi)_0\big)$ für eine lokale $C^1$-Parametrisierung
+    $\varphi : U \to M$ mit $\varphi(0)=p$.
+    Es existiert also $w \in \mathbb{R}^k$ mit $(D\varphi)_0(w) =v$. \\
+    Konstruktion eines Weges $\gamma : (-\delta, \delta) \to M$.
+    Wähle $\delta > 0$, sodass für alle $t \in (-\delta, \delta)$ gilt:
+    $tw \in U$ (geht, da $U$ offen). Definiere nun:
+    \begin{align*}
+        \gamma : (-\delta,\delta) &\to M \\
+        t & \mapsto \varphi(tw)
+    \end{align*}Dann gilt: $\gamma (0) = \varphi(0)=p$
+    \begin{align*}
+        \implies \gamma'(0) = \frac{d}{dt}\left(\varphi(tw)\right)(0) = (D\varphi)_0(w) = v
+    \end{align*}
+    \ctikzfig{constructionOfPath}
+\end{enumerate}
+\end{proof}
+\newpage
+
+\subsubsection*{Differenzierbare Abbildung zwischen UMF}
+Sei $M \subset \mathbb{R}^n$ eine $C^1$-UMF. Eine Abbildung $f : M \to \mathbb{R}^m$ heisst \underline{differenzierbar} im Punkt $p \in M$, falls ein $U \subset \mathbb{R}^n$ offen existiert mit
+$p\in U$, sowie $F: U \to \mathbb{R}^m$ differenzierbar mit $F\vert_{U \cap M} = f \vert_{U \cap M}$.
+Insbesondere sind Einschränkungen von differenzierbaren Abb. $f:\mathbb{R}^n \to \mathbb{R}^m$ auf UMF $M \subset \mathbb{R}^n$ differenzierbar (in allen Punkten).
+
+\begin{definition}
+Seien $M \subset \mathbb{R}^n, N \subset \mathbb{R}^m C^1$-UMF und $f: M \to N$ stetig differenzierbar,
+$p \in M$ (d.h. $f : M \to \mathbb{R}^n$ ist stetig differenzierbar mit $f(M) \subset N)$. Definiere
+\begin{align*}
+    (Df)_p : T_pM & \to T_{f(p)}N \\
+    v & \mapsto (DF)_p(v)
+\end{align*}
+wobei $F : U \to \mathbb{R}^m$ eine beliebige $C^1$-Einschränkung von $f$ um den Punkt p ist, d.h.
+$U \subset \mathbb{R}^n$ offen mit $p \in U$ und $F \vert_{U \cap M} = f \vert_{U \cap M}$. Die Abbildung $(Df)_p$ heisst Differential von $f$ an der Stelle $p \in M$.
+\end{definition}
+
+\begin{lemma}
+\begin{enumerate}[i.)]
+    \item Für alle $v \in T_pM$ gilt $(DF)_p(v) \in T_{f(p)}N$
+    \item $(DF)_p(v)$ hängt nicht von der Erweiterung $F$ ab.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+i.) Sei $v \in T_pM$ Wähle $\gamma : (-\varepsilon, \varepsilon) \to M$ mit $\gamma (0) =p$ und
+$\gamma'(0)=v$, sowie $\bild(\gamma) \subset U$. Betrachte nun den $C^1$-Weg
+$\delta = F \circ \gamma : (-\varepsilon, \varepsilon) \to \mathbb{R}^m$.
+Es gilt für alle $ t\in (-\varepsilon, \varepsilon) : \delta(t) = F(\gamma(t)) = f(\gamma(t)) \in N$, da $F\vert_M = f \text{ und } \gamma(t) \in M$. \\
+Berechne:
+\begin{align*}
+    \delta(0) = f(\gamma(0)) = f(p) \implies \delta'(0) = \dfrac{d}{dt}(F \circ \gamma)(0) = (DF)_{\gamma(0)}\big(\gamma'(0)\big) = (DF)_p(v)
+\end{align*}Nach Proposition gilt $\delta'(0) \in T_{f(p)}N$, also $(DF)_p(v) \in T_{f(p)}N$. \\
+
+ii.)
+Seien $F:U \to \mathbb{R}^m$ und $\bar F : \bar U \to \mathbb{R}^m$ zwei Erweiterungen von $f$ (differenzierbar bei p). Für $v \in T_pM$, wähle $\gamma:(-\varepsilon,\varepsilon)\to M$ wie oben, mit $\bild(\gamma) \subset U \cap \bar U$. Definiere wie unter i) zwei Wege $\delta = F \circ \gamma$ und
+$\bar \delta = \bar F \circ \gamma$.
+Es gilt $\delta '(0)=(DF)_p(v)$ und $\bar \delta '(0) = (D\bar F)_p(v)$.
+Beachte: $\delta$ und $\bar \delta$ stimmen überein mit $f \circ \gamma (t) \implies \delta'(0)=\bar \delta'(0)$
+\end{proof}
+
+\begin{remark}
+Es gilt die \underline{Kettenregel}. Seien $M \subset \mathbb{R}^m,N\subset \mathbb{R}^n, L \subset \mathbb{R}^l \ C^1$-UMF und $f:M\to N , g:N \to L$ in den Punkten $p \in M$ bzw. $f(p)\in N$ differenzierbar.
+Dann ist $g \circ f$ im Punkt $p \in M$ differenzierbar, es gilt
+\begin{align*}
+    \big(D(g \circ f)\big)_p = (Dg)_{f(p)} \circ (Df)_p : T_pM \to T_{g\circ f(p)}L
+\end{align*}
+\underline{Grund:} Kettenregel gilt für alle Erweiterungen $F, G$.
+\end{remark}
+
+\subsubsection{Beispiel einer differenzierbaren Abbildung zwischen UMF}
+Sei $\Sigma \subset \mathbb{R}^3$ der Rotationstorus parametrisiert durch $(0 < a < b)$
+\begin{align*}
+    \varphi : \mathbb{R}^2 & \to \mathbb{R}^3 \\
+    (u,v) & \mapsto \begin{pmatrix}
+    (b+a \cos u )\cos v \\ (b + a \cos u ) \sin v \\ a \sin u
+    \end{pmatrix}
+\end{align*} Betrachte die Abbildung 
+\begin{align*}
+    f : \Sigma & \to S^2 \subset \mathbb{R}^3\\
+    q & \mapsto \dfrac{q}{||q||_2}.  
+\end{align*}  $f$ lässt sich zu $F : \mathbb{R}^3 \setminus \{0\} \to S^2$
+ erweitern. In Koordinaten: $F(x,y,z) = \left( \frac{x}{r}, \frac{y}{r}, \frac{z}{r} \right)$ mit $r = \sqrt{x^2+y^2+z^2}$. $F$ ist differenzierbar (sogar $C^{\infty}$) deshalb auch $f : \Sigma \to S^2$.
+ Für $q=(x,y,z) \not = 0$, berechne die Jakobimatrix
+ \begin{align*}
+     (JF)_{(x,y,z)}=\begin{pmatrix}
+     \frac{1}{r} - \frac{x^2}{r^3} & \frac{-xy}{r^3} & \frac{-xz}{r^3} \\
+     \frac{-xy}{r^3} & \frac{1}{r}-\frac{y^2}{r^3} & \frac{-yz}{r^3} \\
+     \frac{-xz}{r^3} & \frac{-yz}{r^3} & \frac{1}{r}-\frac{z^2}{r^3}
+     \end{pmatrix}
+ \end{align*}
+Betrachte den Punkt $p = \varphi (0,0) = (a+b,0,0) \in \Sigma$.
+$(Jf)_p=\left(\begin{smallmatrix} 0 & 0 & 0 \\ 0 & \frac{1}{a+b} & 0 \\ 0 & 0 & \frac{1}{a+b}\end{smallmatrix}\right)$. \\
+Bestimme $T_p\Sigma = \spann\{e_2,e_3\}$ und
+$T_{f(p)}S^2 = T_{(1,0,0)}S^2 = \spann\{e_2,e_3\}$. Wir erhalten also
+$(Df)_p : T_p\Sigma \to T_{f(p)}S^2$.
+Es gilt $(Df)_p(e_2)= \dfrac{1}{a+b}e_2$, bzw. $(Df)_p(e_3)= \dfrac{1}{a+b}e_3$ 
+
+
+\section{Die erste Fundamentalform}
+
+\begin{recall}
+Ein Skalarprodukt auf einem reellen Vektorraum $V$ ist eine Abbildung $\langle \cdot , \cdot \rangle : V \times V \to \mathbb{R}$, welche bilinear, symmetrisch und positiv ist.
+\begin{itemize}
+    \item Positivität: $\langle v, v \rangle \ge 0 \ \text{für alle } v \in V$ und $\langle v, v \rangle = 0 \iff v = 0$.
+\end{itemize}
+Jedes Skalarprodukt definiert eine positiv definite \underline{quadratische Form} q d.h.
+\begin{enumerate}[(i)]
+    \item $\forall v \in V, \lambda \in \mathbb{R} : q(\lambda v) = \lambda ^2 q(v)$
+    \item $B(v,w) = q(v+w) - q(v) - q(w)$ ist bilinear in $v,w$.
+\end{enumerate}
+\begin{align*}
+    q : V & \to \mathbb{R} \\
+    v & \mapsto \langle v,v \rangle 
+\end{align*}
+\end{recall}
+
+Sei nun $ \Sigma \subset \mathbb{R}^3$ eine reguläre Fläche. Wir erhalten in jedem Punkt $p \in \Sigma$ ein Skalarprodukt
+\begin{align*}
+    \langle \cdot , \cdot \rangle _p = T_p \Sigma \times T_p \Sigma & \to \mathbb{R} \\
+    \langle v, w \rangle & \mapsto \langle v, w \rangle _{\mathbb{R}^3}
+\end{align*}
+Das Feld von Skalarprodukten $p \mapsto \langle \cdot , \cdot \rangle _p $ heisst \underline{Riemannsche Metrik} auf $ \Sigma$. Die zugehörige quadratische Form $ I_p : T_p \Sigma \to \mathbb{R}$ heisst \underline{erste Fundamentalform} von $\Sigma$ an der Stelle $p$.
+\subsubsection*{Beschreibung durch Koeffizienten}
+
+\ctikzfig{cylinder}
+
+\end{document}
