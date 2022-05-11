@@ -34,10 +34,10 @@
 \end{remark}
 \ctikzfig{zwei zeichnungen, torus und moebiusband}
 Sei nun $\varphi : U \to V \subset \Sigma$ eine lokale $C^{1}$-Parametrisierung und $N:V \to S^{2}$ eine lokale Gaussabbildung. Dann gilt $\forall q \in V$:
-\begin{enumerate}
+\begin{itemize}
     \item $N(q)\perp T_{q}\Sigma$
     \item $N(q)\perp T_{N(q)}\Sigma$
-\end{enumerate}
+\end{itemize}
 $\implies T_{q}\Sigma = T_{N(q)}S^{2}$
 für letzteres gilt $\forall p \in S^{2}: p\perp T_{p}S$\\ 
 Falls $N:V \to S^{2}$ sogar differenzierbar ist, dann erhalten wir $\forall p \in V$ eine Abbildung
@@ -53,16 +53,16 @@ die \emph{Weingartenabbildung}.
     \end{align*}
 \end{definition}
 \begin{remark}
-    $K(p)$ hängt nicht von der Wahl von N ab, da $\det{-(DN)_{p}} = (-1)^{2} \times \det{(DN)_{p}}$ ist.
+    $K(p)$ hängt nicht von der Wahl von N ab, \\da $\det{-(DN)_{p}} = (-1)^{2} \cdot \det{(DN)_{p}}$ ist.
 \end{remark}
 \begin{example}
     \begin{enumerate}
-        \item $\Sigma = \mathbb{R}^{2} \times {0} \subset \mathbb{R}^{3}
+        \item $\Sigma = \mathbb{R}^{2} \times \{0\} \subset \mathbb{R}^{3}\\
         \begin{aligned}
             N : \Sigma & \to S^{2}\\
             q & \mapsto e_{3} \text{(oder $-e_{3}$)}\\
-        \end{aligned}
-        N$ ist konstant, also gilt $\forall q \in \Sigma$\\
+        \end{aligned}\\
+        N$ ist konstant, also gilt $\forall q \in \Sigma$ 
         $(DN)_{q} = 0; K(q) = 0$.
         \ctikzfig{K equiv to 1}
         \item $\Sigma = S^{2} \subset \mathbb{R}^{3}$ (Einheitssphäre)\\
