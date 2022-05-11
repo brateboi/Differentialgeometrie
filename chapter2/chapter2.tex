@@ -5,6 +5,94 @@
 \chapter{Die Geometrie der Gaussabbildung}
 
 \section{Gaussabbildung}
+\begin{definition}
+    Sei $\Sigma \subset \mathbb{R}^{3}$ eine reguläre Fläche und $V \Subset \Sigma$ offen. Eine stetige Abbildung $N:V \to S^3$ heisst \emph{Einheitsnormalenfeld} (oder lokale Gauss-Abbildung), falls 
+    \begin{align*}
+        \forall p \in V \text{ gilt: } N(q)\perp T_{p}\Sigma
+    \end{align*}
+\end{definition}
+\begin{zusatz}
+    Flächenelement $\sqrt{EG-F^{2}}$
+    \begin{align*}
+        EG-F^{2} = \det\begin{pmatrix} E & F \\ F & G \end{pmatrix}
+    \end{align*}
+\end{zusatz}
+\begin{existence}
+    Definiere $\begin{aligned}[t]
+        N : V & \to S^{2} \\
+        q & \mapsto \frac{\varphi{u}(q) \times \varphi_{v}(q)}{\lVert \varphi_{u}(q) \times \varphi_{v}(q) \rVert_{2}} 
+    \end{aligned}$ \qquad \\
+    Dieser Ausdruck ist stetig in $q$, da $\varphi_{u}$ und $\varphi_{v}$ stetig sind.
+\end{existence}
+\begin{uniqueness}
+    Falls $V$ zusammenhängend ist, dan ist $N:V \to S^{2}$ bis auf Vorzeichen eindeutig festgelegt $:\pm N$.
+\end{uniqueness}
+\begin{remark}
+    Falls $\Sigma \subset \mathbb{R}^{3}$ geschlossen ist (d.h. kompakt und ohne Rand), dann existiert sogar ein globales Einheitsnormalenfeld $N:\Sigma \to S^{2}$, genannt \emph{Gaussabbildung}.
+    Tatsächlich trennt eine solche Fläche $\mathbb{R}^{3}$ in zwei Zusammenhangskomponenten. Für (nicht-geschlossene) reguläre Fläche $\Sigma \subset \mathbb{R}^{3}$ gilt: Es existiert $N:\Sigma \to S^{2}$ stetiges Einheitsnormalenfeld genau dann,
+    wenn $\Sigma$ \emph{orientierbar} ist.
+\end{remark}
+\ctikzfig{zwei zeichnungen, torus und moebiusband}
+Sei nun $\varphi : U \to V \subset \Sigma$ eine lokale $C^{1}$-Parametrisierung und $N:V \to S^{2}$ eine lokale Gaussabbildung. Dann gilt $\forall q \in V$:
+\begin{itemize}
+    \item $N(q)\perp T_{q}\Sigma$
+    \item $N(q)\perp T_{N(q)}\Sigma$
+\end{itemize}
+$\implies T_{q}\Sigma = T_{N(q)}S^{2}$
+für letzteres gilt $\forall p \in S^{2}: p\perp T_{p}S$\\ 
+Falls $N:V \to S^{2}$ sogar differenzierbar ist, dann erhalten wir $\forall p \in V$ eine Abbildung
+\begin{align*}
+    (DN)_{p}: T_{p}\Sigma \to T_{N(p)}S^{2} = T_{p}\Sigma    
+\end{align*}
+die \emph{Weingartenabbildung}.
+
+\begin{definition}
+    \begin{align*}
+        K(p) = \det{(DN)_{p}}\in \mathbb{R}\\
+        \text{\emph{Gaussische Krümmung} im Punkt } p \in \Sigma
+    \end{align*}
+\end{definition}
+\begin{remark}
+    $K(p)$ hängt nicht von der Wahl von N ab, \\da $\det{-(DN)_{p}} = (-1)^{2} \cdot \det{(DN)_{p}}$ ist.
+\end{remark}
+\begin{example}
+    \begin{enumerate}
+        \item $\Sigma = \mathbb{R}^{2} \times \{0\} \subset \mathbb{R}^{3}\\
+        \begin{aligned}
+            N : \Sigma & \to S^{2}\\
+            q & \mapsto e_{3} \text{(oder $-e_{3}$)}\\
+        \end{aligned}\\
+        N$ ist konstant, also gilt $\forall q \in \Sigma$ 
+        $(DN)_{q} = 0; K(q) = 0$.
+        \ctikzfig{K equiv to 1}
+        \item $\Sigma = S^{2} \subset \mathbb{R}^{3}$ (Einheitssphäre)\\
+        $\begin{aligned}
+            N: S^{2} &\to S^{2}\\
+            q &\mapsto q\\
+        \end{aligned}$\\
+        \ctikzfig{Einheitssphäre mit Krümmung = 1}
+        $N = Id_{S^{2}}$ (oder $-Id_{S^{2}}$)\\
+        $\forall q \in S^{2}$ gilt also $(DN)_{q} = Id : T_{q}\Sigma \to T_{q}\Sigma\\
+        \implies K(q) = \det{Id: T_{q}\Sigma \to T_{q}\Sigma} = 1$
+        \item $Z = {(x,y,z)\in \mathbb{R}^{3} | x^{2} + y^{2} = 1}\in \mathbb{R^{3}}\\
+        \begin{aligned}
+            N : Z &\to S^{2}\\
+            (x,y,z) &\mapsto (x,y,0)\\
+        \end{aligned}$\\
+        Wir bemerken: $N$ hängt nicht von $z$ ab. 
+        \ctikzfig{Zylinder mit K equiv to 0}
+        Also gilt für alle $q \in Z : (DN)_{q}(e_{3}) = \lim\limits_{t \rightarrow 0}{\frac{\overbrace{N(q + t \cdot e_{3}) - N(q)}^{=0}}{t}} = 0$\\
+        $\implies 0$ ist ein Eigenwert der Abbildung $(DN)_{q} : T_{q}Z \to T_{q}Z \implies K(q) = 0$.
+    \end{enumerate}
+    \begin{zusatz}
+        Genauere Betrachtung des dritten Beispiels:\\
+        Für $q = (x,y,z) \in Z$ gilt: $T_{q}Z = \text{span}\{e_{3}, \overbrace{-y \cdot e_{1} + x \cdot e_{2}}^{v}\}$\\
+        Wir bestimmen $(DN)_{q}\stackrel{(\text{*})}{=} v$\\
+        (*) Erklärung: Die Einschränkung von $N$ auf $S'\times \{0\}$ ist die Identität. Folglich ist die Abbildungsmatrix von $(DN)_{q}$ bezüglich der Basis $\{ e_{3}, -y \cdot e_{1} + x \cdot e_{2} \}$
+    \end{zusatz}
+   
+\end{example}
+
 \section{Die zweite Fundamentalform}
 
 \section{Gaussabbildung in lokalen Koordinaten}
