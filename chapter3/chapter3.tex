@@ -540,4 +540,101 @@ Insbesondere gilt $\psi (0) = \pi - \beta $ und $\psi (\alpha) = \gamma$. Mit de
     \caption{Iterationsschritt (Seiten halbieren)}        
 \end{figure}
 
+Alle Flächen die wir betrachten sind abgeschlossen und kompakt.
+
+Sei $\Sigma \subset \mathbb{R}^3$ eine kompakte, glatte Fläche ohne Rand.
+\begin{definition}
+    Eine \emph{Triangulierung T} von $\Sigma$ ist eine endliche Vereinigung von Dreiecken in $\Sigma$,
+    $\triangle_1, \triangle_2, \dots, \triangle_n$ mit folgenden Eigenschaften.
+    \begin{enumerate}
+        \item $\bigcup_{i=1} \triangle_i = \Sigma$
+        \item $\triangle_i \cap \triangle_j = \emptyset$ falls $i \not = j$, \emph{ein} gemeinsamer Eckpunkt, eine, zwei, oder drei gemeinsame Kanten
+    \end{enumerate}
+
+    \begin{figure}[htb]
+        \centering
+        \def\svgwidth{10em}
+        \input{figures/triangulierung.pdf_tex}
+        \caption{Nicht erlaubte Triangulierungen}        
+    \end{figure}
+
+\end{definition}
+
+\begin{example}
+    % \begin{figure}[htb]
+    %     \centering
+    %     \def\svgwidth{10em}
+    %     \input{figures/triangulierung_torus.pdf_tex}
+    %     \caption{Triangulierung eines Torus}        
+    % \end{figure}
+    4 Dreiecke
+    2 Eckpunkte, 6 Kanten
+\end{example}
+Falls alle Katen geodätische Segmente sind, dann heisst die Triangulierung \emph{geodätisch}
+
+\begin{theorem}[Gauss-Bonnet globale Version]
+    $$\int_{\Sigma}K \ dA = 2 \pi * \chi (\Sigma)$$ wobei $\chi (\Sigma)$ die \emph{Eulercharakteristik} von $\Sigma$, zu berechnen wie folgt:
+    $\chi (\Sigma) = e - k + n$ mit $e= \#Eckpunkte, k=\#Kanten, n=\#Dreiecke$ für irgendeine Triangulierung von $\Sigma$.
+\end{theorem}
+
+\begin{theorem}
+    Jede reguläre kompakte Fläche besitzt eine geodätische Triangulierung.
+\end{theorem}
+\begin{proof}
+    siehe Ahlfors-Sari: Riemann Surfaces
+\end{proof}
+
+\begin{proof}[Beweis von Gauss-Bonnet]
+    Sei $T= \triangle_1 \cup \triangle_2 \cup \dots \cup \triangle_n$ eine geodätische Triangulierung von $\Sigma$.
+    Berechne
+    % \begin{align*}
+        %  \int_{\Sigma} K \ dA &= \sum_{i=1}^n \int_{\triangle _i} K \ dA\\
+        %  &= \sum_{i=1} ^n (\alpha _i + \beta _i + \gamma _i - \pi) 
+%          &= 2 \pi e - n \pi \text{ ($2 \pi$ für jeden Eckpunkt) } \\
+%         %  &= 2 \pi (e - \frac{3}{2}n - n) \\
+%         %  &= 2 \pi (e - k + n) \\
+%         %  &= 2 \pi \chi (\Sigma)
+    % \end{align*}
+%     wobei im letzten Schritt verwendet wird, dass jedes Dreieck drei Kanten hat.
+%     Jede Kante gehört zu zwei Dreiecken. $\implies k = \frac{3}{2}n$
+\end{proof}
+
+\begin{remark}
+    Aus dem obigen Beweis folgt, dass $\chi (\Sigma)$ unabhängig von $T$ ist, zumindest für geodätische Triangulierungen.
+    Dies gilt auch für allgemeine, nicht geodätische Triangulierungen.
+    \begin{figure}[htb]
+        \centering
+        \def\svgwidth{20em}
+        \input{figures/umtriangulierung.pdf_tex}
+        \caption{Ändere die Triangulierung}        
+    \end{figure}
+\end{remark}
+
+\begin{examples}[sehr wichtig]
+\leavevmode
+\begin{enumerate}
+    \item $\chi (S^2) = 3 - 3 + 2 = 2 \implies \int_{S^2} K \ dA = 4\pi$
+    (klar, da $K=1$ und Area$(S^2) = 4\pi$ )\\
+    $\implies \int_{\text{Ingwer}} K \ dA = 4 \pi$ ``Ingwersphäre''
+    
+    \item $\chi (S^1 \times S^1) = \chi(torus) = 2 - 6 + 4 = 0$ siehe oben.
+    $\implies \int_{torus} K \ dA = 0$. \\
+    Was tun, falls wir das nicht gewusst hätten?
+    \emph{Trick}: Schneide und klebe!
+    $$\int_{torus} K \ dA = 2 \int _{halber Torus} K \ dA = 2 \left( \underbrace{\int _{halber Torus mit Haube} K \ dA}_{4\pi \text{ GB }} - \underbrace{2 \int _{Haube} K \ dA}_{4\pi} \right) = 0$$
+    Daraus folgt auch $\chi (torus) = 0$.
+
+    % \item
+\end{enumerate}
+
+Induktiv erhalten wir für $\Sigma _g = g$ Henkel
+$\chi(\Sigma _g) = 2 - 2g$
+Spezialfälle $g=0$ Sphäre $\chi = 2$\\
+$g=1$ Torus $\chi = 0$
+
+
+
+\end{examples}
+
+
 \end{document}
