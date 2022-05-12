@@ -587,16 +587,15 @@ Falls alle Katen geodätische Segmente sind, dann heisst die Triangulierung \emp
 \begin{proof}[Beweis von Gauss-Bonnet]
     Sei $T= \triangle_1 \cup \triangle_2 \cup \dots \cup \triangle_n$ eine geodätische Triangulierung von $\Sigma$.
     Berechne
-    % \begin{align*}
-        %  \int_{\Sigma} K \ dA &= \sum_{i=1}^n \int_{\triangle _i} K \ dA\\
-        %  &= \sum_{i=1} ^n (\alpha _i + \beta _i + \gamma _i - \pi) 
-%          &= 2 \pi e - n \pi \text{ ($2 \pi$ für jeden Eckpunkt) } \\
-%         %  &= 2 \pi (e - \frac{3}{2}n - n) \\
-%         %  &= 2 \pi (e - k + n) \\
-%         %  &= 2 \pi \chi (\Sigma)
-    % \end{align*}
-%     wobei im letzten Schritt verwendet wird, dass jedes Dreieck drei Kanten hat.
-%     Jede Kante gehört zu zwei Dreiecken. $\implies k = \frac{3}{2}n$
+    \begin{align*}
+        \int_{\Sigma} K \ dA &= \sum_{i=1}^n \int_{\triangle _i} K \ dA \\
+        &= \sum_{i=1} ^n (\alpha _i + \beta _i + \gamma _i - \pi) \\
+        &= 2 \pi e - n \pi \text{ ($2 \pi$ für jeden Eckpunkt) } \\
+        &= 2 \pi (e - \frac{3}{2}n - n) \\
+        &= 2 \pi (e - k + n) \\
+        &= 2 \pi \chi (\Sigma)
+    \end{align*}wobei im letzten Schritt verwendet wird, dass jedes Dreieck drei Kanten hat.
+    Jede Kante gehört zu zwei Dreiecken. $\implies k = \frac{3}{2}n$
 \end{proof}
 
 \begin{remark}
