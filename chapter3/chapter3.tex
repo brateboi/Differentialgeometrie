@@ -388,13 +388,45 @@ $\sqrt{G}_r(0,\theta)=1$ siehe Prop. 4 eine eindeutige Lösung:
 In allen Fällen ist $G$ unabhängig von $\theta$!
 \end{application}
 
+Kreisumfang:
+\begin{itemize}
+    \item $K=0$ siehe Weglänge $\int_0^T \sqrt{\dot{r}^{2}E + \dot{u}\dot{v}F + \dot{v}^2 G} \ dt $\\
+    $$U(r)= \int_0^{2\pi} \sqrt{G} \ d\theta = \int_0 ^{2\pi} r \ d\theta = 2\pi r$$
+    \item $K=1$ mit $\sin(x)=x-\frac{x^3}{3!} + \dots$ \\
+    $$U(r) = \int_0^{2\pi} \sqrt{G} \ d\theta = 2 \pi \sin(r)$$
+    \item $K=-1$ ``Umfang wächst exponentiell''\\
+    $$U(r)=2\pi \sinh (r) \sim e^r$$
+\end{itemize}
+
+\begin{theorem}[Minding 1839]
+    Seien $\Sigma_1, \Sigma_2$ reguläre Flächen mit derselben konstanten Krümmung $K$, und $p_1 \in \Sigma_1,p_2 \in \Sigma_2$.
+    Dann existiert $U_1 \subset \Sigma_1, U_2 \subset \Sigma_2$ offen mit $p_i \in U_i$ und eine lokale Isometrie $h : U_1 \to U_2$.
+\end{theorem}
+
+\begin{proof}
+    Bezüglich geodätischer Polarkoordinaten um $p_1, p_2$ sind die Koeffizientenfunktionen $E=1, F=0, G$ durch $K$ bestimmt, also identisch.
+    Wir folgern, dass $\Sigma_1, \Sigma_2$ lokal isometrisch sind (siehe Abschnitt Isometrien).
+\end{proof}
+
 \section{Der Satz von Gauss-Bonnet}
+\begin{minipage}{30em}
+    Sei $\Sigma \subset \mathbb{R}^3$ eine glatte reguläre Fläche. Wir betrachten das Standarddreieck $\triangle \subset \mathbb{R}^3$ mit Eckpunkten $e_1,e_2,e_3$.
+\end{minipage}
+\begin{minipage}{8em}
+    \begin{tikzpicture}
+        \filldraw[fill = gray!20] (-0.75,-0.75) node[below] {$e_1$} -- (0,0.5) node[right] {$e_3$}-- (0.5,0) node[below] {$e_2$}-- cycle;
+        \draw (0,0) -- (-1,-1);
+        \draw (0,0) -- (1,0);
+        \draw (0,0) -- (0,1);
+    \end{tikzpicture}
+\end{minipage}
+
+Ein Dreieck in $\Sigma$ ist das Bild von $\triangle$ unter einer glatten Abbildung $\varphi : \triangle \to \Sigma$.
+Falls die Kanten von $\varphi (\triangle)$ Segmente von Geodäten sind, dann heisst das Dreieck geodätisch.
 
 \begin{definition}
     Ein \emph{geodätisches Dreieck} in $\Sigma \subset \mathbb{R}^3$ ist ein eingebettetes Dreieck, welches von drei geodätischen Segmenten begrenzt wird.
 \end{definition}
-
-\ctikzfig{eingebettetesDreieck}
 
 \begin{theorem}[Lokale Version von Gauss-Bonnet]
     Sei $\triangle \subset \Sigma$ ein geodätisches Dreieck mit Innenwinkeln $\alpha, \beta, \gamma$. Dann gilt
@@ -415,11 +447,36 @@ In allen Fällen ist $G$ unabhängig von $\theta$!
     \ctikzfig{geodesicTriangleTheorem}
 \end{geometric}
 
+\begin{preparation}
+Additivität der Formel:
+$\triangle = \triangle _1 \cup \triangle _2$
+
+\begin{minipage}{8em}
+    \tikzfig{triangleAdditivity}
+\end{minipage}
+\begin{minipage}{32em}
+    $$\underbrace{\int_{\triangle} K \ dA}_{\alpha + \beta + \gamma - \pi } = \underbrace{\int_{\triangle_1}K \ dA }_{\alpha_1 + \beta_1 + \gamma_1 - \pi}+ \underbrace{\int_{\triangle_2}K \ dA}_{\alpha_2 + \beta_2 + \gamma_2 - \pi}$$
+    Ok, da $\alpha + \beta + \gamma - \pi = \alpha_1 + \beta_1 + \gamma_1 - \pi + \alpha_2 + \beta_2 + \gamma_2 - \pi$
+\end{minipage}
+\begin{minipage}{8em}
+    \tikzfig{triangleAdditivityVariant}
+\end{minipage}
+\begin{minipage}{32em}
+    $$\sum_{i=1}^{3} \alpha_i + \beta_i + \gamma_i = \alpha + \beta + \gamma + 2\pi \implies \int_{\triangle}K \ dA = \sum_{i=1}^{3}\int_{\triangle_i}K \ dA$$
+\end{minipage}
+\end{preparation}
+
 \begin{proof}
     Wir nehmen zunächst an, es gäbe eine lokale Parametrisierung der Form
     \(\varphi = exp : U \to \Sigma\) mit \(\triangle_A \subset \varphi(U)\)
     und \(\varphi(0)\) sei ein Eckpunkt von $\triangle$, ebenso sei $B \in \varphi (U\cap \mathbb{R} \times \{0\})$
-    \ctikzfig{triangleUnderExp}
+    
+    \begin{figure}[htb]
+        \centering
+        \def\svgwidth{40em}
+        \input{figures/triangleExp.pdf_tex}
+        \caption{Interpretation von exp}        
+    \end{figure}
 
 
 Parametrisiere den Weg $\delta : [0,\alpha] \to \Sigma$ durch $\delta(\theta) = \exp(r(\theta), \theta)$. Berechne
@@ -432,11 +489,19 @@ Parametrisiere den Weg $\delta : [0,\alpha] \to \Sigma$ durch $\delta(\theta) = 
     & = \alpha - \int_{0}^{\alpha} \sqrt{G}_r (r(\theta,\theta))  \,d\theta 
 \end{align*}
 
-\begin{lemma}
+\begin{lemma*}
     \begin{align*}
         -\sqrt{G}_r (r(\theta, d\theta)) = \frac{\partial \psi}{\partial \theta}
-    \end{align*} wobei $\psi(\theta)$ der Winkel zwischen $e_r$ und $\dot{\delta(\theta)}$ ist.
-\end{lemma}
+    \end{align*} wobei $\psi(\theta)$ der Winkel zwischen $e_r$ und $\dot{\delta}(\theta)$ ist.
+\end{lemma*}
+
+\begin{figure}[htb]
+    \centering
+    \def\svgwidth{20em}
+    \input{figures/interpretation.pdf_tex}
+    \caption{Darstellung von Lemma}        
+\end{figure}
+
 Insbesondere gilt $\psi (0) = \pi - \beta $ und $\psi (\alpha) = \gamma$. Mit dem Lemma folgt also
 \begin{align*}
     \int_{\triangle} K  \,dA &= \alpha + \int_{0}^{\alpha} \frac{\partial \psi}{\partial \theta} \,d\theta \\
@@ -448,10 +513,127 @@ Insbesondere gilt $\psi (0) = \pi - \beta $ und $\psi (\alpha) = \gamma$. Mit de
 \begin{proof}[Lemma]
     Berechne 
     \begin{align*}
-        \sqrt{G}_r = \frac{1}{2} \frac{G_r}{\sqrt{G}} = \frac{1}{2*\sqrt{G}} \frac{\partial}{\partial r} \langle \varphi_{\theta} , \varphi{\theta} \rangle (=G) \\
+        \sqrt{G}_r = \frac{1}{2} \frac{G_r}{\sqrt{G}} = \frac{1}{2\sqrt{G}} \frac{\partial}{\partial r} \underbrace{\langle \varphi_{\theta} , \varphi_{\theta} \rangle}_{=G} \\
         = \frac{1}{\sqrt{G}} \langle \varphi_{r\theta}, \varphi_{\varphi_\theta} \rangle = \langle \frac{\partial \varphi _r}{\partial \theta} , \frac{\varphi_{\theta}}{||\varphi _{\theta}||} \rangle
-    \end{align*}
+    \end{align*} wobei im letzten Schritt $\varphi_{r\theta} = \varphi_{\theta r}$ und $\sqrt{G} = ||\varphi_{\theta}||$ verwendet wird.
+    Wir erinnern uns daran, dass
+    $$\left \langle \frac{\partial \varphi_r}{\partial \theta}, \frac{\varphi _{\theta}}{||\varphi_{\theta}||} \right \rangle = -\frac{\partial \psi}{\partial \theta}$$
+    ``Die Winkeländerung von $\psi$ und $\varphi_r$ stimmen überein.''
 \end{proof}
+
+\begin{figure}[htb]
+    \centering
+    \def\svgwidth{30em}
+    \input{figures/proof_geometric.pdf_tex}
+    \caption{Beweis geometrisch}        
+\end{figure}
+
+\begin{remark}
+    Falls $\triangle \subset \Sigma$ nicht im Bild einer Parametrisierung
+    $\varphi = \exp : U \to \Sigma $ liegt, unterteile $\triangle$ iteriert, bis alle Teildreiecke diese Eigenschaft haben.
+\end{remark}
+
+\begin{figure}[htb]
+    \centering
+    \def\svgwidth{10em}
+    \input{figures/triangle.pdf_tex}
+    \caption{Iterationsschritt (Seiten halbieren)}        
+\end{figure}
+
+Alle Flächen die wir betrachten sind abgeschlossen und kompakt.
+
+Sei $\Sigma \subset \mathbb{R}^3$ eine kompakte, glatte Fläche ohne Rand.
+\begin{definition}
+    Eine \emph{Triangulierung T} von $\Sigma$ ist eine endliche Vereinigung von Dreiecken in $\Sigma$,
+    $\triangle_1, \triangle_2, \dots, \triangle_n$ mit folgenden Eigenschaften.
+    \begin{enumerate}
+        \item $\bigcup_{i=1} \triangle_i = \Sigma$
+        \item $\triangle_i \cap \triangle_j = \emptyset$ falls $i \not = j$, \emph{ein} gemeinsamer Eckpunkt, eine, zwei, oder drei gemeinsame Kanten
+    \end{enumerate}
+
+    \begin{figure}[htb]
+        \centering
+        \def\svgwidth{10em}
+        \input{figures/triangulierung.pdf_tex}
+        \caption{Nicht erlaubte Triangulierungen}        
+    \end{figure}
+
+\end{definition}
+
+\begin{example}
+    % \begin{figure}[htb]
+    %     \centering
+    %     \def\svgwidth{10em}
+    %     \input{figures/triangulierung_torus.pdf_tex}
+    %     \caption{Triangulierung eines Torus}        
+    % \end{figure}
+    4 Dreiecke
+    2 Eckpunkte, 6 Kanten
+\end{example}
+Falls alle Katen geodätische Segmente sind, dann heisst die Triangulierung \emph{geodätisch}
+
+\begin{theorem}[Gauss-Bonnet globale Version]
+    $$\int_{\Sigma}K \ dA = 2 \pi * \chi (\Sigma)$$ wobei $\chi (\Sigma)$ die \emph{Eulercharakteristik} von $\Sigma$, zu berechnen wie folgt:
+    $\chi (\Sigma) = e - k + n$ mit $e= \#Eckpunkte, k=\#Kanten, n=\#Dreiecke$ für irgendeine Triangulierung von $\Sigma$.
+\end{theorem}
+
+\begin{theorem}
+    Jede reguläre kompakte Fläche besitzt eine geodätische Triangulierung.
+\end{theorem}
+\begin{proof}
+    siehe Ahlfors-Sari: Riemann Surfaces
+\end{proof}
+
+\begin{proof}[Beweis von Gauss-Bonnet]
+    Sei $T= \triangle_1 \cup \triangle_2 \cup \dots \cup \triangle_n$ eine geodätische Triangulierung von $\Sigma$.
+    Berechne
+    \begin{align*}
+        \int_{\Sigma} K \ dA &= \sum_{i=1}^n \int_{\triangle _i} K \ dA \\
+        &= \sum_{i=1} ^n (\alpha _i + \beta _i + \gamma _i - \pi) \\
+        &= 2 \pi e - n \pi \text{ ($2 \pi$ für jeden Eckpunkt) } \\
+        &= 2 \pi (e - \frac{3}{2}n - n) \\
+        &= 2 \pi (e - k + n) \\
+        &= 2 \pi \chi (\Sigma)
+    \end{align*}wobei im letzten Schritt verwendet wird, dass jedes Dreieck drei Kanten hat.
+    Jede Kante gehört zu zwei Dreiecken. $\implies k = \frac{3}{2}n$
+\end{proof}
+
+\begin{remark}
+    Aus dem obigen Beweis folgt, dass $\chi (\Sigma)$ unabhängig von $T$ ist, zumindest für geodätische Triangulierungen.
+    Dies gilt auch für allgemeine, nicht geodätische Triangulierungen.
+    \begin{figure}[htb]
+        \centering
+        \def\svgwidth{20em}
+        \input{figures/umtriangulierung.pdf_tex}
+        \caption{Ändere die Triangulierung}        
+    \end{figure}
+\end{remark}
+
+\begin{examples}[sehr wichtig]
+\leavevmode
+\begin{enumerate}
+    \item $\chi (S^2) = 3 - 3 + 2 = 2 \implies \int_{S^2} K \ dA = 4\pi$
+    (klar, da $K=1$ und Area$(S^2) = 4\pi$ )\\
+    $\implies \int_{\text{Ingwer}} K \ dA = 4 \pi$ ``Ingwersphäre''
+    
+    \item $\chi (S^1 \times S^1) = \chi(torus) = 2 - 6 + 4 = 0$ siehe oben.
+    $\implies \int_{torus} K \ dA = 0$. \\
+    Was tun, falls wir das nicht gewusst hätten?
+    \emph{Trick}: Schneide und klebe!
+    $$\int_{torus} K \ dA = 2 \int _{halber Torus} K \ dA = 2 \left( \underbrace{\int _{halber Torus mit Haube} K \ dA}_{4\pi \text{ GB }} - \underbrace{2 \int _{Haube} K \ dA}_{4\pi} \right) = 0$$
+    Daraus folgt auch $\chi (torus) = 0$.
+
+    % \item
+\end{enumerate}
+
+Induktiv erhalten wir für $\Sigma _g = g$ Henkel
+$\chi(\Sigma _g) = 2 - 2g$
+Spezialfälle $g=0$ Sphäre $\chi = 2$\\
+$g=1$ Torus $\chi = 0$
+
+
+
+\end{examples}
 
 
 \end{document}
