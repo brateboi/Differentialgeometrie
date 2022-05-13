@@ -6,7 +6,7 @@
 
 \section{Gaussabbildung}
 \begin{definition}
-    Sei $\Sigma \subset \mathbb{R}^{3}$ eine reguläre Fläche und $V \Subset \Sigma$ offen. Eine stetige Abbildung $N:V \to S^3$ heisst \emph{Einheitsnormalenfeld} (oder lokale Gauss-Abbildung), falls 
+    Sei $\Sigma \subset \mathbb{R}^{3}$ eine reguläre Fläche und $V \subset \Sigma$ offen. Eine stetige Abbildung $N:V \to S^3$ heisst \emph{Einheitsnormalenfeld} (oder lokale Gauss-Abbildung), falls 
     \begin{align*}
         \forall p \in V \text{ gilt: } N(q)\perp T_{p}\Sigma
     \end{align*}
@@ -90,9 +90,82 @@ die \emph{Weingartenabbildung}.
         Wir bestimmen $(DN)_{q}\stackrel{(\text{*})}{=} v$\\
         (*) Erklärung: Die Einschränkung von $N$ auf $S'\times \{0\}$ ist die Identität. Folglich ist die Abbildungsmatrix von $(DN)_{q}$ bezüglich der Basis $\{ e_{3}, -y \cdot e_{1} + x \cdot e_{2} \}$
     \end{zusatz}
-   
 \end{example}
+\begin{definition}
+    Die \emph{mittlere Krümmung} im Punkt $p \in \Sigma$ ist $H(p) = \frac{1}{2} \text{Spur}((DN)_{p})\in \mathbb{R}$, welche allerdings nur bis auf Vorzeichen definiert ist:
+    \begin{align*}
+        \text{Spur}(-(DN)_{p}) = - \text{Spur}(DN)_{p}
+    \end{align*}
 
+\end{definition}
+\begin{remark}
+    Reguläre Flächen mit $H \equiv 0$ heissen \emph{Minimalflächen}.
+\end{remark}
+\begin{examples}
+    \begin{enumerate}
+       \item $\Sigma = \mathbb{R}^{2} \times \{0\}. K\equiv 0 \text{ und } H\equiv 0$.
+       \item $\Sigma = S^{2}$. $K \equiv 1 \text{ und } H\equiv 1 \impliedby \frac{1}{2}\text{ Spur}\begin{pmatrix}
+           1 & 0 \\
+           0 & 1
+       \end{pmatrix}$
+       \item $\Sigma = Z$. $K\equiv 0$ und $H\equiv \frac{1}{2} \impliedby \frac{1}{2} \cdot (\underbrace{\lambda_{1}}_{EW_{1}} + \underbrace{\lambda_{2}}_{EW_{2}}) = \frac{1}{2} \cdot (1 + 0)$ 
+    \end{enumerate}
+\end{examples}
+\begin{notation}
+    Ein Punkt $p\in \Sigma$ heisst:
+    \begin{itemize}
+        \item \emph{elliptisch}, falls $K(p) > 0$
+        \item \emph{hyperbolisch}. falls $K(p) < 0$ (Sattelpunkt, siehe später)
+        \item \emph{parabolisch}, falls $K(p) = 0 \text{ und } H(p) \neq 0$
+        \item \emph{Flachpunkt}, falls $K(p) = 0 \text{ und } H(p) = 0$
+    \end{itemize}
+    \ctikzfig{minibeispiele zu all diesen}
+\end{notation}
+\begin{proposition}
+    Sei $\Sigma \in \mathbb{R}^{3}$ eine reguläre Fläche, welche lokale $C^{2}$-Parametrisierungen besitzt (das heisst zweimal stetig differenzierbar). 
+    Dann ist $\forall p \in \Sigma$ gilt:
+    \begin{align*}
+        \langle (DN)_{p}(a), b\rangle_{p} = \langle a, (DN)_{p}(b)\rangle_{p}
+    \end{align*}
+\end{proposition}
+\begin{proof}
+    Es reicht, dies für die Basisvektoren $a = \varphi_{u}(p) \text{ und } b = \varphi_{v}(p)$ zu prüfen!
+    Sei $\varphi : U \to \Sigma$ eine $C^{2}$-Parametrisierung mit $p\in\varphi(U)$.
+    Betrachte die Komposition $N \circ \varphi : U \to S^{2}$.
+    $\forall q = (u,v)\in U$ gilt: $\langle N\circ \varphi(u,v), \varphi_{u}(u,v)\rangle_{\varphi(u,v)} \stackrel{\text{Skalarprodukt in }\mathbb{R}^{3}}{=} 0$ (*)
+    \ctikzfig{1 zeichnung mit phiU und phiV usw}
+    \begin{notation}
+        $N_{u}(u,v) = (DN)_{\varphi(u,v)}(\varphi_{u}(u,v)) = \frac{d}{du}(N\circ\varphi)(u,v)$ und \\
+        $N_{v}(u,v) = (DN)_{\varphi(u,v)}(\varphi_{v}(u,v)) = \frac{d}{dv}(N\circ\varphi)(u,v)$ \\
+        $\frac{d}{du}(*)_{v} : \langle N_{u}, \varphi_{v} \rangle + \langle N, \underbrace{\varphi_{uv}}_{\frac{d}{du}\varphi_{v}(\varphi \text{ ist } C^{2})}\rangle = 0$\\
+        $\frac{d}{dv} (*)_{u} : \langle N_{v}, \varphi_{u} \rangle + \langle N, \varphi_{vu} \rangle = 0$\\
+        $\varphi$ ist $C^{2} \implies \varphi_{uv} = \varphi_{vu}\\
+        \implies \langle N_{u}, \varphi_{v}\rangle = \langle N_{v}, \varphi_{u}\rangle$ \\ausgeschrieben: $\langle (DN)_{\varphi(u,v)}(\varphi_{u}(u,v)), \varphi_{v}(u,v)\rangle = \langle (DN)_{\varphi(u,v)}(\varphi_{v}(u,v)), \varphi_{u}(u,v)\rangle \\= \langle (DN)_{\varphi(u,v)}(\varphi_{u}(u,v)), \varphi_{v}(u,v)\rangle$
+    \end{notation}
+\end{proof}
+\begin{remark}
+    Im Beweis haben wir die Annahme $(\varphi: U \to \Sigma$ ist $C^{2})$ benutzt: $\varphi_{uv}$ ist vorgekommen. 
+    Diese Anname ist essenziell, damit $N:\varphi(U) \to S^{2}$ differenzierbar ist. Tatsächlich gilt $N(\varphi(u,v)) = \pm \frac{\varphi_{u}(u,v)\times\varphi_{v}(u,v)}{\|\varphi_u \times \varphi_{v}\|}$ Wir benutzen, dass $\varphi_{u}$ und $\varphi_{v}$ differenzierbar sind, dass heisst $\varphi : U \to \Sigma$ ist zweimal differenzierbar.
+\end{remark}
+\begin{example}
+    Sei $\begin{aligned}
+        f:\mathbb{R} &\to \mathbb{R}\\
+        x &\mapsto \left\{
+            \begin{tabular}{@{}c@{}}
+            $0 \text{, falls } x\le 0 $\\
+            $x^{2}\text{, falls } x\ge 0$
+            \end{tabular}
+        \right.
+    \end{aligned}$
+    \\$f$ ist differenzierbar, aber $f'$ ist bei $x=0$ \emph{nicht} differenzierbar\\
+    Betrachte die Fläche $\Sigma = \{(x,y,z)\in \mathbb{R}_{3} | z = f(x)\} "= \Gamma f\times \mathbb{R}"$, welche die globale $C^{1}$-Parametrisierung $\begin{aligned}
+        \varphi : \mathbb{R}^{2} &\to \Sigma\\
+        (u,v) &\mapsto (u,v,f(u)) 
+    \end{aligned}$ besitzt.
+
+
+    
+\end{example}
 \section{Die zweite Fundamentalform}
 
 \section{Gaussabbildung in lokalen Koordinaten}
