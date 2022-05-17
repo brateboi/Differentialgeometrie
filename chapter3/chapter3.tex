@@ -253,7 +253,7 @@ Polarkoordinaten}.
 
 \begin{proof}
     Fixiere einen Winkel $\theta \in S^1 = [0,2\pi] / 0 = 2\pi$.
-    Es gilt $E(r,\theta) = \left \langle \dfrac{d}{dr} \exp, \dfrac{d}{dr}\exp \right\rangle$.
+    Es gilt $E(r,\theta) = \left \langle \dfrac{d}{dr} \exp, \dfrac{d}{dr}\exp \right \rangle$.
     Da die Kurve $ t \to \exp (t, \theta)$ geodätisch mit Geschwindigkeit $1$ ist,
     folgt $$\left|\left| \frac{d}{dr}\exp (r, \theta)\right|\right| = 1 \implies E(r,\theta)=1$$
     Das Paar $(r, \theta)$ erfüllt die Geodätengleichung:
@@ -553,7 +553,7 @@ Sei $\Sigma \subset \mathbb{R}^3$ eine kompakte, glatte Fläche ohne Rand.
 
     \begin{figure}[htb]
         \centering
-        \def\svgwidth{10em}
+        \def\svgwidth{30em}
         \input{figures/triangulierung.pdf_tex}
         \caption{Nicht erlaubte Triangulierungen}        
     \end{figure}
@@ -561,16 +561,16 @@ Sei $\Sigma \subset \mathbb{R}^3$ eine kompakte, glatte Fläche ohne Rand.
 \end{definition}
 
 \begin{example}
-    % \begin{figure}[htb]
-    %     \centering
-    %     \def\svgwidth{10em}
-    %     \input{figures/triangulierung_torus.pdf_tex}
-    %     \caption{Triangulierung eines Torus}        
-    % \end{figure}
     4 Dreiecke
     2 Eckpunkte, 6 Kanten
+    \begin{figure}[htb]
+        \centering
+        \def\svgwidth{10em}
+        \input{figures/triangulierung_torus.pdf_tex}
+        \caption{Triangulierung eines Torus}        
+    \end{figure}
 \end{example}
-Falls alle Katen geodätische Segmente sind, dann heisst die Triangulierung \emph{geodätisch}
+Falls alle Katen geodätische Segmente sind, dann heisst die Triangulierung \emph{geodätisch}.
 
 \begin{theorem}[Gauss-Bonnet globale Version]
     $$\int_{\Sigma}K \ dA = 2 \pi * \chi (\Sigma)$$ wobei $\chi (\Sigma)$ die \emph{Eulercharakteristik} von $\Sigma$, zu berechnen wie folgt:
