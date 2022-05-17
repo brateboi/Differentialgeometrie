@@ -590,8 +590,8 @@ Falls alle Katen geodätische Segmente sind, dann heisst die Triangulierung \emp
     \begin{align*}
         \int_{\Sigma} K \ dA &= \sum_{i=1}^n \int_{\triangle _i} K \ dA \\
         &= \sum_{i=1} ^n (\alpha _i + \beta _i + \gamma _i - \pi) \\
-        &= 2 \pi e - n \pi \text{ ($2 \pi$ für jeden Eckpunkt) } \\
-        &= 2 \pi (e - \frac{3}{2}n - n) \\
+        &= 2 \pi e - n \pi \qquad \text{ ($2 \pi$ für jeden Eckpunkt) } \\
+        &= 2 \pi (e - \frac{3}{2}n + n) \\
         &= 2 \pi (e - k + n) \\
         &= 2 \pi \chi (\Sigma)
     \end{align*}wobei im letzten Schritt verwendet wird, dass jedes Dreieck drei Kanten hat.
@@ -610,28 +610,34 @@ Falls alle Katen geodätische Segmente sind, dann heisst die Triangulierung \emp
 \end{remark}
 
 \begin{examples}[sehr wichtig]
-\leavevmode
 \begin{enumerate}
     \item $\chi (S^2) = 3 - 3 + 2 = 2 \implies \int_{S^2} K \ dA = 4\pi$
     (klar, da $K=1$ und Area$(S^2) = 4\pi$ )\\
-    $\implies \int_{\text{Ingwer}} K \ dA = 4 \pi$ ``Ingwersphäre''
+    Wir folgern daraus, dass Oberflächen, welche topologisch gleich sind, die gleiche Krümmung haben.
+    ``Ingwersphäre''
+    $$\int \limits_{
+        \includegraphics[height=2em]{figures/ingwer.pdf}
+    } K \ dA = 4 \pi$$ 
     
-    \item $\chi (S^1 \times S^1) = \chi(torus) = 2 - 6 + 4 = 0$ siehe oben.
-    $\implies \int_{torus} K \ dA = 0$. \\
+    \item $\chi (S^1 \times S^1) = \chi(\includegraphics[height=1em]{figures/torus.pdf}) = 2 - 6 + 4 = 0$ siehe oben.
+    $\implies \int_{\includegraphics[height=0.5em]{figures/torus.pdf}} K \ dA = 0$. \\
     Was tun, falls wir das nicht gewusst hätten?
     \emph{Trick}: Schneide und klebe!
-    $$\int_{torus} K \ dA = 2 \int _{halber Torus} K \ dA = 2 \left( \underbrace{\int _{halber Torus mit Haube} K \ dA}_{4\pi \text{ GB }} - \underbrace{2 \int _{Haube} K \ dA}_{4\pi} \right) = 0$$
-    Daraus folgt auch $\chi (torus) = 0$.
+    $$\int \limits_{\includegraphics[height=1em]{figures/torus.pdf}} K \ dA = 2 \int \limits_{\includegraphics[height=1em]{figures/halber_torus.pdf}} K \ dA = 2 \left( \underbrace{\int \limits_{\includegraphics[height=1em]{figures/halber_torus_mit_haube.pdf}} K \ dA}_{4\pi \text{ GB }} - \underbrace{2 \int \limits_{\includegraphics[height=1em]{figures/haube.pdf}} K \ dA}_{4\pi} \right) = 0$$
+    Daraus folgt auch $\chi (\includegraphics[height=1em]{figures/torus.pdf}) = 0$.
 
-    % \item
+    \item Betrachte $\Sigma _2$ = \includegraphics[height=1em]{figures/brezel.pdf}
+    $$\int \limits_{\includegraphics[height=1em]{figures/brezel.pdf}} K \ dA = 2 \int \limits_{\includegraphics[height=1em]{figures/halber_brezel.pdf}} K \ dA = 2 \left( \int \limits_{\includegraphics[height=1em]{figures/halber_brezel_mit_haube.pdf}} K \ dA - \int \limits_{\includegraphics[height=1em]{figures/haube.pdf}} K \ dA \right) = -4 \pi$$
+    Daraus folgt $\chi ( \includegraphics[height=1em]{figures/brezel.pdf}) = -2$ 
 \end{enumerate}
 
-Induktiv erhalten wir für $\Sigma _g = g$ Henkel
-$\chi(\Sigma _g) = 2 - 2g$
-Spezialfälle $g=0$ Sphäre $\chi = 2$\\
-$g=1$ Torus $\chi = 0$
-
-
+Induktiv erhalten wir für $\Sigma _g = $ \includegraphics[height=1em]{figures/henkel.pdf} $g$ Henkel:
+$$\chi(\Sigma _g) = 2 - 2g$$
+Dabei haben wir schon Spezialfälle davon gesehen:
+\begin{itemize}
+    \item $g=0$ Sphäre $\chi = 2$
+    \item $g=1$ Torus $\chi = 1$
+\end{itemize}
 
 \end{examples}
 
