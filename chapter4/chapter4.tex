@@ -2,9 +2,78 @@
 
 \begin{document}
 
-\chapter{Kapitel 4}
+\chapter{Ebene hyperbolische Geometrie}
+Knörrer: Geometrie Kapitel 3
 
-\section{Section 4}
+\begin{goal}
+    Konstruktion einer \emph{vollständigen} Fläche $H$ mit konstanter Krümmung $-1$, analog zur Ebene
+    ($K \equiv 0$) und Sphäre ($K \equiv 1$).\\
+    \emph{Vollständig}: Jede geodätische Kurve $\gamma : (a,b) \to H$ lässt sich geodätisch auf $\mathbb{R}$ erweitern.
+\end{goal}
+
+\begin{motivation}
+    \emph{Gauss-Bonnet}
+    $$\int _ \Sigma K \ dA = 2 \pi \chi (\Sigma)$$
+    wobei $\Sigma$ eine kompakte, vollständige Fläche.
+    Falls $\chi (\Sigma) < 0$ und die Krümmung $K$ konstant ist, dann muss $K$ negativ sein!
+
+    \begin{theorem}[Klassifikation der Flächen]
+        Sei $\Sigma$ eine topologische (glatte), kompakte, vollständige, orientierbare, zusammenhängende Fläche.
+        Dann ist $\Sigma$ zu einer der Flächen $\Sigma _g$ homöomorph (diffeomorph): \\
+        \begin{figure}[htb]
+            \centering
+            \def\svgwidth{20em}
+            \input{figures/henkel.pdf_tex}
+            \caption{$\Sigma _g$ mit $g$ Henkel}        
+        \end{figure}
+
+        Es gilt: $\chi (\Sigma _g)= 2-2g <0$ falls $g \ge 2$.
+
+    \end{theorem}
+\end{motivation}
+
+\newpage
+\section{Eine Riemannsche Metrik mit K=-1}
+Naiver Ansatz zur Konstruktion einer Riemannschen Metrik auf $\mathbb{R}^2$ mit $K=-1$.
+$$\langle \ , \ \rangle _p = h(p) \langle \ , \ \rangle_{\mathbb{R}^2}$$
+wobei $h:\mathbb{R}^2 \to \mathbb{R}$ positiv und glatt ist. Für die Koeffizientenfunktionen $E, F, G$ gilt
+also: 
+\begin{itemize}
+    \item $E(x,y) = \langle e_1, e_1 \rangle _{(x,y)} = h(x,y)$
+    \item $F(x,y) = \langle e_1, e_2 \rangle _{(x,y)} = 0$
+    \item $G(x,y) = \langle e_2, e_2 \rangle _{(x,y)} = h(x,y)$
+\end{itemize}
+\begin{terminology}
+    Falls $E=G$ und $F=0$ gilt, dann heissen die Koordinaten \emph{konform} oder \emph{isotherm}.
+\end{terminology}
+Eine kleine Rechnung zeigt
+$$K = - \frac{1}{2 h(x,y)} \Delta (\log (h(x,y)))$$ wobei $\Delta f = f_{xx} + f_{yy}$ der Laplaceoperator (siehe Serie 10).
+\\
+Nun führt $K=-1$ zu einer Differentialgleichung für $h$:
+$$2 h(x,y)=\Delta (\log (h(x,y)))$$
+Dies ist eine \emph{partielle Differentialgleichung}, welche schwierig zu lösen ist. Mit dem Lösungsansatz $h(x,y)=y^n$ finden wir eine Lösung
+$h(x,y)=\frac{1}{y^2}$, welche allerdings nur auf der obenen Halbebene
+$H= \{ z = x+ iy \in \mathbb{C} \ \vert \ y > 0 \}$ definiert ist.
+
+\begin{definition}
+    Die \emph{hyperbolische Ebene} ist die Menge $H= \{ z \in \mathbb{C} \ \vert \ \Im (z) > 0 \}$ mit
+    der Riemannschen Metrik
+    $$\langle \ , \ \rangle _{x+iy} = \frac{1}{y^2} \langle \ , \ \rangle _{\mathbb{R}^2}$$
+\end{definition}
+
+\begin{remarks}
+    \leavevmode
+    \begin{enumerate}
+        \item Die Translation $z \mapsto z + a$ mit $a \in \mathbb{R}$ ist eine Isometrie von $H$.
+        Tatsächlich, schreibe
+        \begin{align*}
+            T : H & \to H \\ (x,y) & \mapsto (x+a,y)
+        \end{align*}
+        Für alle $p \in H$ gilt $(DT)_p = Id_{\mathbb{R}^2}$. Zu prüfen für alle $v,w \in \mathbb{R}^2$:
+        $$\langle v,w \rangle _p \overset{?}{=} \langle (DT)_p(v),(DT)_p(w) \rangle _{T(p)} = \langle v,w \rangle _{T(p)}$$
+        Stimmt, da $y(p)=y(T(p))$, und somit $\langle \ , \ \rangle _p = \langle \ , \ \rangle _{T(p)}$
+    \end{enumerate}
+\end{remarks}
 
 
 \end{document}
