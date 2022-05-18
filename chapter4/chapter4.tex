@@ -56,7 +56,7 @@ $h(x,y)=\frac{1}{y^2}$, welche allerdings nur auf der obenen Halbebene
 $H= \{ z = x+ iy \in \mathbb{C} \ \vert \ y > 0 \}$ definiert ist.
 
 \begin{definition}
-    Die \emph{hyperbolische Ebene} ist die Menge $H= \{ z \in \mathbb{C} \ \vert \ \Im (z) > 0 \}$ mit
+    Die \emph{hyperbolische Ebene} ist die Menge $H= \{ z \in \mathbb{C} \ \vert \ \im (z) > 0 \}$ mit
     der Riemannschen Metrik
     $$\langle \ , \ \rangle _{x+iy} = \frac{1}{y^2} \langle \ , \ \rangle _{\mathbb{R}^2}$$
 \end{definition}
@@ -72,8 +72,129 @@ $H= \{ z = x+ iy \in \mathbb{C} \ \vert \ y > 0 \}$ definiert ist.
         Für alle $p \in H$ gilt $(DT)_p = Id_{\mathbb{R}^2}$. Zu prüfen für alle $v,w \in \mathbb{R}^2$:
         $$\langle v,w \rangle _p \overset{?}{=} \langle (DT)_p(v),(DT)_p(w) \rangle _{T(p)} = \langle v,w \rangle _{T(p)}$$
         Stimmt, da $y(p)=y(T(p))$, und somit $\langle \ , \ \rangle _p = \langle \ , \ \rangle _{T(p)}$
+
+        \item Die Streckung $z \mapsto \lambda z$ mit $\lambda >0$ ist eine Isometrie von $H$.
+        Schreibe
+        \begin{align*}
+            S : H & \to H \\ (x,y) & \mapsto (\lambda x, \lambda y)
+        \end{align*}
+        Für alle $p \in H$ gilt $(DS)_p = \lambda Id_{\mathbb{R}^2}$. Zu prüfen für alle $v,w \in \mathbb{R}^2$:
+        $$\langle v,w \rangle _p \overset{?}{=} \langle (DS)_p(v),(DS)_p(w) \rangle _{S(p)} = \lambda ^2 \langle v,w \rangle _{S(p)}$$
+        Stimmt, da $y(S(p)) = \lambda y(p)$, also $\langle \ , \ \rangle _{S(p)} = \frac{1}{\lambda ^2} \langle \ ,\ \rangle _p$
+
+        \item Die Inversion $z \mapsto -\frac{1}{z}$ ist eine Isometrie von $H$.
+        Schreibe $$\varphi (z) = -\frac{1}{z} = - \frac{\bar{z}}{|z|^2}=\frac{-x+iy}{x^2+y^2} \in H$$ falls $z\in H$ d.h. $y>0$.
+        Also $\varphi : H \to H$. Es gilt für alle $z \in H$ und $v \in \mathbb{C} = \mathbb{R}^2$:
+        $$(D\varphi )_z (v)=\varphi ' (z) v = -\frac{1}{z^2}v$$
+        Zu prüfen: $$\langle v, w \rangle _z \overset{?}{=} \langle -\frac{1}{z^2}v,-\frac{1}{z^2}w \rangle _{-\frac{1}{z}} = \frac{1}{|z|^4}\langle v,w\rangle _{-\frac{1}{z}}$$.
+        Stimmt, da $y(-\frac{1}{z}) = \frac{1}{|z|^2} y(z) \implies \langle \ , \ \rangle _{-\frac{1}{z}} = |z|^4 \langle \ , \ \rangle _{z}$ 
+
     \end{enumerate}
 \end{remarks}
+
+\section{Möbiustransformationen}
+\begin{recall}[aus der komplexen Analysis]
+    Für $\begin{pmatrix}
+        a & b \\ c & d
+    \end{pmatrix} \in GL(\mathbb{C}^2)$, definieren wir die zugehörige \emph{Möbiustransformation} (nicht auf ganz $\mathbb{C}$ definiert).
+    \begin{align*}
+        (MT) \Phi : \mathbb{C} & \dashrightarrow \mathbb{C} \\
+            z & \mapsto \frac{az+b}{cz+b}
+    \end{align*}
+
+\end{recall}
+
+\begin{examples}
+    \leavevmode
+    \begin{enumerate}
+        \item $A = \begin{pmatrix}
+            1 & b \\ 0 & 1
+        \end{pmatrix} b \in \mathbb{C} \implies \Phi _A (z)=z+b$
+
+        \item $A = \begin{pmatrix}
+            a & 0 \\ 0 & a^{-1}
+        \end{pmatrix} a \in \mathbb{C}\setminus \{0\} \implies  \Phi _A (z)=a^2z$.
+        Für $a = \sqrt{\lambda}: \lambda z \ (\lambda > 0)$
+
+        \item $A = \begin{pmatrix}
+            0 & 1 \\ -1 & 0
+        \end{pmatrix} \implies \Phi _A (z)= -\frac{1}{z}$
+        Insbesondere, für $a = \sqrt{\lambda} (\lambda > 0): \lambda z$
+    \end{enumerate}
+\end{examples}
+
+\begin{remark}
+    Die obigen Isometrien 1-3 sind vom Typ $\Phi _A$ mit $A \in SL(\mathbb{R}^3)$.
+    (Determinante $1$)
+\end{remark}
+
+\subsection*{Projektive Interpretation von Möbiustransformation}
+Sei $A \in GL(\mathbb{C}^2)$. Dann erhalten wir eine lineare Abbildung
+$A : \mathbb{C}^2 \to \mathbb{C}^2$. Insbesondere bildet $A$ Geraden durch 0 auf
+Geraden durch 0 ab (1).
+\begin{definition}
+    Die \emph{projektive Ebene} $\mathbb{P}(\mathbb{C}^2) = \mathbb{P}^1\mathbb{C}$ ist die Menge
+    aller komplexen Geraden durch 0 in $\mathbb{C}^2$. Konkret:
+    Die Menge der Äquivalenzklassen bezüglich folgender Äquivalenzrelation auf $\mathbb{C}^2 \setminus \{0\}$:
+    $$v \sim w \iff \exists \lambda \in \mathbb{C}, \lambda \not = 0 \text{ mit }w = \lambda v$$
+    Dann ist 
+    $\mathbb{P}(\mathbb{C}^2) = \big (\mathbb{C}^2 \setminus \{0\} \big ) / \sim$.
+    Sei nun $\begin{pmatrix}
+        a \\ b
+    \end{pmatrix} \in \mathbb{C}^2 \setminus \{0\}$
+    \begin{itemize}
+        \item Falls $b \not = 0$, dann gilt 
+        $v=\begin{pmatrix}
+            a \\b
+        \end{pmatrix} \sim \begin{pmatrix}
+        \frac{a}{b} \\1
+        \end{pmatrix} = \begin{pmatrix}
+            z \\1
+            \end{pmatrix}
+        z \in \mathbb{C}$.
+
+        \item Falls $b=0$, dann gilt
+        $v=\begin{pmatrix}
+            a \\b
+        \end{pmatrix} \underset{a \not = 0}{\sim} \begin{pmatrix}
+        1 \\ 0
+        \end{pmatrix} = \infty$.
+
+    \end{itemize}
+    Daraus folgern wir, dass $\mathbb{P}(\mathbb{C}^2) = \mathbb{C} \cup \{ \infty \}$.
+    Aus (1) folgt: Die Abbildung $A : \mathbb{C}^2 \to \mathbb{C}^2$ induziert eine Abbildung
+    \begin{align*}
+        \Phi _A : \mathbb{P}(\mathbb{C}^2) & \to \mathbb{P}(\mathbb{C}^2) \\
+        [v] & \mapsto [Av]
+    \end{align*}
+    Interpretation via $\mathbb{P}(\mathbb{C}^2) = \mathbb{C} \cup  \{ \infty \}$.
+
+    \begin{itemize}
+        \item $v = \begin{pmatrix}
+            z \\ 1
+        \end{pmatrix} \implies Av = \begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{pmatrix}z \\ 1\end{pmatrix}=\begin{pmatrix}az+b\\cz+d\end{pmatrix}
+        \sim \begin{pmatrix}\frac{az+b}{cz+d} \\ 1\end{pmatrix}\text{ bzw. } cz+d=0 \sim \begin{pmatrix}1\\0\end{pmatrix}$\nolinebreak
+
+        \item $v = \begin{pmatrix}1 \\ 0 \end{pmatrix} \implies Av = \begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{pmatrix}1 \\ 0\end{pmatrix}=\begin{pmatrix}a \\ c \end{pmatrix}
+        \sim \begin{cases}
+            \begin{pmatrix}\frac{a}{c}\\1 \end{pmatrix}\text{ falls } c \not = 0 \\
+            \begin{pmatrix}1\\0 \end{pmatrix} \text{ falls } c = 0
+                
+        \end{cases}$
+    \end{itemize}
+
+    Notation für $\Phi _A : \Phi _A(z)= \dfrac{az+b}{cz+d}$
+    ``geeignet interpretiert''.
+    Aus dieser Definition folgt auch dass $\Phi _{AB} = \Phi _A \circ \Phi _B$. Diese Tatsache ist mit der anderen Definition
+    mühsam zu beweisen.
+    
+
+
+
+
+
+
+\end{definition}
 
 
 \end{document}
