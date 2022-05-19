@@ -133,68 +133,156 @@ Sei $A \in GL(\mathbb{C}^2)$. Dann erhalten wir eine lineare Abbildung
 $A : \mathbb{C}^2 \to \mathbb{C}^2$. Insbesondere bildet $A$ Geraden durch 0 auf
 Geraden durch 0 ab (1).
 \begin{definition}
-    Die \emph{projektive Ebene} $\mathbb{P}(\mathbb{C}^2) = \mathbb{P}^1\mathbb{C}$ ist die Menge
+    Die \emph{projektive Gerade} $\mathbb{P}(\mathbb{C}^2) = \mathbb{P}^1\mathbb{C}$ ist die Menge
     aller komplexen Geraden durch 0 in $\mathbb{C}^2$. Konkret:
     Die Menge der Äquivalenzklassen bezüglich folgender Äquivalenzrelation auf $\mathbb{C}^2 \setminus \{0\}$:
     $$v \sim w \iff \exists \lambda \in \mathbb{C}, \lambda \not = 0 \text{ mit }w = \lambda v$$
-    Dann ist 
-    $\mathbb{P}(\mathbb{C}^2) = \big (\mathbb{C}^2 \setminus \{0\} \big ) / \sim$.
-    Sei nun $\begin{pmatrix}
-        a \\ b
-    \end{pmatrix} \in \mathbb{C}^2 \setminus \{0\}$
-    \begin{itemize}
-        \item Falls $b \not = 0$, dann gilt 
-        $v=\begin{pmatrix}
-            a \\b
-        \end{pmatrix} \sim \begin{pmatrix}
-        \frac{a}{b} \\1
-        \end{pmatrix} = \begin{pmatrix}
-            z \\1
-            \end{pmatrix}
-        z \in \mathbb{C}$.
-
-        \item Falls $b=0$, dann gilt
-        $v=\begin{pmatrix}
-            a \\b
-        \end{pmatrix} \underset{a \not = 0}{\sim} \begin{pmatrix}
-        1 \\ 0
-        \end{pmatrix} = \infty$.
-
-    \end{itemize}
-    Daraus folgern wir, dass $\mathbb{P}(\mathbb{C}^2) = \mathbb{C} \cup \{ \infty \}$.
-    Aus (1) folgt: Die Abbildung $A : \mathbb{C}^2 \to \mathbb{C}^2$ induziert eine Abbildung
-    \begin{align*}
-        \Phi _A : \mathbb{P}(\mathbb{C}^2) & \to \mathbb{P}(\mathbb{C}^2) \\
-        [v] & \mapsto [Av]
-    \end{align*}
-    Interpretation via $\mathbb{P}(\mathbb{C}^2) = \mathbb{C} \cup  \{ \infty \}$.
-
-    \begin{itemize}
-        \item $v = \begin{pmatrix}
-            z \\ 1
-        \end{pmatrix} \implies Av = \begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{pmatrix}z \\ 1\end{pmatrix}=\begin{pmatrix}az+b\\cz+d\end{pmatrix}
-        \sim \begin{pmatrix}\frac{az+b}{cz+d} \\ 1\end{pmatrix}\text{ bzw. } cz+d=0 \sim \begin{pmatrix}1\\0\end{pmatrix}$\nolinebreak
-
-        \item $v = \begin{pmatrix}1 \\ 0 \end{pmatrix} \implies Av = \begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{pmatrix}1 \\ 0\end{pmatrix}=\begin{pmatrix}a \\ c \end{pmatrix}
-        \sim \begin{cases}
-            \begin{pmatrix}\frac{a}{c}\\1 \end{pmatrix}\text{ falls } c \not = 0 \\
-            \begin{pmatrix}1\\0 \end{pmatrix} \text{ falls } c = 0
-                
-        \end{cases}$
-    \end{itemize}
-
-    Notation für $\Phi _A : \Phi _A(z)= \dfrac{az+b}{cz+d}$
-    ``geeignet interpretiert''.
-    Aus dieser Definition folgt auch dass $\Phi _{AB} = \Phi _A \circ \Phi _B$. Diese Tatsache ist mit der anderen Definition
-    mühsam zu beweisen.
-    
-
-
-
-
-
-
 \end{definition}
+
+Dann ist 
+$\mathbb{P}(\mathbb{C}^2) = \big (\mathbb{C}^2 \setminus \{0\} \big ) / \sim$.
+Sei nun $\begin{pmatrix}
+    a \\ b
+\end{pmatrix} \in \mathbb{C}^2 \setminus \{0\}$
+\begin{itemize}
+    \item Falls $b \not = 0$, dann gilt 
+    $v=\begin{pmatrix}
+        a \\b
+    \end{pmatrix} \sim \begin{pmatrix}
+    \frac{a}{b} \\1
+    \end{pmatrix} = \begin{pmatrix}
+        z \\1
+        \end{pmatrix}
+    z \in \mathbb{C}$.
+
+    \item Falls $b=0$, dann gilt
+    $v=\begin{pmatrix}
+        a \\b
+    \end{pmatrix} \underset{a \not = 0}{\sim} \begin{pmatrix}
+    1 \\ 0
+    \end{pmatrix} = \infty$.
+
+\end{itemize}
+Daraus folgern wir, dass $\mathbb{P}(\mathbb{C}^2) = \mathbb{C} \cup \{ \infty \}$.
+Aus (1) folgt: Die Abbildung $A : \mathbb{C}^2 \to \mathbb{C}^2$ induziert eine Abbildung
+\begin{align*}
+    \Phi _A : \mathbb{P}(\mathbb{C}^2) & \to \mathbb{P}(\mathbb{C}^2) \\
+    [v] & \mapsto [Av]
+\end{align*}
+Interpretation via $\mathbb{P}(\mathbb{C}^2) = \mathbb{C} \cup  \{ \infty \}$.
+
+\begin{itemize}
+    \item $v = \begin{pmatrix}
+        z \\ 1
+    \end{pmatrix} \implies Av = \begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{pmatrix}z \\ 1\end{pmatrix}=\begin{pmatrix}az+b\\cz+d\end{pmatrix}
+    \sim \begin{pmatrix}\frac{az+b}{cz+d} \\ 1\end{pmatrix}\text{ bzw. } cz+d=0 \sim \begin{pmatrix}1\\0\end{pmatrix}$\nolinebreak
+
+    \item $v = \begin{pmatrix}1 \\ 0 \end{pmatrix} \implies Av = \begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{pmatrix}1 \\ 0\end{pmatrix}=\begin{pmatrix}a \\ c \end{pmatrix}
+    \sim \begin{cases}
+        \begin{pmatrix}\frac{a}{c}\\1 \end{pmatrix}\text{ falls } c \not = 0 \\
+        \begin{pmatrix}1\\0 \end{pmatrix} \text{ falls } c = 0
+            
+    \end{cases}$
+\end{itemize}
+
+Notation für $\Phi _A : \Phi _A(z)= \dfrac{az+b}{cz+d}$
+``geeignet interpretiert''.
+Aus dieser Definition folgt auch dass $\Phi _{AB} = \Phi _A \circ \Phi _B$. Diese Tatsache ist mit der anderen Definition
+mühsam zu beweisen.
+
+\begin{lemma}
+    Sei $A =\begin{pmatrix}
+        a&b\\c&d
+    \end{pmatrix}\in SL(\mathbb{R}^2)$
+    Dann erhält die Möbiustransformation $\varphi _A$ die obere Halbebene
+    $H=\{ z\in \mathbb{C} \ | \ \im (z)>0\}$.
+\end{lemma}
+
+\begin{proof}
+    Sei $z \in H$, d.h. $\im (z)= \frac{1}{2i} (z- \bar{z}) >0$.
+    Berechne
+    \begin{align*}
+        \im(\varphi _A (z)) &= \frac{1}{2i}\left( \frac{az+b}{cz+b}-\frac{a\bar{z}+b}{c\bar{z}+d} \right) \\
+        &= \frac{1}{2i} \frac{(az+b)(c\bar{z}+d)+(a\bar{z}+b)(cz+d)}{|cz+d|^2} \\
+        &= \frac{1}{2i} \frac{(ad-bc)(z-\bar{z})}{|cz+d|^2} \\
+        & \overset{det A=1}{=} \frac{\im (z)}{(cz+d)^2} >0
+    \end{align*}
+\end{proof}
+\begin{remark}
+    Es gilt sogar $\varphi _A(H) = H$
+    Tatsächlich gilt 
+    \begin{align*}
+        H=\varphi _{\begin{pmatrix}
+            1 & 0 \\ 0  & 1
+        \end{pmatrix}}(H) &= \varphi _{A \circ A^{-1}}(H) \\
+        &\overset{\varphi_{AB}=\varphi_A \circ \varphi_B}{=} \varphi _A \circ \varphi _{A^{-1}}(H)=\varphi_A (\varphi _{A^{-1}}(H))\subset \varphi _A (H)
+    \end{align*} $\implies \varphi _A (H)=H$. Daraus folgt, dass Möbiustransformationen eine Gruppe bilden.
+    
+\end{remark}
+
+\begin{lemma}
+    Jede Möbiustransformation $\varphi _A : H \to H$ mit $A \in SL(\mathbb{R}^2)$ ist eine endliche
+    Komposition von Möbiustransformationen der Form
+    \begin{enumerate}
+        \item $z \mapsto z + b \qquad (b\in \mathbb{R})$ horizontale Translation
+        \item $z \mapsto \lambda z \qquad (\lambda >0)$ Streckung
+        \item $z \mapsto -\frac{1}{z} $ Inversion
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    \begin{align*}
+        \frac{az +b}{cz+d} =\frac{a}{c} \frac{cz+\frac{c}{a}b}{cz +d}=\frac{a}{c}\frac{cz+d+(\frac{c}{a}b-d)}{cz+d}
+        = \alpha + \frac{\beta}{cz+d}
+    \end{align*} für geeignete $\alpha$ und $\beta$.
+    Details siehe Serie 11.
+\end{proof}
+\begin{corollary}
+    Alle Möbiustransformationen der Form $\varphi _A : H \to H$ mit $A \in SL(\mathbb{R}^2)$
+    sind Isometrien bezüglich der Riemannschen Metrik $\frac{1}{y^2}\langle \ , \ \rangle _{\mathbb{R}^2}$.
+\end{corollary}
+\begin{proof}
+    Möbiustransformationen des Typs 1-3 sind Isometrien, siehe oben
+\end{proof}
+\begin{lemma}
+    Die Kurve $\begin{aligned}[t]
+        \gamma : \mathbb{R} & \to H \\
+        t & \mapsto i e^t
+    \end{aligned}$
+\end{lemma}
+
+\begin{proof}
+    Wir bemerken zuerst, dass
+    \begin{align*}
+        || \dot{\gamma}(t)||_H &= \sqrt{\langle \dot{\gamma}(t), \dot{\gamma}(t)\rangle _H} \\
+        &\overset{y(\gamma(t))=e^t}{=} \sqrt{\frac{1}{(e^t)^2} \underbrace{\langle i e^t, i e ^t \rangle _{\mathbb{R}^2}}_{\langle e^t, e^t \rangle = (e^t)^2}}=1
+    \end{align*}
+    $\implies \gamma :\mathbb{R}\to H $ ist nach Bogenlänge parametrisiert (bzgl. hyperbolischer Metrik).
+    Sei nun $\delta : \mathbb{R} \to H$ die eindeutige geodätische Kurve mit
+    $\delta (0) =i$ und $\dot{\delta}(0)=i$.
+    Betrache die folgende Isometrie von $H$ (Spiegelung an $i \mathbb{R})$
+    \begin{align*}
+        \sigma : H & \to H \\
+        x +iy & \mapsto -x + iy
+    \end{align*}
+    Nun ist $\sigma \circ \delta :\mathbb{R}\to H$ auch geodätisch mit $\sigma \circ \delta(0)=i$
+    und auch $\frac{d}{dt}(\sigma \circ \delta)(0)=i$.
+    Aus der Eindeutigkeit der Geodäten zu Anfangsbedingungen folgt also $\delta = \sigma \circ \delta$,
+    also $\delta (\mathbb{R}) \subset i \mathbb{R}$.
+    Da $\gamma$ und $\delta $ nach Bogenlänge parametrisiert ($\delta$ ist geodätisch mit $||\dot{\delta}(0)||_H =1$!) sind, folgt $\gamma = \delta$. 
+\end{proof}
+
+\begin{proposition}
+    Die Geodäten in $H$ sind genau die Halbgeraden und Halbkreise, welche senkrecht auf ``$\mathbb{R} \cup \{\infty \} = \partial H$''.
+    stehen. 
+\end{proposition}
+
+\begin{figure}[htb]
+    \centering
+    \def\svgwidth{20em}
+    \input{figures/proposition_circles.pdf_tex}
+    \caption{test}        
+\end{figure}
 
 
 \end{document}
