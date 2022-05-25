@@ -281,7 +281,7 @@ mühsam zu beweisen.
     \centering
     \def\svgwidth{20em}
     \input{figures/proposition_circles.pdf_tex}
-    \caption{test}        
+    \caption{Geodäten in Halbebene H}        
 \end{figure}
 
 \begin{proof}
@@ -309,7 +309,12 @@ mühsam zu beweisen.
     \end{proof}
     Unter Anwendung von horizontalen Transformationen und Streckungen erhalten wir aus $\varphi(h)$
     alle Halbkreise Senkrecht auf $\mathbb{R}$.
-    %\ctikzfig{Halbkreis_proof}
+    \begin{figure}[htb]
+        \centering
+        \def\svgwidth{20em}
+        \input{figures/geodesic_halfcircle.pdf_tex}
+        \caption{Halbkreis als Geodäte}        
+    \end{figure}
 
     \begin{question}
         Wieso existieren keine weiteren Geodäten?
@@ -317,7 +322,12 @@ mühsam zu beweisen.
     Zu jeden $z \in H$ und jedem Einheitsvektor $v$ existiert genau eine geodätische Kurve $\gamma : \mathbb{R} \to H$
     mit $\gamma (0) = z$ und $\dot{\gamma} (0) = v$. Das Bild von $\gamma$ muss also der Halbkreis
     oder die Halbgerade durch $z$ mit Tangente $v$ sein!
-    %\ctikzfig{kleine_zeichnung_am_rande}
+    \begin{figure}[htb]
+        \centering
+        \def\svgwidth{10em}
+        \input{figures/geodesic_uniqueness.pdf_tex}
+        \caption{Eindeutigkeit der Geodäte}        
+    \end{figure}
 \end{proof}
 
 \begin{remark}
@@ -396,9 +406,10 @@ Wir erhalten also eine Abbildung
         \end{cases}$$
     \end{enumerate}
 \end{proof}
-% \begin{consequence}
-%     Isometrien von $H$, welche die Orientierung erhalten, sind Möbiustransformationen $\varphi _A$ mit $A \in SL(\mathbb{R}^2)$
-% \end{consequence}
+
+\begin{consequence}
+    Isometrien von $H$, welche die Orientierung erhalten, sind Möbiustransformationen $\varphi _A$ mit $A \in SL(\mathbb{R}^2)$
+\end{consequence}
 
 \section{Distanz und Flächeninhalt}
 Seien $p, q \in H$.
