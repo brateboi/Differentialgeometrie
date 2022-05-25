@@ -332,24 +332,110 @@ mühsam zu beweisen.
 \begin{lemma}
     Sei $\varphi : H \to H$ eine orientierungserhaltende Isometrie,
     d.h. für alle $z \in H$ gilt $\det \left ((D\varphi)_z > 0 \right )$. Dann ist $\varphi$ durch
-    $\varphi (i)$ und $(D\varphi)(i)$ eindeutig bestimmt.
+    $\varphi (i) \in H$ und $(D\varphi)_i(i) \in \mathbb{C}$ eindeutig bestimmt.
 \end{lemma}
 \begin{proof}
     Geometrisch, unter Benutzung der Tatsache, dass Isometrien winkelerhaltend sind. Wir bemerken zuerst,
-    dass die Einschränkung von $\varphi $ auf $i \mathbb{R}_{>0}$ durch $\varphi (i)$ und
-    $(D\varphi)_i(i)$ bestimmt ist:
-    $\delta (1)=\varphi (ie^1)$ ist die eindeutige Geodäte mit $\delta (0) = \varphi (i)$ und
-    $\dot{\delta}(0) = (D\varphi)_i(i)$! Insbesondere kennen wir auch $\varphi (2i)\in H$.
-    Aus $\varphi (i)$ und $\varphi(2i)$ können wir für \emph{alle} $z \in H \varphi (z)$ bestimmen:
+    dass $\delta (t) = \varphi (ie^t)$ eine geodätische Kurve mit $\delta (0) = \varphi (i)$ und
+    $\dot {\delta}(0) = (D\varphi)_{ie^0}(i)= (D\varphi)_i(i)$ ist, also durch $\varphi (i) \in H$ und $(D\varphi)_i(i) \in \mathbb{C}$ bestimmt.
+
+    %die Einschränkung von $\varphi $ auf $i \mathbb{R}_{>0}$ durch $\varphi (i) \in H$ und
+    %$(D\varphi)_i(i)$ bestimmt ist:
+    %$\delta (1)=\varphi (ie^1)$ ist die eindeutige Geodäte mit $\delta (0) = \varphi (i)$ und
+    %$\dot{\delta}(0) = (D\varphi)_i(i)$!
+    Insbesondere kennen wir auch $\varphi (2i)\in H$.
+    Sei $z \in H \setminus i\mathbb{R}_{>0}, g_i, g_z \subset H$ Geodäten mit $i,z \in g_i$
+    bzw. $2 i, z \in g_z$, wegen $winkel (g_i,h) = winkel(\varphi (g_i), \varphi (h)) $ und $\varphi$ winkelerhaltend.
+    Daraus folgt $\varphi (g_i)$ und $\varphi (g_z) \subset H$ festgelegt. Daraus erhalten wir $\varphi (z) = \varphi (g_i) \cap \varphi (g_z)$.
+    Dies ist ein eindeutiger Schnittpunkt, da es Halbkreise senkrecht auf $H$ sind.
+    %Aus $\varphi (i)$ und $\varphi(2i)$ können wir für \emph{alle} $z \in H \varphi (z)$ bestimmen:
     %\ctikzfig{wirre_zeichnung_von_lemma} 
 \end{proof}
 
 \begin{definition}
     $\Iso ^+ (H) = \{ \varphi : H \to H \ | \ \varphi \text{ ist eine orientierungserhaltende Isometrie}\}$ 
+    Dies ist eine Gruppe unter der üblichen Komposition.
+\end{definition}
+Für alle $A \in SL(\mathbb{R}^2)$ gilt $\varphi _A \in \Iso^+ (H)$.
+Wir erhalten also eine Abbildung
+\begin{align*}
+    \Psi : SL(\mathbb{R}^2) &\to \Iso ^+(H) \\
+    A &\mapsto \varphi _A 
+\end{align*} welche ein Gruppenhomomorphismus ist: $\varphi _{AB} = \varphi _A \circ \varphi_B$
+
+\begin{theorem}
+    $\Psi$ ist surjektiv, es gilt $\ker (\Psi) = \left \{ \pm  E = \pm  \begin{pmatrix}
+        1 & 0 \\ 0 & 1
+    \end{pmatrix} \right \}$
+    Insbesondere gilt $\Iso ^+ (H) \simeq SL(\mathbb{R}^2) / \pm E = PSL(\mathbb{R}^2)$
+\end{theorem}
+
+\begin{proof}
+    \leavevmode
+    \begin{enumerate}
+        \item $\ker (\Psi) = \{ \pm E\}$: Sei $A = \begin{pmatrix}
+            a & b \\ c & d
+        \end{pmatrix} \in SL(\mathbb{R}^2)$ mit $\varphi _A = Id_H$,
+        d.h. für alle $z \in H$
+        $\frac{az+b}{cz+d}=z$ bzw. $cz^2 + (d-a)z -b=0$.
+        Wir folgern $c=0, d=a, b = 0$. Also $A = \begin{pmatrix}
+            a & 0 \\ 0 & a
+        \end{pmatrix}$, mit $\det (A) = a^2 = 1 \implies a = \pm 1 (A = \pm E)$ 
+
+        \item $\Psi $ ist surjektiv: Sei $\varphi \in \Iso ^+ (H)$. Betrachte
+        $\varphi (h) = \varphi (i \mathbb{R}_{>0}) \subset H$. Aus obigen Ausführungen wissen wir,
+        dass eine Möbiustransformation $\varphi _A$ existiert mit $\varphi _A (h)=\varphi(h)$.
+        Daraus folgt $\underbrace{\varphi _{A^{-1}} \circ \varphi (h)}_{\in \Iso ^+(H)} = h$.
+        Nach einer Streckung $\varphi _B(z)=\lambda z$ gilt sogar $\varphi _B^{-1} \circ \varphi _{A^{-1}} \circ \varphi (i) =i$.
+        Es kann sein, dass $\varphi _B^{-1} \circ \varphi _{A^{-1}} \circ \varphi$ die Geodäte $h$ um
+        $180$° dreht, um den Punkt $i$.
+        Entweder ist
+        $$\varphi _B^{-1} \circ \varphi _{A^{-1}} \circ \varphi = \begin{cases}
+            Id _H \implies \varphi = \varphi _A \circ \varphi _B = \varphi _{AB} = \Psi (AB) \\
+            \varphi _{C} \implies \varphi = \varphi _A \circ \varphi _B \circ \varphi _C = \varphi _{ABC}=\Psi (ABC)
+        \end{cases}$$
+    \end{enumerate}
+\end{proof}
+% \begin{consequence}
+%     Isometrien von $H$, welche die Orientierung erhalten, sind Möbiustransformationen $\varphi _A$ mit $A \in SL(\mathbb{R}^2)$
+% \end{consequence}
+
+\section{Distanz und Flächeninhalt}
+Seien $p, q \in H$.
+\begin{definition}
+    $d_H (p,q) = \inf \{L(\gamma) \ | \ \gamma : [a,b] \to H C^1 \text{ mit } \gamma (a)=p, \gamma(b)=q \}$
+    wobei
+    $$L(\gamma) = \int_a^b || \dot{\gamma}(t)||_H \ dt = \int _a^b \sqrt{\langle \dot{\gamma}(t), \dot{\gamma}(t) \rangle _H} \ dt$$
 \end{definition}
 
-Wir wissen bereits:
-
+\begin{lemma}
+    Für alle $T \ge 1$ gilt : $d _H (i, Ti) = \log (T)$.
+\end{lemma}
+\begin{proof}
+    Betrachte zuerst die Kurve
+    \begin{align*}
+        \gamma : [0, \log(T)] & \to H \\
+        t & \mapsto ie^t
+    \end{align*}
+    Es gilt $\gamma(0) = i, \gamma(\log(T))= Ti$. Berechne
+    \begin{align*}
+        L (\gamma) &= \int _0 ^{\log (T)} \sqrt{\frac{1}{(e^t)^2}\langle ie^t, ie^t \rangle} \ dt \\
+        &= \int _0 ^{\log (T)} 1 \ dt = \log (T)
+    \end{align*}
+    Hier wird benutzt, dass $\langle \ , \ \rangle _H = \frac{1}{y^2} \langle \ , \ \rangle _ {\mathbb{R}^2}$ und $y(\gamma (t))= e^t$.
+    \\ \\
+    Sei nun $\delta :[a,b] \to H \ C^1$ mit $\delta (a) =i, \delta (b)=T$ ein beliebiger $C^1$-Weg.
+    Schreibe $\delta (t) = x(t)+ iy(t)$ mit $\dot{\delta}(t)=\dot{x}(t)+i\dot{y}(t)$.
+    Schätze ab:
+    \begin{align*}
+        L (\delta) &= \int _a ^b \sqrt{\langle \dot{\delta}(t), \dot{\delta}(t) \rangle _H} \ dt \\
+        &= \int _a ^b \frac{1}{y(t)} \sqrt{(\dot{x}(t)^2+\dot{y}(t)^2)} \ dt \\
+        & \ge \int _a ^b \sqrt{\frac{\dot{y}(t)^2}{y(t)^2}} \ dt \\
+        &= \int _a ^b \left | \frac{\dot{y}(t)}{y(t)} \right | \ dt \\
+        &\ge \int _a ^b \frac{\dot{y}(t)}{y(t)} \ dt = \log (y(b)) - \log(\underbrace{y(a)}_{=1})= \log(T) - 0
+    \end{align*}
+    
+\end{proof}
 
 
 \end{document}
