@@ -24,7 +24,7 @@ Knörrer: Geometrie Kapitel 3
             \centering
             \def\svgwidth{20em}
             \input{figures/henkel.pdf_tex}
-            \caption{$\Sigma _g$ mit $g$ Henkel}        
+            \caption*{$\Sigma _g$ mit $g$ Henkel}        
         \end{figure}
 
         Es gilt: $\chi (\Sigma _g)= 2-2g <0$ falls $g \ge 2$.
@@ -281,7 +281,7 @@ mühsam zu beweisen.
     \centering
     \def\svgwidth{20em}
     \input{figures/proposition_circles.pdf_tex}
-    \caption{Geodäten in Halbebene H}        
+    \caption*{Geodäten in Halbebene H}        
 \end{figure}
 
 \begin{proof}
@@ -303,17 +303,15 @@ mühsam zu beweisen.
     \begin{proof}
         Sei $i y \in h$. Berechne
         \begin{align*}
-            |\varphi(iy)+1| &= \left| -\frac{2}{iy+1} + \frac{iy+1}{iy+1} \right| \\
-            &= \left| \frac{iy -1}{iy+1} \right| = 1
-        \end{align*}
-    \end{proof}
+            |\varphi(iy)+1| &= \left| -\frac{2}{iy+1} + \frac{iy+1}{iy+1} \right| = \left| \frac{iy -1}{iy+1} \right| = 1
+        \end{align*}\end{proof}
     Unter Anwendung von horizontalen Transformationen und Streckungen erhalten wir aus $\varphi(h)$
     alle Halbkreise Senkrecht auf $\mathbb{R}$.
     \begin{figure}[htb]
         \centering
         \def\svgwidth{20em}
         \input{figures/geodesic_halfcircle.pdf_tex}
-        \caption{Halbkreis als Geodäte}        
+        \caption*{Halbkreis als Geodäte}        
     \end{figure}
 
     \begin{question}
@@ -326,17 +324,21 @@ mühsam zu beweisen.
         \centering
         \def\svgwidth{10em}
         \input{figures/geodesic_uniqueness.pdf_tex}
-        \caption{Eindeutigkeit der Geodäte}        
+        \caption*{Eindeutigkeit der Geodäte}        
     \end{figure}
 \end{proof}
 
 \begin{remark}
     Für alle $z, w \not = z \in H$ existiert eine Geodäte $g < H$ mit $z,w \in g$
-    %\ctikzfig{bild_in_bemerkung_1}.
     Hingegen existiert zu $g \subset H$ und $z \not \in g$ unendlich viele Geodäten $h \in H$ mit $z \in h$ und $h \cap g = \emptyset$.
-    %\ctikzfig{bild_in_bemerkung_2}
     Wir bemerken, dass das \emph{Parallelaxiom} in der hyperbolischen Ebene \emph{nicht erfüllt} ist.
+    \begin{figure}[htb]
+        \centering
+        \def\svgwidth{30em}
+        \input{figures/geodesic_remark.pdf_tex}        
+    \end{figure}
 \end{remark}
+Dies wurde etwa 1840 von Bolyai und Lobachevski bemerkt.
 
 \section{Die Isometriegruppe von H}
 \begin{lemma}
@@ -348,18 +350,16 @@ mühsam zu beweisen.
     Geometrisch, unter Benutzung der Tatsache, dass Isometrien winkelerhaltend sind. Wir bemerken zuerst,
     dass $\delta (t) = \varphi (ie^t)$ eine geodätische Kurve mit $\delta (0) = \varphi (i)$ und
     $\dot {\delta}(0) = (D\varphi)_{ie^0}(i)= (D\varphi)_i(i)$ ist, also durch $\varphi (i) \in H$ und $(D\varphi)_i(i) \in \mathbb{C}$ bestimmt.
-
-    %die Einschränkung von $\varphi $ auf $i \mathbb{R}_{>0}$ durch $\varphi (i) \in H$ und
-    %$(D\varphi)_i(i)$ bestimmt ist:
-    %$\delta (1)=\varphi (ie^1)$ ist die eindeutige Geodäte mit $\delta (0) = \varphi (i)$ und
-    %$\dot{\delta}(0) = (D\varphi)_i(i)$!
     Insbesondere kennen wir auch $\varphi (2i)\in H$.
     Sei $z \in H \setminus i\mathbb{R}_{>0}, g_i, g_z \subset H$ Geodäten mit $i,z \in g_i$
-    bzw. $2 i, z \in g_z$, wegen $winkel (g_i,h) = winkel(\varphi (g_i), \varphi (h)) $ und $\varphi$ winkelerhaltend.
+    bzw. $2 i, z \in g_z$, wegen $\measuredangle  (g_i,h) = \measuredangle (\varphi (g_i), \varphi (h)) $ und $\varphi$ winkelerhaltend.
     Daraus folgt $\varphi (g_i)$ und $\varphi (g_z) \subset H$ festgelegt. Daraus erhalten wir $\varphi (z) = \varphi (g_i) \cap \varphi (g_z)$.
     Dies ist ein eindeutiger Schnittpunkt, da es Halbkreise senkrecht auf $H$ sind.
-    %Aus $\varphi (i)$ und $\varphi(2i)$ können wir für \emph{alle} $z \in H \varphi (z)$ bestimmen:
-    %\ctikzfig{wirre_zeichnung_von_lemma} 
+    \begin{figure}[htb]
+        \centering
+        \def\svgwidth{40em}
+        \input{figures/lemma.pdf_tex}        
+    \end{figure}
 \end{proof}
 
 \begin{definition}
