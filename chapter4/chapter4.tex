@@ -99,7 +99,7 @@ $H= \{ z = x+ iy \in \mathbb{C} \ \vert \ y > 0 \}$ definiert ist.
     \end{pmatrix} \in GL(\mathbb{C}^2)$, definieren wir die zugehörige \emph{Möbiustransformation} (nicht auf ganz $\mathbb{C}$ definiert).
     \begin{align*}
         (MT) \Phi : \mathbb{C} & \dashrightarrow \mathbb{C} \\
-            z & \mapsto \frac{az+b}{cz+b}
+            z & \mapsto \frac{az+b}{cz+d}
     \end{align*}
 
 \end{recall}
@@ -283,6 +283,73 @@ mühsam zu beweisen.
     \input{figures/proposition_circles.pdf_tex}
     \caption{test}        
 \end{figure}
+
+\begin{proof}
+    Wir haben schon eine Geodäte gefunden:
+    $i \mathbb{R}_{>0} $, das Bild der Kurve $\gamma (t) = ie^t$.
+    Schreibe $h = \bild (\gamma) \subset H$. Nun ist für jede Isometrie
+    $\varphi : H \to H, \varphi (H) \subset H$ auch eine Geodäte. Insbesondere
+    können wir auf $h$ iteriert Abbildung der Form
+    \begin{enumerate}
+        \item $z \mapsto z + b \qquad b \in \mathbb{R}$
+        \item $z \mapsto \lambda z \qquad \lambda > 0$
+        \item $z \mapsto -\frac{1}{z}$
+    \end{enumerate}
+    Daraus folgt, dass alle Halbgeraden auf $\mathbb{R}$ Geodäten sind.
+    Betrachte die spezielle Isometrie $\varphi (z)=-\frac{2}{z+1}$
+    \begin{claim}
+        $\varphi (h)$ ist ein Halbkreis in $H$ mit Zentrum $-1$ und Radius $1$
+    \end{claim}
+    \begin{proof}
+        Sei $i y \in h$. Berechne
+        \begin{align*}
+            |\varphi(iy)+1| &= \left| -\frac{2}{iy+1} + \frac{iy+1}{iy+1} \right| \\
+            &= \left| \frac{iy -1}{iy+1} \right| = 1
+        \end{align*}
+    \end{proof}
+    Unter Anwendung von horizontalen Transformationen und Streckungen erhalten wir aus $\varphi(h)$
+    alle Halbkreise Senkrecht auf $\mathbb{R}$.
+    %\ctikzfig{Halbkreis_proof}
+
+    \begin{question}
+        Wieso existieren keine weiteren Geodäten?
+    \end{question}
+    Zu jeden $z \in H$ und jedem Einheitsvektor $v$ existiert genau eine geodätische Kurve $\gamma : \mathbb{R} \to H$
+    mit $\gamma (0) = z$ und $\dot{\gamma} (0) = v$. Das Bild von $\gamma$ muss also der Halbkreis
+    oder die Halbgerade durch $z$ mit Tangente $v$ sein!
+    %\ctikzfig{kleine_zeichnung_am_rande}
+\end{proof}
+
+\begin{remark}
+    Für alle $z, w \not = z \in H$ existiert eine Geodäte $g < H$ mit $z,w \in g$
+    %\ctikzfig{bild_in_bemerkung_1}.
+    Hingegen existiert zu $g \subset H$ und $z \not \in g$ unendlich viele Geodäten $h \in H$ mit $z \in h$ und $h \cap g = \emptyset$.
+    %\ctikzfig{bild_in_bemerkung_2}
+    Wir bemerken, dass das \emph{Parallelaxiom} in der hyperbolischen Ebene \emph{nicht erfüllt} ist.
+\end{remark}
+
+\section{Die Isometriegruppe von H}
+\begin{lemma}
+    Sei $\varphi : H \to H$ eine orientierungserhaltende Isometrie,
+    d.h. für alle $z \in H$ gilt $\det \left ((D\varphi)_z > 0 \right )$. Dann ist $\varphi$ durch
+    $\varphi (i)$ und $(D\varphi)(i)$ eindeutig bestimmt.
+\end{lemma}
+\begin{proof}
+    Geometrisch, unter Benutzung der Tatsache, dass Isometrien winkelerhaltend sind. Wir bemerken zuerst,
+    dass die Einschränkung von $\varphi $ auf $i \mathbb{R}_{>0}$ durch $\varphi (i)$ und
+    $(D\varphi)_i(i)$ bestimmt ist:
+    $\delta (1)=\varphi (ie^1)$ ist die eindeutige Geodäte mit $\delta (0) = \varphi (i)$ und
+    $\dot{\delta}(0) = (D\varphi)_i(i)$! Insbesondere kennen wir auch $\varphi (2i)\in H$.
+    Aus $\varphi (i)$ und $\varphi(2i)$ können wir für \emph{alle} $z \in H \varphi (z)$ bestimmen:
+    %\ctikzfig{wirre_zeichnung_von_lemma} 
+\end{proof}
+
+\begin{definition}
+    $\Iso ^+ (H) = \{ \varphi : H \to H \ | \ \varphi \text{ ist eine orientierungserhaltende Isometrie}\}$ 
+\end{definition}
+
+Wir wissen bereits:
+
 
 
 \end{document}
