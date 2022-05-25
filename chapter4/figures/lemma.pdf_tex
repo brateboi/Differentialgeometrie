@@ -63,13 +63,13 @@
     \put(0.09762693,0.15082532){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$i$\end{tabular}}}}%
     \put(0.05745508,0.07702121){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$g_i$\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{figures/lemma.pdf}}%
-    \put(0.81964595,0.18058783){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\varphi(z)$\end{tabular}}}}%
+    \put(0.8345936,0.16050194){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\varphi(z)$\end{tabular}}}}%
     \put(0.87020757,0.07358543){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\varphi(g_z)$\end{tabular}}}}%
     \put(0.77937073,0.21875631){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\beta$\end{tabular}}}}%
-    \put(0.7332249,0.18687892){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\alpha$\end{tabular}}}}%
+    \put(0.71287124,0.15614635){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\alpha$\end{tabular}}}}%
     \put(0.82493133,0.27630606){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\varphi(h)$\end{tabular}}}}%
     \put(0.73659807,0.25052643){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\varphi(2i)$\end{tabular}}}}%
-    \put(0.64844318,0.18125203){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\varphi(i)$\end{tabular}}}}%
+    \put(0.62975857,0.1438829){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\varphi(i)$\end{tabular}}}}%
     \put(0.51326292,0.0499366){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\varphi(g_i)$\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{figures/lemma.pdf}}%
     \put(0.46042183,0.27421073){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\varphi$\end{tabular}}}}%
