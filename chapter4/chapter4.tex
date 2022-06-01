@@ -414,7 +414,7 @@ Wir erhalten also eine Abbildung
 \section{Distanz und Flächeninhalt}
 Seien $p, q \in H$.
 \begin{definition}
-    $d_H (p,q) = \inf \{L(\gamma) \ | \ \gamma : [a,b] \to H C^1 \text{ mit } \gamma (a)=p, \gamma(b)=q \}$
+    $d_H (p,q) = \inf \{L(\gamma) \ | \ \gamma : [a,b] \to H \ C^1 \text{ mit } \gamma (a)=p, \gamma(b)=q \}$
     wobei
     $$L(\gamma) = \int_a^b || \dot{\gamma}(t)||_H \ dt = \int _a^b \sqrt{\langle \dot{\gamma}(t), \dot{\gamma}(t) \rangle _H} \ dt$$
 \end{definition}
@@ -444,9 +444,120 @@ Seien $p, q \in H$.
         & \ge \int _a ^b \sqrt{\frac{\dot{y}(t)^2}{y(t)^2}} \ dt \\
         &= \int _a ^b \left | \frac{\dot{y}(t)}{y(t)} \right | \ dt \\
         &\ge \int _a ^b \frac{\dot{y}(t)}{y(t)} \ dt = \log (y(b)) - \log(\underbrace{y(a)}_{=1})= \log(T) - 0
-    \end{align*}
-    
+    \end{align*}    
 \end{proof}
 
+\begin{proposition}
+    Für alle $z,w \in H$ gilt 
+    $$\cosh (d_H(z,w))=1 \frac{|z-w|^2}{2 * \im (z) \im(w)}$$
+    Zur Erinnerung: $\cosh (x)=\frac{1}{2}(e^x + e^{-x})$
+\end{proposition}
+\begin{remarks}
+    \leavevmode
+    \begin{enumerate}
+        \item Für $z=w$ gilt $d_H (z,w)=0$, also $\cosh(d_H(z,w))=1$. Deshalb ``$+1$''
+        \item Sei $x\in \partial H = \mathbb{R} \cup \{\infty\}$. Dann gilt für festes $z\in H$:
+            $$\lim_{w \to x} d_H(z,w) = + \infty$$ da $\im(w)\to 0$.
+            ``Punkte im Rand $\partial H$ sind unendlich weit weg''
+    \end{enumerate}
+\end{remarks}
+
+\begin{proof}
+    Seien zunächst $z,w \in i\mathbb{R}_{>0}$: schreibe $z=ia$ und $w=ib$ mit $a<b$, (sonst benutze $d_H(z,w)=d_H(w,z)$).
+    Für den Weg $\gamma : [\log (a), \log(b)]\to H$ und $ t \mapsto i e^t$, gilt $\gamma(\log(a))=ia=z, \gamma(\log(b)=ib=w)$,
+    und $L(\gamma) = \log (b)-\log(a)$. Für alle anderen Wege $\delta : [c,d]\to H$ mit
+    $\delta(c)=z$ und $\delta(d)=w$ gilt:
+    \begin{align*}
+        L(\delta)= \int _c ^d || \dot{\delta}(t)||_H \ dt & = \int_c ^d \frac{1}{y(t)}\sqrt{\dot{x}(t)^2+\dot{y}(t)^2}\ dt \\
+        &\ge \int_c ^d \frac{1}{y(t)}\sqrt(\dot{y}(t)^2)\ dt
+    \end{align*}$\implies$
+    $$L(\delta) \ge \int_c^d \frac{\dot y (t)}{y(t)} \ dt = \left[ \log (y(t)) \right]_c^d = \log(y(d))-\log(y(c))=\log(b)-\log(a)=\log(\frac{b}{a})$$
+    Wir folgern $d_H (ia,ib)= \log(\frac{b}{a})$. Aus allem folgt dann $\cosh(d_H(ia,ib))=\frac{1}{2}(\frac{a}{b}+\frac{a}{b})=\frac{1}{2}\frac{b^2+a^2}{ab}=1+ \frac{(a-b)^2}{2ab}$
+    Also folgt die Proposition für $z,w \in i\mathbb{R}_{>0}$. Für den allgemeinen Fall:
+    Seien $z \not = w\in H$ beliebig. Dann existiert eine Isometrie $\varphi : H \to H$ (eine Möbiustransformation $\varphi _A : H \to H$ mit $A \in SL(\mathbb{R}^2)$),
+    welche die Geodäte durch $z,w$ auf die Geodäte $i \mathbb{R}_{>0}$ abbildet (siehe oben).
+
+    Insbesondere gilt $\varphi (z)=ia$ und $\varphi(w)=ib$. Wir bemerken, dass $$d_H(z,w)=d_H(\varphi(z),\varphi(w))=d_H(ia,ib)$$ gilt (da $\varphi$ eine Isometrie).
+    Falls wir zeigen können, dass $\varphi$ auch den Ausdruck
+    $$1+\frac{|z-w|^2}{2\im(z)\im(w)}$$ erhält, dann sind wir fertig! Es reicht, dies für Möbiustransformationen des Typs 1 bis 3 zu zeigen.
+    \begin{enumerate}
+        \item $z \mapsto z+ c \qquad(c\in \mathbb{R})$ invariant, da Differenz
+        \item $z \mapsto \lambda z \qquad (\lambda > 0)$ ok, da $|\lambda z - \lambda w |^2 = \lambda^2 |z-w|^2, \im(\lambda a)=\lambda \im(a)$ 
+        \item $z \mapsto -\frac{1}{z}$
+        Die letzte Transformation ist ok, da
+        $$1 + \frac{|-\frac{1}{z}+\frac{1}{w}|^2}{2 \im(-\frac{1}{z})\im(-\frac{1}{w})}=1 + \frac{\frac{|w-z|^2}{|z|^2|w|^2}}{2\frac{\im(z)}{|z|^2}\frac{\im(w)}{|w|^2}}=1+\frac{|w-z|^2}{2\im(z)\im(w)}$$
+    \end{enumerate}
+\end{proof}
+\newpage
+\subsection*{Flächeninhalt}
+Sei $\Delta \in H$ ein geodätisches Dreieck. Nach Gauss-Bonnet (lokal) gilt:
+$$\int_{\Delta}K \ dA = \underbrace{\int _{\Delta} (-1)\ dA}_{area(\Delta)} = \alpha + \beta + \gamma - \pi$$
+Also gilt $area(\Delta)=\pi - (\alpha + \beta + \gamma)$
+
+Wir überprüfen dies durch Integration.
+\begin{specialcase}
+    $\alpha = \beta = \gamma = 0$. Das heisst $\Delta$ ist ein \emph{ideales Dreieck}
+    mit Eckpunkten in $\partial H$
+\end{specialcase}
+\begin{figure}[htb]
+    \centering
+    \def\svgwidth{10em}
+    \input{figures/ideal_triangle.pdf_tex}
+    \caption*{Ideales Dreieck mit Winkeln 0}        
+\end{figure}
+
+\begin{claim}
+    Es existiert eine Isometrie $\varphi : H \to H$, welche die Eckpunkte von $\Delta$ auf $-1,+1,\infty$ schickt!
+\end{claim}
+\begin{figure}[htb]
+    \centering
+    \def\svgwidth{35em}
+    \input{figures/proof_claim.pdf_tex}
+    \caption{Beweis der Behauptung}        
+\end{figure}
+
+Berechne nun den Flächeninhalt vom letzten Dreieck $\Delta _0$
+\begin{align*}
+    area(\Delta)&= \int_{\Delta} \ dA \\
+    &= \int _{\Delta}\sqrt{EG-F^2}\ dxdy = \int_{\Delta_0}\left(\frac{1}{y^2}dy \right)dx\\
+    &= \int _{-1}^{1}\left( \int \limits_{\sqrt{(1-x^2)}}^{+\infty} \frac{1}{y^2}\ dy\right) dx \\
+    &= \int _{-1}^{1} \frac{1}{\sqrt{1-x^2}}\ dx \\
+    &= \arcsin(1)-\arcsin(-1) = \frac{\pi}{2}-(-\frac{\pi}{2})=\pi
+\end{align*}
+Hier wird benutzt $\int \frac{1}{y^2} \ dy = -\frac{1}{y}$.
+Ähnlich funktionert dies für ein Dreieck $\Delta _{\alpha}$ mit $\alpha >0$.
+$\beta = \gamma = 0$.
+$\implies$ $$area(\Delta_\alpha)= \int _{-1}^{\cos(\alpha)}(\int_{\sqrt{-x^2}}^{+\infty}\frac{1}{y^2} \ dy) \ dx = \dots = \arcsin(\cos(\alpha))-\arcsin(-1)$$.
+Wir nutzen $cos \alpha = sin(\frac{\pi}{2}-\alpha) \implies area(\Delta _{\alpha})= \pi - \alpha$
+
+Im allgemeinen Fall $alpha, \beta, \gamma >0$ berechnen wir $area(\Delta)$ mit folgendem Ergänzungsbild.
+
+\begin{figure}[htb]
+    \centering
+    \def\svgwidth{35em}
+    \input{figures/general_case.pdf_tex}
+    \caption*{Allgemeiner Fall}        
+\end{figure}
+
+
+\section{Ausblick Teichmüllertheorie}
+(Nicht mehr Prüfungsrelevant)
+\begin{recall}
+    Sei $\Sigma _g$ die Standardfläche vom Geschlecht $g \ge 2$. Dann gilt $\chi (\Sigma _g)=2 -2g <0$.F
+    Falls auf $\Sigma _g$ eine Metrik mit konstanter Krümmung $K$ existiert, dann muss $K$ \emph{negativ} sein.
+    $$\int _{\Sigma _g}K \ dA = 2 \pi \chi(\Sigma _g) < 0$$
+\end{recall}
+Konstruktion einer Riemannschen Metrik auf $Sigma _g$ mit $K= -1$.
+\begin{lemma}
+    In $H$ existieren rechtwinklige Sechsecke.
+\end{lemma}
+\begin{proof}
+    Starte mit idealem Seckseck: Ziehe Eckpunkte nach oben bis die Eckpunkte
+    rechtwinklig aufeinander sind.
+    Alternativer Beweis via Cayleytransformation.
+    Verklebe zwei solche Secksecke $S_1$ und $S_2$ entlang dreier Seiten; erhalte eine
+    Hose. (dies ist ein abstrakter Prozess, nicht in $\mathbb{R}^3$!).
+    Dann verklebe Hosen zu geschlossenen Flächen.
+\end{proof}
 
 \end{document}
