@@ -487,6 +487,150 @@ Sei nun $ \Sigma \subset \mathbb{R}^3$ eine reguläre Fläche. Wir erhalten in j
 Das Feld von Skalarprodukten $p \mapsto \langle \cdot , \cdot \rangle _p $ heisst \underline{Riemannsche Metrik} auf $ \Sigma$. Die zugehörige quadratische Form $ I_p : T_p \Sigma \to \mathbb{R}$ heisst \underline{erste Fundamentalform} von $\Sigma$ an der Stelle $p$.
 \subsubsection*{Beschreibung durch Koeffizienten}
 
-\ctikzfig{cylinder}
+Sei $\langle \ , \ \rangle : \mathbb{R}^2 \times \mathbb{R}^2$ ein Skalarprodukt.
+Schreibe $a = a_1e_1 + a_2e_2, b = b_1e_1 + b_2e_2 \in \mathbb{R}^2$.
+
+Berechne \begin{align*}
+    \langle a, b \rangle = \begin{pmatrix}
+        a_1 & a_2
+    \end{pmatrix} \begin{pmatrix}
+        \langle e_1, e_1 \rangle & \langle e_1, e_2 \rangle \\
+        \langle e_2, e_1 \rangle & \langle e_2, e_2 \rangle
+    \end{pmatrix} \begin{pmatrix}
+        b_1 \\ b_2
+    \end{pmatrix}
+\end{align*}
+
+Wähle eine lokale Parametrisierung $\varphi : U \to \Sigma$ mit $p \in \varphi (U)$.
+Wir ziehen die Riemannsche Metrik (auf $\Sigma$) wie folgt auf $U$ zurück:
+
+Sei $q \in U$ und seien $a,b \in \mathbb{R}^2$.
+Definiere
+\begin{align*}
+    \langle a,b \rangle _q = \langle (D\varphi)_q(a), (D\varphi)_q(b)\rangle{_{\varphi(q) \leftarrow { \text{ bedeutet }\langle \cdot, \cdot \rangle \text{ ist auf } \mathbb{R}^3}}}
+\end{align*}
+
+Sei $p=\varphi (q)$, dann gilt $T_p\Sigma = \bild (D\varphi)_p < \mathbb{R}^3 = \spann \{ (D\varphi)_q(e_1),(D\varphi)_q(e_2)\}$
+
+\begin{notation}
+    Schreibe $q= (u,v) \in U \subset \mathbb{R}^2$
+    \begin{align*}
+        &\varphi_u (q)= \varphi_u(u,v) = (D\varphi)_q(e_1)\in T_{\varphi(q)}\Sigma \\
+        &\varphi_v (q)= \varphi_v(u,v) = (D\varphi)_q(e_2)\in T_{\varphi(q)}\Sigma
+    \end{align*}``Spalten der Jakobimatrix $(J\varphi)_q$''
+\end{notation}
+
+Die \emph{Koeffizienten} der ersten Fundamentalform bezüglich der Parametrisierung $\varphi: U \to \Sigma$ sind
+\begin{align*}
+    &E(u,v) = \langle e_1, e_1\rangle_{(u,v)} = \langle \varphi_u(u,v),\varphi_u(u,v)\rangle _{\mathbb{R}^3} \\
+    &F(u,v) = \langle e_1, e_2\rangle_{(u,v)} = \langle \varphi_u(u,v),\varphi_v(u,v)\rangle _{\mathbb{R}^3} \\
+    &G(u,v) = \langle e_2, e_2\rangle_{(u,v)} = \langle \varphi_v(u,v),\varphi_v(u,v)\rangle _{\mathbb{R}^3} \\
+\end{align*}
+
+Für alle $a=a_1e_1+a_2e_2, b=b_1e_1+b_2e_2$ gilt nun
+\begin{align*}
+    \langle a,b \rangle_{u,v} = \begin{pmatrix}
+        a_1 & a_2
+    \end{pmatrix}\begin{pmatrix}
+        E(u,v) & F(u,v) \\
+        F(u,v) & G(u,v)
+    \end{pmatrix}\begin{pmatrix}
+        b_1 \\ b_2
+    \end{pmatrix}
+\end{align*}
+
+\begin{examples}
+    \leavevmode
+    \begin{enumerate}
+        \item Sei $Z=\{(x,y,z)\in \mathbb{R}^3 \ | \ x^2 + y^2 =1 \} \subset \mathbb{R}^3$.
+        Betrachte die lokale Parametrisierung $\varphi : (0,2\pi) \times \mathbb{R} \to Z$, $\varphi (u,v) = (\cos(u), \sin(u), v)$.
+        Berechne$$
+        (J\varphi)_{(u,v)}=\begin{pmatrix}
+            -\sin(u) & 0 \\
+            cos(u) & 0 \\
+            0 & 1
+        \end{pmatrix}$$
+        Erste Spalte: $\varphi_u(u,v)$, zweite Spalte $\varphi_v(u,v)$ und damit
+        \[
+        \left. 
+        \begin{matrix} E(u,v)=\langle \varphi_u,\varphi_u\rangle _{\mathbb{R}^3} = 1 \\ 
+            F(u,v)=\langle \varphi_u,\varphi_v\rangle _{\mathbb{R}^3} = 0 \\
+            G(u,v)=\langle \varphi_v,\varphi_v\rangle _{\mathbb{R}^3} = 1 \end{matrix} 
+        \right\} \begin{pmatrix}
+            1 & 0 \\ 0 & 1
+        \end{pmatrix}
+        \]``Der Zylinder $Z$ ist lokal isometrisch (intrinsische Distanz) zur Ebene''
+
+        \item $S^2 = \{(x,y,z) \in \mathbb{R}^3 \ | \ x^2+y^2+z^2 = 1 \} \subset \mathbb{R}^3$, die Einheitskugel.
+        Betrachte die lokale Parametrisierung
+        \begin{align*}
+            \varphi : (0,2\pi) \times (-\frac{\pi}{2}, \frac{\pi}{2}) &\to S^2 \\
+            (u,v) &\mapsto (\cos(u)\cos(v), \sin(u)\cos(v), \sin(v))
+        \end{align*}
+        Berechne
+        $$(J\varphi)_{u,v}= \begin{pmatrix}
+            -\sin(u)\cos(v) & -\cos(u)\sin(v) \\
+            \cos(u)\cos(v) & -\sin(u)\sin(v) \\
+            0 & \cos(v)
+        \end{pmatrix} = \varphi _u (u,v), \varphi_v(u,v)$$
+        und
+        \[
+        \left. 
+        \begin{matrix} E(u,v)=\langle \varphi_u,\varphi_u\rangle _{\mathbb{R}^3} = \cos^2(v) \\ 
+            F(u,v)=\langle \varphi_u,\varphi_v\rangle _{\mathbb{R}^3} = 0 \\
+            G(u,v)=\langle \varphi_v,\varphi_v\rangle _{\mathbb{R}^3} = 1 \end{matrix} 
+        \right\} \begin{pmatrix}
+            \cos^2(v) & 0 \\ 0 & 1
+        \end{pmatrix}
+        \]
+
+        Alternative lokale Parametrisierung
+        \begin{align*}
+            \varphi : D^2 &\to S^2 \\
+            (u,v) &\mapsto (u,v,\sqrt{1-u^2-v^2})
+        \end{align*}
+        $$(J\varphi)_{u,v}= \begin{pmatrix}
+            1 & 0 \\
+            0 & 1 \\
+            \frac{-u}{\sqrt{1-u^2-v^2}} & \frac{-v}{\sqrt{1-u^2-v^2}}
+        \end{pmatrix}$$
+        Wir bemerken $F(u,v)= \frac{uv}{1-u^2-v^2} \not = 0$ (ausser falls $uv=0$)
+    \end{enumerate}
+\end{examples}
+
+\subsubsection*{Weglänge und Flächeninhalt}
+\begin{recall}
+    Sei $\alpha: [0,1] \to \mathbb{R}^n \ C^1$.
+    Die Weglänge von $\alpha$ ist
+    $$\mathcal{L} (\alpha) = \int _0 ^1 \sqrt{\underbrace{\langle\dot{\alpha}(t), \dot{\alpha}(t)\rangle _{\mathbb{R}^3}}_{||\dot{\alpha}(t)||_2 \text{ euklidische Norm}}} \ dt$$
+\end{recall}
+
+Sei nun $\Sigma \subset \mathbb{R}^3$ eine reguläre Fläche,
+$\varphi : U \to \Sigma$ eine lokale Parametrisierung und $\alpha : [0,1] \to \Sigma \ C^1$ mit $\alpha([0,1])\subset \varphi(U)$.
+Definiere 
+\begin{align*}
+    \beta = \varphi ^{-1} \circ \alpha : [0,1] &\to U \subset \mathbb{R}^2 \\
+    t &\mapsto \varphi^{-1}(\alpha(t))
+\end{align*}
+
+Schreibe $\beta (t) = u(t)e_1 + v(t)e_2$. Es gilt $\alpha(t) = \varphi(\beta(t))=\varphi(u(t),v(t))$.
+Berechne $\mathcal{L}(\alpha)= \int _0^1 ||\dot{\alpha}(t)|| \ dt$.
+Berechne \begin{align*}
+    \dot{\alpha}(t) &= \frac{d}{dt}(\varphi \circ \beta)(t) \\
+    &= (D\varphi)_{\beta(t)}(\dot{\beta}(t)) \\
+    &= (D\varphi)_{(u(t), v(t))}(\dot{u}(t)e_1 + \dot{v}(t)e_2) \\
+    &= \dot{u}(t) \cdot \varphi_u(u(t),v(t))+\dot{v}(t) \cdot \varphi_v(u(t),v(t))
+\end{align*} und 
+\begin{align*}
+    \langle \dot{\alpha}(t), \dot{\alpha}(t) \rangle &= \begin{pmatrix}
+        \dot{u}(t) & \dot{v}(t)
+    \end{pmatrix}\begin{pmatrix}
+        E & F \\ F & G
+    \end{pmatrix}\begin{pmatrix}
+        \dot{u}(t) \\ \dot{v}(t)
+    \end{pmatrix} \\
+    &= \left[ \dot{u}(t)^2 \cdot E + 2\dot{u}(t)\dot{v}(t)F + \dot{v}(t)^2\cdot G \right]_{=(*)}
+\end{align*}
+$\implies \mathcal{L} (\alpha) = \int _0^1 \sqrt{(*)} \ dt$
 
 \end{document}
