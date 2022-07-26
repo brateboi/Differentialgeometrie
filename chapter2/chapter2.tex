@@ -56,7 +56,7 @@ die \emph{Weingartenabbildung}.
     $K(p)$ hängt nicht von der Wahl von N ab, \\da $\det{-(DN)_{p}} = (-1)^{2} \cdot \det{(DN)_{p}}$ ist.
 \end{remark}
 \begin{example}
-    \begin{enumerate}
+    \begin{enumerate} \leavevmode
         \item $\Sigma = \mathbb{R}^{2} \times \{0\} \subset \mathbb{R}^{3}\\
         \begin{aligned}
             N : \Sigma & \to S^{2}\\
@@ -272,10 +272,187 @@ Wir erhalten also mit $\langle \varphi_{u}, N\rangle \equiv 0$ und ableiten nach
 \end{example}
 
 \section{Gaussabbildung in lokalen Koordinaten}
-
-
-
+Sei $\varphi:U \rightarrow V \subset \Sigma$ eine lokale $C^{2}$-Parametrisierung und $N:V\rightarrow S^{2}$ das dazugehörige normale Einheitsfeld. Schreibe die Abbildungsmatrix von $(DN)_{p}:T_{p}\Sigma\rightarrow T_{p}\Sigma = T_{N(p)}S^{2}$ bezüglich der Basis ${\varphi_{u}, \varphi_{v}}$ von $T_{p}\Sigma: \begin{pmatrix}
+    a_{11} & a_{12}\\ a_{21} & a_{22}
+\end{pmatrix}$, d.h. $$(DN)_{p}(\varphi_{u}) = a_{11}\varphi_{u} + a_{21}\varphi_{v}$$ $$(DN)_{p}(\varphi_{v}) = a_{12}\varphi_{u} + a_{22}\varphi_{v}$$
+\begin{remark}
+    Falls $\varphi_{u}$ und $\varphi_{v}$ nicht orthogonal sind, dann gilt im Allgemeinen $a_{12} \neq a_{21}$.
+\end{remark}
+\begin{lemma}
+    Mit den oben eingeführten Koeffizienten gilt: 
+    $$\begin{pmatrix}
+        e & f \\ f & g
+    \end{pmatrix}  = -\underbrace{\begin{pmatrix}
+        a_{11} & a_{21} \\ a_{12} & a_{22}
+    \end{pmatrix}}_{(DN)_{p}^{T}}\cdot \begin{pmatrix}
+        E & F\\ F & G
+    \end{pmatrix}$$
+\end{lemma}
+\begin{proof}
+    Berechne
+    \begin{align*}
+        e &= -\langle\varphi_{u}, (DN)_{\varphi(u,v)}(\varphi_{u})\rangle\\
+        &= -\langle\varphi_{u}, a_{11}\varphi_{u} + a_{21}\varphi_{v}\rangle\\
+        &= -a_{11} E - a_{21} F\\
+        f &= -\langle\varphi_{v}, (DN)_{\varphi(u,v)}(\varphi_{u})\rangle = \dots = -a_{11} F -a_{21} G\\
+        f &= -\langle\varphi_{u}, (DN)_{\varphi(u,v)}(\varphi_{v})\rangle = \dots = -a_{12} E -a_{22} F\\
+        g &= -\langle\varphi_{v}, (DN)_{\varphi(u,v)}(\varphi_{v})\rangle = \dots = -a_{12} F -a_{22} G\\
+    \end{align*}
+\end{proof}
+\begin{corollary}
+    $K(p) = \det(DN)_{p} = \frac{eg-f^{2}}{EG-F^{2}}$ (Alle Koeffizienten sind vom punkt $(u,v)$ abhängig!)
+\end{corollary}
+\begin{proof}
+    $$\det(DN)_{p} = \det\begin{pmatrix}
+        a_{11} & a_{12} \\ a_{21} & a_{22}
+    \end{pmatrix} = \det\begin{pmatrix}
+        a_{11} & a_{21} \\ a_{12} & a_{22}
+    \end{pmatrix} = \det( - \begin{pmatrix}
+        a_{11} & a_{12} \\ a_{21} & a_{22}
+    \end{pmatrix})$$ und $\det(X\cdot Y) = \det(X)\cdot\det(Y)$
+\end{proof}
+\begin{example}
+    Rotationstorus $T\subset\mathbb{R}^{3}$ mit Radien $0<a<b$
+    \begin{align*}
+        \text{Lokale }& C^{\infty}\text{-Parametrisierung }\varphi:(0,2\pi)\times(0,2\pi)\rightarrow T\\
+        \varphi(u,v) &= ((b+a\cdot cos(u))\cdot cos(v), (b+a\cdot cos(u))\cdot sin(v), a\cdot sin(u))\\
+        \varphi_{u}(u,v) &= (-a\cdot sin(u)cos(v), -a\cdot sin(u)sin(v), a\cdot cos(u))\\
+        \varphi_{v}(u,v) &= (-(b+a\cdot cos(u))\cdot sin(v), (b+a\cdot cos(u))\cdot cos(v), 0)\\
+        \varphi_{uu} &= \dots\\
+        \varphi_{uv} &= \dots\\
+        \varphi_{vv} &= \dots\\
+    \end{align*}
+    \begin{align*}
+        \implies E &= \langle \varphi_{u}, \varphi_{u}\rangle = a^{2}\\
+        F &= \langle \varphi_{u}, \varphi_{v}\rangle = 0\\
+        G &= \langle \varphi_{v}, \varphi_{v}\rangle = (b+a\cdot cos(u))^{2}\\
+        N &= \frac{\varphi_{u}\times\varphi_{v}}{\lvert\varphi_{u}\times\varphi_{v}\rvert} =_{\text{siehe Flächeninhalt}} \frac{\varphi_{u}\times\varphi_{v}}{\sqrt[]{EG-F^{2}}} = \frac{\varphi_{u}\times\varphi_{v}}{a(b+a\cdot cos(u))}\\
+        \implies e &= \langle\varphi_{uu}, N\rangle = \lvert\varphi_{uu}\rvert = a\\
+        &\text{dies da }\varphi_{uu} \text{ und }N \text{ parallel sind.}\\
+        f &= \langle\varphi_{uv},N\rangle = 0\\
+        g &= \langle\varphi_{vv},N\rangle = \text{\emph{(Komplizierte einfache Rechnung)}} \\
+        &= cos(u)\cdot(b+a\cdot cos(u))\\
+        \implies K(\varphi(u,v)) &= \frac{eg-f^{2}}{EG-F^{2}} = \frac{eg}{EG} = \frac{cos(u)}{a(b+a\cdot cos(u))}
+    \end{align*}
+    \ctikzfig{rotationstorus mit Krümmungen}
+\end{example}
+\begin{remark}
+    Es gilt \begin{align*}
+        K(\varphi(u,v)) &> 0    &u < \frac{\pi}{2} \text{ oder } u>\frac{3\pi}{2}\\
+        &=0 \text{ falls } &u = \frac{\pi}{2} \text{ oder } u=\frac{3\pi}{2}\\
+        &<0 &u> \frac{\pi}{2} \text{ und } u<\frac{3\pi}{2}
+    \end{align*}
+    \ctikzfig{elliptisch und hyperbolish evtl.?}
+\end{remark}
+\begin{application}
+    Krümmungsformel von Funktionsgraphen:\\
+    Sei $f:\mathbb{R}^{2}\rightarrow\mathbb{R} C^{2}$ und $\Gamma_{f}={(x,y,z)\in\mathbb{R}^{2} \ \vert \ z=f(x,y)}$. Mit der lokalen Parametrisierung $\varphi(u,v) = (u,v,f(u,v))$ erhalten wir \begin{align*}
+        &e=-\langle\varphi_{u},(DN)_{p}(\varphi_{u})\rangle = -\langle\varphi_{u},N_{u}\rangle = \langle\varphi_{uu},N\rangle = \frac{f_{uu}}{\sqrt[]{1+f_{u}^{2}+f_{v}^{2}}}\\
+        &f=-\langle\varphi_{u},(DN)_{p}(\varphi_{v})\rangle = -\langle\varphi_{u},N_{v}\rangle = \langle\varphi_{uv},N\rangle = \frac{f_{uv}}{\sqrt[]{1+f_{u}^{2}+f_{v}^{2}}}\\
+        &g=-\langle\varphi_{v},(DN)_{p}(\varphi_{v})\rangle = -\langle\varphi_{v},N_{v}\rangle = \langle\varphi_{vv},N\rangle = \frac{f_{vv}}{\sqrt[]{1+f_{u}^{2}+f_{v}^{2}}}\\       
+    \end{align*}
+    Berechne $E=\langle\varphi_{u},\varphi_{u}\rangle,F=\langle\varphi_{u},\varphi_{v}\rangle,G=\langle\varphi_{v},\varphi_{v}\rangle$ und erhalte \begin{align*}
+        K(\varphi(u,v)) = \frac{eg-f^{2}}{EG-F^{2}} = \frac{f_{uu}f_{vv}-f_{uv}^{2}}{(1+f_{u}^{2}+f_{v}^{2})^{2}}
+    \end{align*}
+\end{application}
+\begin{remark}
+    $f_{uu}\cdot f_{vv} - f_{uv}^{2} = \det(Hf)_{(u,v)}$ mit $Hf = \text{Hessische Matrix }\begin{pmatrix}
+        f_{uu} & f_{uv} \\ f_{vu} & f_{vv}
+    \end{pmatrix}$
+\end{remark}
+Folgerung: \begin{align*}
+    K(\varphi(u,v)) > 0 &\iff \det(Hf)_{(u,v)}>0\\
+    K(\varphi(u,v)) = 0 &\iff \det(Hf)_{(u,v)}=0\\
+    K(\varphi(u,v)) < 0 &\iff \det(Hf)_{(u,v)}<0
+\end{align*}
+In einem Kritischenpunkt $p$ ist die Krümmung $K = \det(Hf)_{p}$.
+\begin{examples}
+    \begin{enumerate} \leavevmode
+        \item $f(x,y) = x^{n}+y^{m}$ mit $n,m \geq 2$.\\
+        Dann gilt $\frac{\partial}{\partial x}f(0,0)m = \frac{\partial}{\partial y}f(0,0) = 0$ \begin{align*}
+            &(Hf)_{(x,y)} = \begin{pmatrix}
+                n(n-1)x^{n-2} & 0 \\ 0 & m(m-1)y^{m-2}
+            \end{pmatrix}\\
+            \implies &K(\varphi(0,0))=K(0)=0 \text{ falls } m\geq 3 \text{ oder } n\geq 3\\
+            \implies &K(\varphi(0,0))=K(0)=4 \text{ falls } m = 2 \text{ und } n = 2\\
+        \end{align*}
+        Alternative $f(x,y) = -(x^{2}+y^{2}) \implies K(0) = 4$
+        \item $f(x,y)= x^{n}-y^{n}$ mit $n,m \geq 2$ \begin{align*}
+            &(Hf)_{(x,y)}=\begin{pmatrix}
+                n(n-1)x^{n-2} & 0\\ 0 & -m(m-1)y^{m-2}
+            \end{pmatrix}\\
+            &\implies K(0) = \left\{
+                \begin{tabular}{@{}c@{}}
+                $0 \text{, falls } m\geq 3 \text{ oder } n \geq 3 $\\
+                $-4 \text{, falls } m=n=2 $
+                \end{tabular}
+            \right.\\
+            &\text{Hier gilt }K(\varphi(u,v)) = \frac{-4}{(1+f_{u}^{2}+f_{v}^{2})^{2}} = \frac{-4}{(1+4_{u}^{2}+4_{v}^{2})^{2}} < 0\\
+            &\text{Wir folgern } \lim\limits_{n\to\pm\infty}K(\varphi(u,v)) = 0 \text{, ebenso } \lim\limits_{v\to\infty}K(\varphi(u,v)) = 0.
+        \end{align*}
+    \end{enumerate}
+\end{examples}
+\begin{question}
+    Existiert $f:\mathbb{R}^{2}\rightarrow\mathbb{R} \ C^{2}$, so dass $\Gamma_{f}$ konstant $-1$ gekrümmt ist?
+\end{question}
+\begin{answer}
+    Nein! (Hilbert 1901)\\
+    Im Spezialfall $f(x,y)=g(x)+h(y)$ mit $g,h:\mathbb{R}\to\mathbb{R} \ C^{2}$ können wir "elementar" zeigen, dass $\Gamma_{f}$ nicht konstant $-1$ gekrümmt sein kann (vergleiche Serie 6). 
+    Mit der obrigen Formel erhalten wir $$K(\varphi(u,v)) = \frac{g_{uu}\cdot h_{vv}}{(1+g_{u}^{2}+h_{v}^{2})^{2}} \stackrel{!}{=} -1$$
+    $\implies g_{uu} \cdot h_{vv} < 0$\\
+    Annahme: $h_{vv} <0, g_{uu}> 0 (\forall(u,v)\in\mathbb{R}^{3}$ da $h,g$ stetig)\\
+    Fixiere (ein beliebiges) $v \in\mathbb{R}$ und erhalte eine Differentialgleichung für $g$ der Form 
+    $$ \frac{g_{uu}\cdot a}{(1+g_{u}^{2}+b^{2})} = -1 $$ mit $a = h_{vv}(v) < 0$ und $b=h_{v}(v)^{2}\geq 0$
+    $$\implies g_{uu} = \underbrace{-\frac{1}{a}}_{>0 und =c} \cdot (1+g_{u}^{2}+b)^{2} = c\cdot (1+g_{u}^{2}+b)^{2} > c\cdot (1 + 2g_{u}^{2})$$
+    Schreibe $s(u) = g_{u}(u) \implies s'>c(1+2s^{2})$ (evtl. reicht sogar $s'>2s^{2})$\\
+    Wir lösen die Differentialgleichung $s' = c\cdot (1 + 2s^{2})$ und bemerken, dass diese in endlicher Zeit divergiert. 
+\end{answer}
+\begin{example}
+    $s'=s^{2}$\\
+    Lösung zur Anfangsbedingung: $s(0) = 1: s(t)=\frac{1}{1-t}$
+\end{example}
 \subsection*{Rotationsflächen}
+Sei $\gamma:\mathbb{R}\to\mathbb{R}^{2}$ eine $C^{2}$-Kurve. Schreibe $\gamma(t) = (r(t),h(t))$ mit $r(t)$ der Rotation und $h(t)$ der Höhe. Wir treffen folgende Annahmen:
+\begin{enumerate}
+    \item $r(t)>0$
+    \item $h'(t)>0$
+    \item $\lvert\dot{\gamma}(t)\rvert = 1$, d.h. $\dot{r}(t)^{2}+\dot{h}(t)^{2} = 1$ ("$\gamma$ ist nach Bogenlänge parametrisiert")
+\end{enumerate}
+\ctikzfig{illustrationen rotationsfläche und dass gamma nicht zweimal auf gleicher x achse höhe durchlaufen darf}
+Konstruiere eine Rotationsfläche mit folgender Parametrisierung:\begin{align*}
+    \varphi:\mathbb{R}\times(0,2\pi) &\to \Sigma\\
+    (u,v) &\mapsto (r(u)cos(v), r(u)sin(v),h(u))
+\end{align*}
+Berechne \begin{align*}
+    &\varphi_{u} = (r'(u)cos(v), r'(u)sin(v),h'(u))\\
+    &\varphi_{v} = (-r(u)sin(v), r(u)cos(v), 0)
+\end{align*}
+Wir erhalten das folgende Einheitsnormalenfeld:
+$$ N(\varphi(u,v)) = (-h'(u)cos(v), -h'(u)sin(v), r'(u))$$
+Kontrolle:
+\begin{itemize}
+    \item $\lvert N\rvert = 1$, d.h. $\langle N,N\rangle = 1$ (ok, da $h'(u)^{2}+r'(u)^{2}=1$)
+    \item $\langle N,\varphi_{u}\rangle = 0$ (ok)
+    \item $\langle N,\varphi_{v}\rangle = 0$ (ok)
+\end{itemize}
+Berechne \begin{align*}
+    &E = \langle\varphi_{u},\varphi_{u}\rangle = 1 \text{ (da } h'^{2}+r'^{2}=1)\\
+    &F = \langle\varphi_{u},\varphi_{v}\rangle = 0\\
+    &G = \langle\varphi_{v},\varphi_{v}\rangle = r(u)^{2}
+\end{align*}
+Weiter \begin{align*}
+    &e = \langle\varphi_{uu},N\rangle = h''(u)r'(u)-h'(u)r''(u)\\
+    &f = \langle\varphi_{uv},N\rangle = 0\\
+    &g = \langle\varphi_{vv},N\rangle = r(u)h'(u)
+\end{align*}
+\begin{align*}
+    \implies K(\varphi(u,v)) &= \frac{eg-f^{2}}{EG-F^{2}} = \frac{(h''r'-h'r'')\cdot r\cdot h'}{r^{2}}\\
+    &= \frac{1}{r}\cdot (h''r'h'-r''h'^{2}) = \frac{1}{r}\cdot (-r'^{2}r''-h'^{2}r'') = -\frac{r''(u)}{r(u)}
+\end{align*}
+Hierbei wurde genutzt, dass $r'^{2} + h'^{2} = 1 \implies 2r'r'' + 2h'h'' = 0$\\
+$K(\varphi(u,v))$ ist nicht von v abhängig!
+
+
 
 \section{Theorema Egregium}
 
