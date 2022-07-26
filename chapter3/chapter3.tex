@@ -4,7 +4,100 @@
 
 \chapter{Geodäten und der Satz von Gauss-Bonnet}
 
+\begin{goal}
+    $\int _{\Sigma} K \ dA = 2\pi \chi (\Sigma)$
+\end{goal}
+
 \section{Isometrien}
+``Isometrien sind Diffeomorphismen, welche die erste Fundamentalform, und deshalb interne
+Distanzen erhalten.''
+Seien $\Sigma _1, \Sigma _2 \subset \mathbb{R}^3$ reguläre Flächen und $V_1 \subset \Sigma_1, V_2 \subset \Sigma_2$ offen.
+
+\begin{definition}
+    Ein ($C^2$)-Diffeomorphismus $h: V_1 \to V_2$ heisst \emph{lokale Isometrie}, falls
+    für alle $p \in V_1$ und alle $v,w \in T_p\Sigma$ gilt:
+    $$\langle (Dh)_p(v), (Dh)_p(w)\rangle _{h(p)}=\langle v,w \rangle _p$$
+    Im Fall $V_1 = \Sigma _1, V_2 = \Sigma _2$ heisst $h: \Sigma _1 \to \Sigma _2$ eine (globale) Isometrie.
+\end{definition}
+
+\begin{proposition}
+    Seien $V_1 \subset \Sigma _1, V_2 \subset \Sigma _2$ offen, $\varphi_1:U_1 \to V_1$
+    eine lokale ($C^2$)-Parametrisierung, und $h: V_1 \to V_2$ ein ($C^2$)-Diffeomorphismus.
+    Dann ist $h$ eine lokale Isometrie, genau dann, wenn die Koeffizientenfunktionen
+    $E_i,F_i,G_i: U_1 \to \mathbb{R} \ (i=1,2)$ bzgl. der lokalen Parametrisierungen
+    $\varphi_1: U_1 \to V_1$ und $\varphi_2 = h \circ \varphi_1 : U_1 \to V_2$ übereinstimmen:
+    $$E_1=E_2, F_1=F_2, G_1=G_2$$
+    \ctikzfig{isometrie grafik} 
+\end{proposition}
+
+\begin{proof}
+    ``$\implies$'' Sei $h:V_1 \to V_2$ eine lokale Isometrie.
+    Berechne $E_1(u,v)=\langle \varphi_{1u}, \varphi_{1u} \rangle _{\varphi_1(u,v)}$ und
+    $E_2(u,v)=\langle \varphi_{2u}, \varphi_{2u} \rangle _{\varphi_2(u,v)}$
+
+    Bemerke
+    \begin{align*}
+        \varphi_{2u}(u,v)&=\frac{d}{du}\varphi_2(u,v)=\frac{d}{du}(h \circ \varphi_1)(u,v) \\
+        &=(Dh)_{\varphi_1(u,v)}\left(\frac{d}{du}\varphi_1(u,v)\right)=(Dh)_{\varphi_1(u,v)}(\varphi_{1u})
+    \end{align*}
+    Daraus folgt
+    $$E_2(u,v)=\langle (Dh)_{\varphi_1(u,v)}(\varphi_{1u}), (Dh)_{\varphi_1(u,v)}(\varphi_{1u}) \rangle _{h \circ \varphi_1(u,v)}= \langle \varphi_{1u}, \varphi_{1,u}\rangle _{\varphi_1(u,v)}$$
+    Beim letzen Schritt wird benutzt, dass $h$ eine lokale Isometrie ist! Also gilt $E_1=E_2$, analog $F_1=F_2, G_1=G_2$.
+
+    ``$\impliedby$'' Seien $p \in V, v,w \in T_p\Sigma_1$.
+    Wähle (die eindeutigen) $q \in U_1, a,b \in \mathbb{R}^2$ mit 
+    $\varphi_1 (q)=p, (D\varphi_1)_q(a)=v, (D\varphi_1)_q(b)=w$
+    \ctikzfig{bildchen fürbeweis prop 1}
+
+    Schreibe $a=a_1e_1 +a_2e_2, b=b_1e_1+b_2e_2$. Berechne
+    \begin{align*}
+        \langle v,w \rangle _p &=\langle (D\varphi_1)_q(a), (D\varphi_1)_q(b)\rangle_{\varphi_1(q)} \\
+        &\vertarrowbox[3ex]{=}{siehe Def. von $E,F,G$} \begin{pmatrix}
+            a_1 & a_2
+        \end{pmatrix}\begin{pmatrix}
+            E_1 & F_1 \\ F_1 & G_1
+        \end{pmatrix}\begin{pmatrix}
+            b_1 \\ b_2
+        \end{pmatrix}
+    \end{align*} und 
+    \begin{align*}
+        \langle (Dh)_p(v), (Dh)_p(w) \rangle _{h(p)} &\vertarrowbox[3ex]{=}{Kettenregel $D(h\circ \varphi_1)_q=(Dh)_{\varphi_1(q)}\circ (D\varphi_1)_q$} \langle D(\overbrace{h \circ \varphi_1}^{\varphi_2})_q(a), D(\overbrace{h \circ \varphi_1}^{\varphi_2})_q(b)\rangle _{h\circ \varphi_1(q)}\\
+        &= \langle a_1\varphi_{2u} + a_2\varphi_{2v}, b_1\varphi_{2u}+b_2\varphi_{2v}\rangle \\
+        &= \begin{pmatrix}
+            a_1 & a_2
+        \end{pmatrix}\underbrace{\begin{pmatrix}
+            E_1 & F_2 \\ F_2 & G_2
+        \end{pmatrix}}_{=\begin{pmatrix}
+            E_1 & F_1 \\ F_1 & G_1
+        \end{pmatrix}}\begin{pmatrix}
+            b_1 \\ b_2
+        \end{pmatrix}
+    \end{align*}
+\end{proof}
+
+\begin{example}[Kreiskegel]
+    Sei $K=\{(x,y,z)\in \mathbb{R}^3 \ | \ x^2 + y^2 = z^2 \} \subset \mathbb{R}^3$ der Kreiskegel
+    mit (lokaler) Parametrisierung
+    \begin{align*}
+        \varphi : \mathbb{R}_{>0} \times (0, 2\pi) &\to K \\
+        (u,v) &\mapsto (\frac{u}{\sqrt{2}}\cos(v), \frac{u}{\sqrt{2}}\sin(v), \frac{u}{\sqrt{2}})
+    \end{align*}
+    \ctikzfig{Illustration Kegel, Isometrie, etc.}
+    Sei $S\subset \mathbb{R}^2$ das Bild der lokalen Parametrisierung
+    \begin{align*}
+        \psi : \mathbb{R}_{>0} &\to \mathbb{R}^2 \qquad (\subset \mathbb{R}^2 \times \{0\}) \\
+        (u,v) &\mapsto (u\cos \frac{v}{\sqrt{2}}, u\sin \frac{v}{\sqrt{2}})
+    \end{align*}
+    Berechne die Koeffizientenfunktionen $E,F,G$ (bzgl. $\varphi$) und $\tilde{E}, \tilde{F}, \tilde{G}$ (bzgl. $\psi$).
+    \begin{align*}
+        E &= \langle \varphi _u, \varphi _u \rangle = 1 = \langle \psi _u, \psi _u \rangle = \tilde{E} \\
+        F &= \langle \varphi _u, \varphi _v \rangle = 0 = \langle \psi _u, \psi _v \rangle = \tilde{F} \\
+        G &= \langle \varphi _v, \varphi _v \rangle = \frac{u^2}{2} = \langle \psi _v, \psi _v \rangle = \tilde{G} 
+    \end{align*}
+    $h = \varphi \circ \psi ^{-1} : S \to K $ ist eine lokale Isometrie (aus Proposition).
+\end{example}
+
+
 \section{Paralleltransport und Geodäten}
 
 \begin{goal}
@@ -25,6 +118,7 @@ Die \underline{horizontale Ableitung} oder ( \underline{kovariante Ableitung} vo
 \begin{align*}
     \frac{Dw}{dt}(t) = \frac{dw}{dt}(t) - \left\langle \frac{dw}{dt}(t), N(\alpha(t))\right\rangle N(\alpha(t))
 \end{align*}
+\ctikzfig{Vektorfeld entlang einer Kurve}
 \end{definition}
 
 \begin{remark}
