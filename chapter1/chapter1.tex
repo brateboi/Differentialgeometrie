@@ -633,4 +633,127 @@ Berechne \begin{align*}
 \end{align*}
 $\implies \mathcal{L} (\alpha) = \int _0^1 \sqrt{(*)} \ dt$
 
+\begin{example}
+    Parametrisiere $\Sigma = S^2$ wie folgt:
+    $$\varphi (u,v)= (\cos(u)\cos(v),\sin(u)\cos(v),\sin(v))$$
+    Sei 
+    \begin{align*}
+        \alpha : [0,2\pi] &\to S^2 \\
+        t &\mapsto (\cos(t), \sin(t), 0)
+    \end{align*}
+    und
+    \begin{align*}
+        \beta : [0, 2\pi] &\to (0,2\pi) \times (-\frac{\pi}{2}, \frac{\pi}{2}) \\
+        t &\mapsto (t,0)
+    \end{align*}
+    Tatsächlich gilt $\alpha (t)=\varphi(t,0) = (\cos(t)\cos(0),\sin(t)\cos(0),\sin(0))$. Daraus folgt
+    $\beta(t)= (u(t), v(t))$ mit $u(t)=t$ und $v(t)=0$
+    Daraus ergibt sich
+    \begin{align*}
+        \mathcal{L}(\alpha) &= \int_0^{2\pi} \sqrt{\dot{u}^2E+2\dot{u}\dot{v}F\cdot \dot{v}^2G} \ dt \\
+        &= \int_0^{2\pi} \sqrt{E (u(t),v(t))} \ dt \qquad \text{siehe oben } E(u,v) = \cos(v)^2 \\
+        &= \int_0^{2\pi} 1 \ dt = 2\pi \qquad \text{hier } v(t)\equiv 0 \implies E\equiv 1
+    \end{align*}
+\end{example}
+
+\subsubsection*{Flächeninhalt}
+Sei $\Sigma \subset \mathbb{R}^3$ eine reguläre Fläche $\varphi : U \to \Sigma$ eine lokale
+Fläche $(C^1)$-Parametrisierung, sowie $A\subset \varphi (U) \subset \Sigma$ ein abgeschlossenes Gebiet
+mit stückweise stetig differenzierbarem Rand ($\partial A=\cup  _{i=1}^n \bild(\gamma _i)$ mit $\gamma : [0,1] \to \Sigma \ C^1$)
+
+\ctikzfig{erstes Flächeninhalt bild}
+
+Setze $B = \varphi ^{-1}(A) \subset (U)$. Definiere
+$$Area(A)=\int _B |Area(P(\varphi_u,\varphi_v))| \ dudv$$
+wobei $P$ das Parallelogram ist, welches von $\varphi_u, \varphi_v \in \mathbb{R}^3$
+aufgespannt wird.
+
+\ctikzfig{zweites Flächeninhalt bild}
+
+\begin{einschub}[Vektorprodukt in $\mathbb{R}^3$]
+    Seien $v = \sum \limits_{i=1}^3 v_ie_i, w = \sum \limits_{j=1}^3 v_je_j \in \mathbb{R}^3$ 
+    Definiere
+    $$v\times w = \begin{pmatrix}
+        v_2w_3 -v_3w_2 \\
+        v_3w_1 -v_1w_3 \\
+        v_1w_2 -v_2w_1
+    \end{pmatrix} \in \mathbb{R}^3$$
+
+    \begin{lemma}
+        $$||u\times w ||_2 = ||v||_2 \cdot ||w||_2 \cdot \sin(\measuredangle (v,w)) = |Area(P(v,w))|$$(verwende $0 \le \measuredangle (v,w) \le \pi$)
+    \end{lemma}
+    \begin{proof}
+        Berechne:
+        \begin{align*}
+            &\langle v,w \rangle _{\mathbb{R}^3}^2 + ||v\times w ||^2 \\
+            &= (v_1w_1+v_2w_2+v_3w_3)^2+(v_2w_3-v_3w_2)^2+(v_3w_1-v_1w_3)^2+(v_1w_2-v_2w_1)^2 \\
+            &= (v_1^2+v_2^2+v_3^2) \cdot (w_1^2+w_2^2+w_3^2)
+        \end{align*}
+        Also $\langle v,w\rangle ^2 + ||v\times w ||^2 = ||v||^2||w||^2$ \textcolor{red}{(*)}.
+        Schlussendlich folgt aus $$\langle v,w\rangle^2=\big(||v||\cdot||w||\cdot \cos \measuredangle (v,w)\big)^2$$
+        und $$\cos^2 + \sin^2 = 1$$dass $$||v\times w||^2 = \big(||v||\cdot||w||\sin \measuredangle(v,w) \big)^2$$ 
+    \end{proof}
+\end{einschub}
+\begin{einschub}[Skalarprodukt in $\mathbb{R}^n$]
+    Seien $v = \sum \limits_{i=1}^n v_ie_i, w = \sum \limits_{j=1}^n v_je_j \in \mathbb{R}^n$ 
+    Definiere
+    $$\langle v,w\rangle = v^Tw = \sum \limits_{i=1}^n v_iw_i \in \mathbb{R}$$
+    \begin{remark}
+        Der Ausdruck $v^Tw$ gilt bezüglich allen orthonormalen Koordinaten.
+    \end{remark}
+    \begin{enumerate}[i)]
+        \item Spezialfall $v=w \implies \langle v,v \rangle = v^Tv = ||v||^2 \qquad$ (Pythagoras)
+        \item $v,w$ allgemein: \\
+        Sei $A \in O(\mathbb{R}^n)$, d.h. $A$ beschreibt einen orthonormalen Basiswechsel. Es gilt also
+        $A^TA = Id$. Deshalb
+        $$\langle Av, Aw \rangle = (Av)^TAw = v^TA^TAw=v^Tw = \langle v,w\rangle $$
+    \end{enumerate}
+    \begin{lemma}
+        $\langle v,w \rangle = ||v||\cdot ||w|| \cdot \cos \measuredangle (v,w)$
+    \end{lemma}
+    \begin{proof}
+        Wir können Koordinaten so wählen, dass (nach Bemerkung) $v=v_1e_1$ (mit $v_1>0$) und $w=w1e_1+w_2e_2$ gilt.
+        Dann gilt
+        $$\langle v,w \rangle = \underbrace{v_1}_{=||v||}w_1 = ||v|| \cdot ||w|| \cos \measuredangle(v,w)$$
+        \ctikzfig{kleines bildchen zum beweis lemma 2}
+    \end{proof}
+    Mit diesen Lemmata erhalten wir
+    \begin{align*}
+        Area(A) &= \int _B |Area(P(\varphi _u, \varphi _v))|\ dudv \qquad \text { Lemma 1 }\\
+        &= \int _B ||\varphi _u \times \varphi _v || \ dudv \\
+        &\overset{\textcolor{red}{(*)}}{=} \int _B \sqrt{\langle \varphi _u, \varphi_u \rangle \langle \varphi _v, \varphi _v\rangle- \langle \varphi _u, \varphi_v\rangle ^2} \ dudv
+    \end{align*}
+\end{einschub}
+Wir erhalten folgende Proposition:
+\begin{proposition}
+    $$Area(A) = \int _B \sqrt{E(u,v)G(u,v)-F(u,v)^2}\ dudv$$
+\end{proposition}
+\begin{remark}
+    Diese Formel gilt bezüglich jeder lokalen Parametrisierung.
+\end{remark}
+
+\begin{examples}
+    \leavevmode
+    \begin{enumerate}
+        \item $S^2 \subset \mathbb{R}^3$
+        \begin{align*}
+            \varphi : (0, 2\pi) \times (-\frac{\pi}{2}, \frac{\pi}{2}) &\to S^2 \\
+            (u,v) &\mapsto (\cos(u)\cos(v), \sin(u)\cos(v), \sin(v))
+        \end{align*}
+        Flächenelement: $\sqrt{EG-F^2}= \sqrt{\cos(v)^2}=|\cos(v)|$ ($-\frac{\pi}{2}<v<\frac{\pi}{2}$).
+        Für $B \subset (0, 2\pi) \times (-\frac{\pi}{2}, \frac{\pi}{2})$ und $A=\varphi(B)$ gilt dann.
+        $$Area(A)=\int _B \cos(v) \ dudv$$
+        Im Grenzfall $B= (0,2\pi) \times (-\frac{\pi}{2},\frac{\pi}{2})$ erhalten wir
+        $$Area(S^2)=\int \limits _0 ^{2\pi} \underbrace{\int \limits _{-\frac{\pi}{2}}^{\frac{\pi}{2}} |\cos(v)| \ dv}_{=2}du = 2\pi \cdot 2 = 4\pi$$
+    
+        \item $T$ Torus (siehe Serie 4) $2\pi a \cdot 2\pi b$.
+    \end{enumerate}
+\end{examples}
+
+\begin{zusatz}
+    Flächenelement $\sqrt{EG-F^2}$. $EG-F^2 = \det \begin{pmatrix}
+        E & F \\ F & G
+    \end{pmatrix}$
+\end{zusatz}
+
 \end{document}
