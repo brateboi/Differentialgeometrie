@@ -97,6 +97,46 @@ Seien $\Sigma _1, \Sigma _2 \subset \mathbb{R}^3$ reguläre Flächen und $V_1 \s
     $h = \varphi \circ \psi ^{-1} : S \to K $ ist eine lokale Isometrie (aus Proposition).
 \end{example}
 
+\begin{corollary}
+    Seien $V_1 \subset \Sigma_1, V_2 \subset \Sigma _2$ offen und
+    $h: V_1 \to V_2$ eine lokale Isometrie. Dann gilt für alle $p\in V_1$
+    $$K(p)=K(h(p))$$ ``Isometrien erhalten die Krümmung''
+\end{corollary}
+\begin{proof}
+    Benutze Theorema Egregium ($K$ ist durch $E,F,G$ bestimmt) und obige Proposition.
+\end{proof}
+
+\begin{remark}
+    Die mittlere Krümmung ist nicht invariant unter (lokalen) Isometrien.
+\end{remark}
+\ctikzfig{isometrie kruemmung}
+
+\subsubsection*{Interne Distanzen}
+Sei $\Sigma \subset \mathbb{R}^3$ eine wegzusammende reguläre Fläche.
+
+\begin{definition}
+    Für $p,q \in \Sigma$ definiere $d_{\Sigma}(p,q)= \inf \{ \mathcal{L}(\gamma) \ | \ \gamma : [0,1]\to \Sigma \ C^1$ mit $\gamma(0)=p, \gamma(1)=q\}$
+    Hier ist $$\mathcal{L}(\gamma)=\int _0 ^1 ||\dot{\gamma}(t)|| \ dt$$
+\end{definition}
+
+\begin{lemma}
+    Sei $h: \Sigma_1 \to \Sigma_2$ eine Isometrie. Dann gilt für alle $p,q \in \Sigma_1$
+    $$d_{\Sigma_1}(h(p), h(q))=d_{\Sigma_1}(p,q)$$
+    ``Isometrien erhalten interne Distanzen''.
+\end{lemma}
+
+\begin{proof}
+    Sei $\gamma:[0,1]\to \Sigma_1 \ C^1$. Berechne
+    \begin{align*}
+        \mathcal{L}(h \circ \gamma) &= \int _0 ^1 \sqrt{\left\langle \frac{d}{dt}h\circ \gamma (t), \frac{d}{dt}h\circ \gamma (t) \right\rangle _{h(\gamma(t))}} \\
+        &= \int _0 ^1 \sqrt{\langle (Dh)_{\gamma (t)}(\dot{\gamma}(t)), (Dh)_{\gamma (t)}(\dot{\gamma}(t)) \rangle _{h(\gamma(t))}} \ dt \\
+        &= \int \sqrt{\langle \dot{\gamma}(t), \dot{\gamma}(t) \rangle _{\gamma(t)}} \ dt \\
+        &= \mathcal{L}(\gamma)
+    \end{align*}
+    $\implies \inf \{ \mathcal{L}(h \circ \gamma) | \dots \} = \inf \{ \mathcal{L}(\gamma) | \dots \} $
+\end{proof}
+
+
 
 \section{Paralleltransport und Geodäten}
 
