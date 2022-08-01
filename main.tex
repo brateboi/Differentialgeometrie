@@ -11,7 +11,16 @@
 % german hyphenation
 \usepackage[german]{babel}
 
+% for colored text
 \usepackage{xcolor}
+
+% fancy arrows in equations
+\newcommand\vertarrowbox[3][6ex]{%
+  \begin{array}[t]{@{}c@{}} #2 \\
+  \left\uparrow\vcenter{\hrule height #1}\right.\kern-\nulldelimiterspace\\
+  \makebox[0pt]{\scriptsize#3}
+  \end{array}%
+}
 
 % for including figures with \includegraphics{}
 \usepackage{graphicx}
