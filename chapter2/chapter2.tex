@@ -541,7 +541,7 @@ Via $\langle\varphi_{uu},\varphi_{u}\rangle$ etc, erhalten wir $\Gamma_{ij}^{k}$
 \end{corollary}
 \begin{proof}[Beweis Korollar]
     Es gilt $E=\langle\varphi_{u},\varphi_{u}\rangle > 0$ da $I_{p}:T_{p}\Sigma\to\mathbb{R}$ positiv definit ist.
-    $$\implies K = -\frac{1}{E}(\dots)$$ wobei die $\dots$ ein Ausdruck in $\Gamma_{ij}^{k}$ und erste partielle Ableitungen, also Ausdruck in $E,F,G$ und zweite partielle Ableitungen ist.
+    $$\implies K = -\frac{1}{E}(\dots)$$ wobei die $\dots$ ein Ausdruck in $\Gamma_{ij}^{k}$ und erste partielle Ableitungen, also Ausdruck in $E,F,G$ und zweite partielle Ableitungen sind.
 \end{proof}
 \begin{remark}
     Das Korollar gilt auch für Flächen der Regularität $C^{2}$.
@@ -556,14 +556,14 @@ Via $\langle\varphi_{uu},\varphi_{u}\rangle$ etc, erhalten wir $\Gamma_{ij}^{k}$
     (Benutze $\varphi_{uv} = fN+\Gamma_{12}^{1}\varphi_{u}+\Gamma_{12}{2}\varphi_{v}$, etc.)
     \begin{recall}
         \begin{align*}
-            \begin{pmatrix}
+            &\begin{pmatrix}
                 a_{11}&a_{21}\\a_{12}&a_{22}
             \end{pmatrix}\cdot \begin{pmatrix}
                 E&F\\F&G
             \end{pmatrix} = -\begin{pmatrix}
                 e&f\\f&g
             \end{pmatrix}\\
-            \implies \begin{pmatrix}
+            &\implies \begin{pmatrix}
                 E&F\\F&G
             \end{pmatrix} = -(a_{ij})^{-1}\cdot\begin{pmatrix}
                 e&f\\f&g
@@ -572,9 +572,9 @@ Via $\langle\varphi_{uu},\varphi_{u}\rangle$ etc, erhalten wir $\Gamma_{ij}^{k}$
             \end{pmatrix}\cdot \begin{pmatrix}
                 e&f\\f&g
             \end{pmatrix}\\
-            \implies E = -\frac{1}{K}\cdot (a_{22}e-a_{21}f)\\
-            \text{bzw. } -E\cdot K = a_{22}e-a_{21}f \text{ (gilt auch für } K=0 \text{)}\\
-            \implies -E\cdot K \overbrace{=}^{(*)} 6 Terme in \Gamma_{ij}^{k} \text{ (siehe Lemma)}
+            &\implies E = -\frac{1}{K}\cdot (a_{22}e-a_{21}f)\\
+            &\text{bzw. } -E\cdot K = a_{22}e-a_{21}f \text{ (gilt auch für } K=0 \text{)}\\
+            &\implies -E\cdot K \overbrace{=}^{(*)} 6 \text{ Terme in } \Gamma_{ij}^{k} \text{ (siehe Lemma)}
         \end{align*}
     \end{recall}
 \end{proof}
