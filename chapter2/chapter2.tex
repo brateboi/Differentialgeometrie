@@ -450,12 +450,135 @@ Weiter \begin{align*}
     &= \frac{1}{r}\cdot (h''r'h'-r''h'^{2}) = \frac{1}{r}\cdot (-r'^{2}r''-h'^{2}r'') = -\frac{r''(u)}{r(u)}
 \end{align*}
 Hierbei wurde genutzt, dass $r'^{2} + h'^{2} = 1 \implies 2r'r'' + 2h'h'' = 0$\\
-$K(\varphi(u,v))$ ist nicht von v abhängig!
-
-
+$K(\varphi(u,v))$ ist nicht von v abhängig!\\
+\emph{Spezialfall: Rotationsflächen mit konstanter Krümmung}\\
+\begin{enumerate}
+     \item $K=0$, d.h. $r''(a)=0$ $(\rightarrow r(a)=a\cdot u+b)$ \\
+    Anfangsbedingung: $r(0)=1, r'(0)=0,h(0)=0 \implies r(a)=1, h(u)=u$ mit $r'^{2}+h'^{2}=1$ und $h'>0 \implies h' = 1$\\
+    Variation der Anfangsbedingung: $r'(0)=a \neq 0$ führt zu einem Kreiskegel:\\
+    (Betrachte hier $\gamma:(x,+\infty)\rightarrow \mathbb{R}^{2}$ statt $\gamma:\mathbb{R}\rightarrow\mathbb{R}^{2})$
+    \item $K=1$, d.h. $r''=-r$\\
+    Anfangsbedingung: $r(0)=1,r'(0)=0,h(0)=0 \implies r(u)=cos(u); h(u)=sin(u)$\\
+    Variation der Anfangsbedingung führt zu vertikal verschobenen Einheitssphären, oder keiner Lösung; \begin{example}
+        $r(0)=2, r'(0)=0,h(0)=0 \implies r(u)=2cos(u), h(u)=\int_{0}^{u} h'(x) dx = \int_{0}^{u} \sqrt{1-4(sin(x))^{2}} dx$ mit $r'^{2}+h'{2}=1$, hierbei handelt es sich um ein elliptisches Integral, nicht ausdruckbar durch elementare Funktionen.\\
+        $$r \ gross \implies \lvert r''\rvert \ gross\\
+          r \ klein \implies \lvert r''\rvert \ klein
+        $$
+    \end{example}
+    \item $K=-1$, d.h. r'' = r\\
+    Mit $r(0)=1, h(0)=0,r'(0)=0 \implies r(u)=\frac{1}{2}(e^{u}+e^{-u})=cosh(u),h(u)=\dots$ Es gilt: $r'(u)=cosh(u)'=sinh(u)=\frac{1}{2}(e^{u}-^{u})$ Folglich 
+    existiert auch hier die Fläche $\Sigma$ nur über einem gewissen Interval der Form $(-h_{0},h_{0})$. (vgl. Serie 7)
+\end{enumerate}
+\ctikzfig{1: ähnlich hourglass figure von ana3 test aber rotierend}
+\ctikzfig{2: Lösungen: Sphäre, und flächen mit spitzen oder mit Rand}
+\ctikzfig{3: Skizze für Bsp. 3}
 
 \section{Theorema Egregium}
-
-
-
+\begin{goal}
+    Die Krümmung ist durch die Koeffizientenfunktionen $E,F,G$ bestimmt. Genauer: durch $E,F,G$ und ihre Ableitungen bestimmt.
+\end{goal}
+Sei $\varphi:U\to V \subset \Sigma$ eine lokale $C^{2}$-Parametrisierung und $N:V\to S^{2}$ die zugehörige lokale Gaussabbildung.
+Für alle $p\in V$ gilt. $$K(p) = \det(DN)_{p} = \frac{eg-f^{2}}{EG-F^{2}}$$
+Matrix von $(DN)_{p}:T_{p}\Sigma\to T_{p}\Sigma$ bezüglich der Basis $${\varphi_{u},\varphi_{v}}: \begin{pmatrix}
+    a_{11} & a_{12}\\ a_{21} & a_{22} \end{pmatrix}$$ das heisst \begin{align*}
+        N_{u} &= (DN)_{\varphi(u,v)}(\varphi_{u}) = a_{11}\cdot \varphi_{u} + a_{21}\cdot\varphi_{v}\\
+        N_{v} &= (DN)_{\varphi(u,v)}(\varphi_{v}) = a_{12}\cdot \varphi_{u} + a_{22}\cdot\varphi_{v}
+    \end{align*}
+Es gilt: $e = \langle\varphi_{uu}, N\rangle, f = \langle\varphi_{uv}, N\rangle, g = \langle\varphi_{vv}, N\rangle$ und wir folgern: $\varphi_{uu}-eN\perp N\\ \implies \varphi_{uu}-eN \in \spann{{\varphi_{u},\varphi_{v}}}$\\
+Ähnlich existieren eindeutige Koeffizienten $\Gamma_{11}^{1},\Gamma_{11}^{2},\Gamma_{12}^{1},\Gamma_{12}^{2},\Gamma_{22}^{1},\Gamma_{22}^{2}\in\mathbb{R}$ sogenannte Christoffelsymbole, mit \begin{align*}
+    \varphi_{uu} &= eN + \Gamma_{11}^{1}\cdot\varphi_{u} + \Gamma_{11}^{2}\cdot\varphi_{v}\\
+    \varphi_{uv} &= fN + \Gamma_{12}^{1}\cdot\varphi_{u} + \Gamma_{12}^{2}\cdot\varphi_{v}\\
+    \varphi_{vv} &= gN + \Gamma_{22}^{1}\cdot\varphi_{u} + \Gamma_{22}^{2}\cdot\varphi_{v}
+\end{align*} Berechne nun $$\langle\varphi_{uu},\varphi_{u}\rangle = \frac{1}{2}(\frac{\partial}{\partial u}(\langle\underbrace{\varphi_{u},\varphi_{u}}_{=E}\rangle)) = \frac{1}{2}E_{u}$$ und 
+$$\langle\varphi_{uu},\varphi_{v}\rangle = \frac{\partial}{\partial u}\langle\varphi_{u},\varphi_{v}\rangle - \langle\varphi_{u},\varphi_{uv}\rangle = F_{u} - \frac{1}{2}E_{v} \ \ (\frac{\partial}{\partial v}\langle\varphi_{u},\varphi_{u}\rangle = 2\cdot\langle\varphi_{u},\varphi_{vu}\rangle)$$
+Anderseits gilt nach obrigen Ansatz für $\varphi_{uu},\varphi_{uv},\varphi_{vv}$ auch \begin{align*}
+    \langle\varphi_{uu},\varphi_{u}\rangle &= \Gamma_{11}^{1}\cdot E + \Gamma_{11}^{2}\cdot F\\
+    \langle\varphi_{uu},\varphi_{v}\rangle &= \Gamma_{11}^{1}\cdot F + \Gamma_{11}^{2}\cdot G
+\end{align*} die gleichheit folgt jeweils aus $\langle N,\varphi_{u}\rangle$
+$$\implies \begin{pmatrix}
+    E&F\\F&G
+\end{pmatrix}\cdot \begin{pmatrix}
+    \Gamma_{11}^{2}\\\Gamma_{11}^{2}
+\end{pmatrix} = \begin{pmatrix}
+    \frac{1}{2} E_{u}\\ F_{u}-\frac{1}{2}E_{v}
+\end{pmatrix}$$
+Analog erhalten wir via $\varphi_{uv}$ und $\varphi_{vv}$ \begin{itemize}
+    \item $\begin{pmatrix}
+        E&F\\F&G
+    \end{pmatrix}\cdot\begin{pmatrix}
+        \Gamma_{12}^{1}\\\Gamma_{12}^{2}
+    \end{pmatrix} = \begin{pmatrix}
+        \frac{1}{2}E_{v}\\\frac{1}{2}G_{v}
+    \end{pmatrix}$
+    \item $\begin{pmatrix}
+        E&F\\F&G
+    \end{pmatrix}\cdot\begin{pmatrix}
+        \Gamma_{22}^{1}\\\Gamma_{22}^{2}
+    \end{pmatrix} = \begin{pmatrix}
+        F_{v}-\frac{1}{2}G_{u}\\\frac{1}{2}G_{v}
+    \end{pmatrix}$
+\end{itemize} Beachte hier: $\det{\begin{pmatrix}
+    E&F\\F&G
+\end{pmatrix}} = EG-F^{2} > 0$, da $I_{p}$ positiv definit ist.
+\begin{consequence}
+    Die $\Gamma_{ij}^{k}$ sind durch $E,F,G$ und ihre partiellen Ableitungen bestimmt.\\
+    $K$ ist durch $E,F,G$ bestimmt.
+\end{consequence}
+\begin{recall}
+    \begin{align*}
+        \varphi_{uu} &= eN+\Gamma_{11}^{1}\varphi_{u} + \Gamma_{11}^{2}\varphi_{v}\\
+        \varphi_{uv} &= fN+\Gamma_{12}^{1}\varphi_{u} + \Gamma_{12}^{2}\varphi_{v}\\
+        \varphi_{vv} &= gN+\Gamma_{22}^{1}\varphi_{u} + \Gamma_{22}^{2}\varphi_{v}
+    \end{align*}
+\end{recall}
+Via $\langle\varphi_{uu},\varphi_{u}\rangle$ etc, erhalten wir $\Gamma_{ij}^{k}$ als Funktion von $E,F,G$ und ihren ersten partiellen Ableitungen.
+\begin{lemma}
+    Sei $\varphi:U\to V\subset\Sigma$ eine lokale $C^{3}$-Parametrisierung. Dann gilt $\forall p\in V:$
+    $$-E\cdot K = (\Gamma_{12}^{2})_{u}-(\Gamma_{11}^{2})_{v}+\Gamma_{12}^{1}\cdot\Gamma_{11}^{2}+\Gamma_{12}^{2}\cdot\Gamma_{12}^{2}-\Gamma_{11}^{2}\cdot\Gamma_{22}^{2}-\Gamma_{11}^{1}\cdot\Gamma_{12}^{2}$$
+\end{lemma}
+\begin{corollary}[Theorema Egregium]
+    Die Krümmung $K$ lässt sich durch $E,F,G$ und deren zwei partiellen Ableitungen ausdrücken.
+\end{corollary}
+\begin{proof}[Beweis Korollar]
+    Es gilt $E=\langle\varphi_{u},\varphi_{u}\rangle > 0$ da $I_{p}:T_{p}\Sigma\to\mathbb{R}$ positiv definit ist.
+    $$\implies K = -\frac{1}{E}(\dots)$$ wobei die $\dots$ ein Ausdruck in $\Gamma_{ij}^{k}$ und erste partielle Ableitungen, also Ausdruck in $E,F,G$ und zweite partielle Ableitungen ist.
+\end{proof}
+\begin{remark}
+    Das Korollar gilt auch für Flächen der Regularität $C^{2}$.
+\end{remark}
+\begin{proof}[Beweis Lemma]
+    Wir berechnen $\varphi_{vuu}=\varphi_{uuv}$ \begin{enumerate}
+        \item $\varphi_{vuu} = \frac{\partial}{\partial v}(\varphi_{uu}) = e_{v}N+e\underbrace{N_{v}}_{a_{12\varphi_{u}+a_{22}\varphi_{v}}}+(\Gamma_{11}^{1})_{v}\varphi_{u}+\Gamma_{11}^{1}\varphi_{uu}+(\Gamma_{11}^{2})_{v}\varphi_{v}+\Gamma_{11}^{2}\varphi_{vu}$
+        \item $\varphi_{uuv} = \frac{\partial}{\partial u}(\varphi_{uv}) = f_{u}N+f\underbrace{N_{u}}_{a_{11\varphi_{u}+a_{21}\varphi_{v}}}+(\Gamma_{12}^{1})_{u}\varphi_{u}+\Gamma_{12}^{1}\varphi_{uu}+(\Gamma_{12}^{2})_{u}\varphi_{v}+\Gamma_{12}^{2}\varphi_{vu}$
+    \end{enumerate}
+    Die $\varphi_{v}$-Komponente von $\varphi_{vuu}$ und $\varphi_{uuv}$ ist gleich, also 
+    $$e\cdot a_{22}+\Gamma_{11}^{1}\Gamma_{12}^{2}+(\Gamma_{11}^{2})_{v}+\Gamma_{11}^{2}\Gamma_{22}^{2} = f\cdot a_{21}+\Gamma_{12}^{1}\Gamma_{11}^{2}+(\Gamma_{12}^{2})_{u}+\Gamma_{12}^{2}\Gamma_{12}^{2} \ \ (*)$$
+    (Benutze $\varphi_{uv} = fN+\Gamma_{12}^{1}\varphi_{u}+\Gamma_{12}{2}\varphi_{v}$, etc.)
+    \begin{recall}
+        \begin{align*}
+            \begin{pmatrix}
+                a_{11}&a_{21}\\a_{12}&a_{22}
+            \end{pmatrix}\cdot \begin{pmatrix}
+                E&F\\F&G
+            \end{pmatrix} = -\begin{pmatrix}
+                e&f\\f&g
+            \end{pmatrix}\\
+            \implies \begin{pmatrix}
+                E&F\\F&G
+            \end{pmatrix} = -(a_{ij})^{-1}\cdot\begin{pmatrix}
+                e&f\\f&g
+            \end{pmatrix} \underbrace{=}_{K = \det(a_{ij})} -\frac{1}{K}\begin{pmatrix}
+                a_{22}&-a_{21}\\-a_{12}&a_{11}
+            \end{pmatrix}\cdot \begin{pmatrix}
+                e&f\\f&g
+            \end{pmatrix}\\
+            \implies E = -\frac{1}{K}\cdot (a_{22}e-a_{21}f)\\
+            \text{bzw. } -E\cdot K = a_{22}e-a_{21}f \text{ (gilt auch für } K=0 \text{)}\\
+            \implies -E\cdot K \overbrace{=}^{(*)} 6 Terme in \Gamma_{ij}^{k} \text{ (siehe Lemma)}
+        \end{align*}
+    \end{recall}
+\end{proof}
+\begin{remark}
+    Ähnliche Ausdrücke erhalten wir für $-F\cdot K$ und $-G\cdot K$.
+\end{remark}
 \end{document}
