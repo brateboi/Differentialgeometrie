@@ -136,7 +136,50 @@ Sei $\Sigma \subset \mathbb{R}^3$ eine wegzusammende reguläre Fläche.
     $\implies \inf \{ \mathcal{L}(h \circ \gamma) | \dots \} = \inf \{ \mathcal{L}(\gamma) | \dots \} $
 \end{proof}
 
+\begin{remark}
+    Isometrien $h: \Sigma_1 \to Sigma_2$ erhalten Distanzen in $R^3$ im allgemeinen nicht!
+\end{remark}
+\begin{example}
+    Sei $\gamma : \mathbb{R} \to \mathbb{R}^2$ eine injektive, nach Bogenlänge parametrisierte $C^2$-Kurve (d.h. $\dot{a}^2+\dot{b}^2=1$).
+    Schreibe $\gamma(t)=(a(t),b(t))$ und definiere $\Sigma \subset \mathbb{R}^3$ als Bild von
+    \begin{align*}
+        \varphi : \mathbb{R}^2 &\to \Sigma \subset \mathbb{R}^3 \\
+        (u,v) &\mapsto (a(u),b(u),v)
+    \end{align*}
+    \ctikzfig{vorhang als isometrie}
+    Berechne $$E=\langle \varphi_u, \varphi_u \rangle = 1, F=\langle \varphi_u, \varphi_v \rangle = 0, G=\langle \varphi_v, \varphi_v \rangle = 1$$
+    Also ist $\varphi : \mathbb{R}^2 \to \Sigma$ eine Isometrie! Im allgemeinen gilt für $(u_1,0),(u_2,0)\in \mathbb{R}^2 (\implies K=0 \text{ für alle } p \in \Sigma)$
+    $$d_{\mathbb{R}^2}(\underbrace{(u_1, 0), (u_2, 0)}_{=|u_1 - u_2|}) \not = d_{\mathbb{R}^3}(\underbrace{\varphi(u_1,0)}_{p},\underbrace{\varphi(u_2,0)}_{q})$$
+\end{example}
 
+\subsubsection*{Isometrien der Ebene}
+Sei $h:\mathbb{R}^2 \to \mathbb{R}^2$ eine Isometrie (bzgl. Standardskalarprodukt auf $\mathbb{R}^2$).
+Dann existieren (eindeutige) $A \in O(\mathbb{R}^2), b \in \mathbb{R}^2$ mit $h(p)=A(p)+b$.
+\begin{remark}
+    Jede Abbildung der Form $p \mapsto A(p)+b$ mit $A\in O(\mathbb{R}^2)$ ist eine Isometrie:
+    $$(Dh)_p = A \text{ und } \langle Av, Aw \rangle = \langle v, w \rangle$$
+\end{remark}
+Sei nun $h : \mathbb{R}^2 \to \mathbb{R}^2$ eine Isometrie. Dann erhält $h$ Distanzen in $\mathbb{R}^2$ (wende obiges Lemma an).
+Betrachte nun die Punkte $0, e_1, e_2 \in \mathbb{R}^2$ und deren Bilder $h(0), h(e_1), h(e_2) \in \mathbb{R}^2$.
+Setze $b=h(0)$
+\ctikzfig{bildchen isometrien der ebene}
+Es existiert $A\in O(\mathbb{R}^2)$ mit $A(0)+b=h(0), A(e_1)+b=h(e_1), A(e_2)+b = h(e_2)$.
+Setze $\tilde{h}(p)=A(p)+b$. Dann ist $h^{-1}\circ \tilde{h}: \mathbb{R}^2 \to \mathbb{R}^2$ eine Isometrie mit Fixpunkten $0,e_1,e_2 \implies h^{-1}\circ \tilde{h} = Id_{\mathbb{R}^2}$, also $\tilde{h}= h$.
+
+\begin{lemma}
+    Seien $\varphi , \psi : \Sigma \to \Sigma $ Isometrien. Dann sind $\varphi ^{-1}$ und $\varphi \circ \psi : \Sigma \to \Sigma$ Isometrien.
+\end{lemma}
+\begin{proof}
+    Benutze $(D\varphi^{-1})_p=(D\varphi)^{-1}_{\varphi^{-1}(p)}$ und $(D\varphi \circ \psi)_p=(D\varphi)_{\psi (p)}\circ (D\psi)_{p}$.
+\end{proof}
+\begin{consequence}
+    Die Isometrien von $\Sigma$ bilden unter der Komposition eine Gruppe mit neutralem Element $Id_{\Sigma}$.
+    $Iso(\Sigma)= \{h: \Sigma \to \Sigma \ | \ h \text{ ist eine Isometrie} \}$ Isometriegruppe von $\Sigma$.
+\end{consequence}
+
+\begin{examples}
+    
+\end{examples}
 
 \section{Paralleltransport und Geodäten}
 
