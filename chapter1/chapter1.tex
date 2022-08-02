@@ -50,7 +50,7 @@ $\forall p \in M$ zwei offene Mengen $U,V \subset \mathbb{R}^n$ mit $p \in U$ un
 
 \begin{example}
 \begin{minipage}[t]{30em}
-Die $ \left( \text{x-Achse } \cup \text{ y-Achse}\right) \setminus \{0\} = M$ ist zwar lokal diffeomorph zu $\mathbb{R} \times \{0\} \subset \mathbb{R}^2$, ist aber nicht abgeschlossen. Also \underline{keine} UMF in $\mathbb{R}^2$! 
+Die $ \left( \text{x-Achse } \cup \text{ y-Achse}\right) \setminus \{0\} = M$ ist zwar lokal diffeomorph zu $\mathbb{R} \times \{0\} \subset \mathbb{R}^2$, ist aber nicht abgeschlossen. Also \emph{keine} UMF in $\mathbb{R}^2$! 
 \end{minipage}
 \begin{minipage}{1em}
 \tikzfig{bsp_non_umf}
@@ -64,8 +64,8 @@ Wie konstruieren wir nicht triviale Beispiele von Untermannigfaltigkeiten?
 
 \begin{definition}
 Sei $f \colon \mathbb{R}^n \to \mathbb{R}^m \ C^1$ mit $m<n$.
-Ein Punkt $p$ heisst \underline{regulär} (für f), falls das Differential $\left(Df\right)_p \colon \mathbb{R}^n
-\to \mathbb{R}^m$ surjektiv ist. Ein Wert $w \in \mathbb{R}^m$ heisst \underline{regulär}, falls alle $p \in f^{-1}(w)$ regulär sind. Nicht reguläre Punkte/Werte heissen \underline{kritisch}.
+Ein Punkt $p$ heisst \emph{regulär} (für f), falls das Differential $\left(Df\right)_p \colon \mathbb{R}^n
+\to \mathbb{R}^m$ surjektiv ist. Ein Wert $w \in \mathbb{R}^m$ heisst \emph{regulär}, falls alle $p \in f^{-1}(w)$ regulär sind. Nicht reguläre Punkte/Werte heissen \emph{kritisch}.
 \end{definition}
 
 \begin{remark}
@@ -73,7 +73,7 @@ Falls $w \not \in \bild (f)$, dann ist $w$ auch regulär.
 \end{remark}
 
 \noindent\fbox{\begin{minipage}{30em}
-Im Spezialfall $k=2$ und $n=3$ heisst $M \subset \mathbb{R}^3$ eine \underline{reguläre Fläche}.
+Im Spezialfall $k=2$ und $n=3$ heisst $M \subset \mathbb{R}^3$ eine \emph{reguläre Fläche}.
 \end{minipage}}
 
 \begin{theorem}
@@ -99,7 +99,7 @@ Dann ist das Urbild $f^{-1}(w) = \{ p \in \mathbb{R}^n \ \vert \ f(p) = w \} \su
     \langle p+h, e_3 \rangle &= \langle p, e_3 \rangle + \langle h, e_3 \rangle + 0
     \end{align*}
     \end{recall}
-    Insbesondere ist $\forall p\in \mathbb{R}^3 \left(Df\right)_p \colon \mathbb{R}^3 \to \mathbb{R}$ surjektiv, da der Gradient $\\ \left(\nabla f \right)_p = e_3 \not = 0$ \quad \underline{Gradient}: Für $f \colon \mathbb{R}^n \to \mathbb{R}$ gilt $\left(Df\right)_p(h) = \langle \left(\nabla f\right)_p, h \rangle$. \\
+    Insbesondere ist $\forall p\in \mathbb{R}^3 \left(Df\right)_p \colon \mathbb{R}^3 \to \mathbb{R}$ surjektiv, da der Gradient $\\ \left(\nabla f \right)_p = e_3 \not = 0$ \quad \emph{Gradient}: Für $f \colon \mathbb{R}^n \to \mathbb{R}$ gilt $\left(Df\right)_p(h) = \langle \left(\nabla f\right)_p, h \rangle$. \\
     Wir folgern, dass für alle $w \in \mathbb{R}$ die Menge $f^{-1}(w)=\mathbb{R}^2 \times \{0\} \subset \mathbb{R}^3$ eine Untermannigfaltigkeit der Dimension $3-1=2$
     
     \item $\begin{aligned}[t]
@@ -119,12 +119,12 @@ Dann ist das Urbild $f^{-1}(w) = \{ p \in \mathbb{R}^n \ \vert \ f(p) = w \} \su
     $\implies (\nabla f)_p = 2p$ \quad Also ist $(Df)_p \colon \mathbb{R}^3 \to \mathbb{R}$ surjektiv $\iff p \not =0$\\
     Wir folgern, dass für alle $w \not = 0$ die Menge $f^{-1}(w) = \{p \in \mathbb{R}^3 \ \vert \ ||p||^2 _2 = w \}$ eine Untermannigfaltigkeit der Dimension $3-1 = 2$ ist.\\
     
-    \begin{minipage}{2.5em} \underline{$w < 0$} \begin{align*} \emptyset \end{align*}
+    \begin{minipage}{2.5em} \emph{$w < 0$} \begin{align*} \emptyset \end{align*}
     \end{minipage}
     \qquad
-    \begin{minipage}{5em} \underline{$w = 0$} \begin{align*} \Dot{} \quad 0 \end{align*}
+    \begin{minipage}{5em} \emph{$w = 0$} \begin{align*} \Dot{} \quad 0 \end{align*}
     \end{minipage}
-    \begin{minipage}{5em} \underline{$w > 0$} \begin{align*} \end{align*}
+    \begin{minipage}{5em} \emph{$w > 0$} \begin{align*} \end{align*}
     \end{minipage}
     \tikzfig{sphere_umf}
     
@@ -132,7 +132,7 @@ Dann ist das Urbild $f^{-1}(w) = \{ p \in \mathbb{R}^n \ \vert \ f(p) = w \} \su
     $f \colon \mathbb{R}^3 \to \mathbb{R}, \ f(x,y,z)=x^2+y^2-z^2$.
     Berechne $(\nabla f)_p = (2x, 2y, -2z), p = (x,y,z)$
     Also $(Df)_p \colon \mathbb{R}^3 \to \mathbb{R}$ surjektiv $\iff p \not = 0$.
-    \underline{Folgerung} $w \not = 0 \implies f^{-1} \subset \mathbb{R}^3$ UMF der Dimension $2$.
+    \emph{Folgerung} $w \not = 0 \implies f^{-1} \subset \mathbb{R}^3$ UMF der Dimension $2$.
     \ctikzfig{third_example_umf}
 \end{enumerate}
 \end{examples}
@@ -152,7 +152,7 @@ mit $0\in A, \ w\in B$ und $p \in V$ sowie ein $C^1$-Diffeomorphismus $g\colon A
 \end{enumerate}
 Die Niveaumenge $f^{-1}$ ist lokal gleich dem Graphen einer Funktion der Form $k \mapsto g(k,y)$.
 Insbesondere gilt: $f^{-1} \cap V = g(A\times \{w\})$. Wir folgern, dass $f^{-1}(w)$ eine UMF (via $\varphi = g^{-1}$) der Dimension $k=n-m$ ist. Da $\dim K = \dim (\mathbb{R}^n)- \dim(\bild(Df)_p)$. \newline \newline
-\underline{Bild}:
+\emph{Bild}:
 \ctikzfig{proof_theorem1}
 \end{proof}
 
@@ -161,13 +161,13 @@ Insbesondere gilt: $f^{-1} \cap V = g(A\times \{w\})$. Wir folgern, dass $f^{-1}
 \section{Lokale Parametrisierung von Untermannigfaltigkeiten}
 \begin{definition}
 Eine $C^1$-Abilldung $f : \mathbb{R}^k \to \mathbb{R}^n$ heisst
-\underline{lokale Einbettung} beim Punkt $p \in \mathbb{R}^k$ falls $(Df)_p : \mathbb{R}^k \to \mathbb{R}^n$ \underline{injektiv} ist. $(k \leq n$
+\emph{lokale Einbettung} beim Punkt $p \in \mathbb{R}^k$ falls $(Df)_p : \mathbb{R}^k \to \mathbb{R}^n$ \emph{injektiv} ist. $(k \leq n$
 \end{definition}
 
 \begin{theorem}
 Sei $f : \mathbb{R}^k \to \mathbb{R}^n$ eine lokale Einbettung bei $p \in \mathbb{R}^k$. Dann existiert eine offene Menge
-$W \subset \mathbb{R}^k$ mit $p \in W$, sodass $f(W) \subset \mathbb{R}^n $ eine \underline{offene Teilmenge} einer Untermannigfaltigkeit $M \subset \mathbb{R}^n$ ist. \newline
-In diesem Kontext heisst $f$ eine \underline{lokale Parametrisierung} von $M$ bei $f(p) \in M$.
+$W \subset \mathbb{R}^k$ mit $p \in W$, sodass $f(W) \subset \mathbb{R}^n $ eine \emph{offene Teilmenge} einer Untermannigfaltigkeit $M \subset \mathbb{R}^n$ ist. \newline
+In diesem Kontext heisst $f$ eine \emph{lokale Parametrisierung} von $M$ bei $f(p) \in M$.
 \end{theorem}
 
 \begin{examples}
@@ -298,11 +298,11 @@ Sei $M \subset \mathbb{R}^n$ eine $C^1$-UMF der Dimension $k$ und $p \in M$. Wä
 \mathbb{R}^n$ stetig differenzierbar mit $\varphi(U) \subset M, \varphi (0)=p \ (0 \in U), \varphi$ injektiv und für alle $p\in U$ ist $(D\varphi)_q : \mathbb{R}^k \to \mathbb{R}^n $ injektiv. Setze
 \begin{align*}
     T_pM = \bild\left((D\varphi)_0\right) < \mathbb{R}^n
-\end{align*} der \underline{Tangentialraum} von $M$ bei $p$.
+\end{align*} der \emph{Tangentialraum} von $M$ bei $p$.
 \end{definition}
 
 \begin{remark}
-Die Dimension von $T_pM < \mathbb{R}^n$ ist $k$, da $(D\varphi)_0 : \mathbb{R}^k \to \mathbb{R}^n$ injektiv ist. Im Falle $k=2$ (d.h. $M$ ist eine Fläche) nennen wir $T_pM$ \underline{Tangentialebene} 
+Die Dimension von $T_pM < \mathbb{R}^n$ ist $k$, da $(D\varphi)_0 : \mathbb{R}^k \to \mathbb{R}^n$ injektiv ist. Im Falle $k=2$ (d.h. $M$ ist eine Fläche) nennen wir $T_pM$ \emph{Tangentialebene} 
 \end{remark}
 
 
@@ -385,7 +385,7 @@ $\gamma ' (0)$ für $C^1$-Wege $\gamma : (-\varepsilon, \varepsilon) \to M$ mit 
 \newpage
 
 \subsubsection*{Differenzierbare Abbildung zwischen UMF}
-Sei $M \subset \mathbb{R}^n$ eine $C^1$-UMF. Eine Abbildung $f : M \to \mathbb{R}^m$ heisst \underline{differenzierbar} im Punkt $p \in M$, falls ein $U \subset \mathbb{R}^n$ offen existiert mit
+Sei $M \subset \mathbb{R}^n$ eine $C^1$-UMF. Eine Abbildung $f : M \to \mathbb{R}^m$ heisst \emph{differenzierbar} im Punkt $p \in M$, falls ein $U \subset \mathbb{R}^n$ offen existiert mit
 $p\in U$, sowie $F: U \to \mathbb{R}^m$ differenzierbar mit $F\vert_{U \cap M} = f \vert_{U \cap M}$.
 Insbesondere sind Einschränkungen von differenzierbaren Abb. $f:\mathbb{R}^n \to \mathbb{R}^m$ auf UMF $M \subset \mathbb{R}^n$ differenzierbar (in allen Punkten).
 
@@ -424,12 +424,12 @@ Beachte: $\delta$ und $\bar \delta$ stimmen überein mit $f \circ \gamma (t) \im
 \end{proof}
 
 \begin{remark}
-Es gilt die \underline{Kettenregel}. Seien $M \subset \mathbb{R}^m,N\subset \mathbb{R}^n, L \subset \mathbb{R}^l \ C^1$-UMF und $f:M\to N , g:N \to L$ in den Punkten $p \in M$ bzw. $f(p)\in N$ differenzierbar.
+Es gilt die \emph{Kettenregel}. Seien $M \subset \mathbb{R}^m,N\subset \mathbb{R}^n, L \subset \mathbb{R}^l \ C^1$-UMF und $f:M\to N , g:N \to L$ in den Punkten $p \in M$ bzw. $f(p)\in N$ differenzierbar.
 Dann ist $g \circ f$ im Punkt $p \in M$ differenzierbar, es gilt
 \begin{align*}
     \big(D(g \circ f)\big)_p = (Dg)_{f(p)} \circ (Df)_p : T_pM \to T_{g\circ f(p)}L
 \end{align*}
-\underline{Grund:} Kettenregel gilt für alle Erweiterungen $F, G$.
+\emph{Grund:} Kettenregel gilt für alle Erweiterungen $F, G$.
 \end{remark}
 
 \subsubsection{Beispiel einer differenzierbaren Abbildung zwischen UMF}
@@ -468,7 +468,7 @@ Ein Skalarprodukt auf einem reellen Vektorraum $V$ ist eine Abbildung $\langle \
 \begin{itemize}
     \item Positivität: $\langle v, v \rangle \ge 0 \ \text{für alle } v \in V$ und $\langle v, v \rangle = 0 \iff v = 0$.
 \end{itemize}
-Jedes Skalarprodukt definiert eine positiv definite \underline{quadratische Form} q d.h.
+Jedes Skalarprodukt definiert eine positiv definite \emph{quadratische Form} $q$ d.h.
 \begin{enumerate}[(i)]
     \item $\forall v \in V, \lambda \in \mathbb{R} : q(\lambda v) = \lambda ^2 q(v)$
     \item $B(v,w) = q(v+w) - q(v) - q(w)$ ist bilinear in $v,w$.
@@ -484,7 +484,7 @@ Sei nun $ \Sigma \subset \mathbb{R}^3$ eine reguläre Fläche. Wir erhalten in j
     \langle \cdot , \cdot \rangle _p = T_p \Sigma \times T_p \Sigma & \to \mathbb{R} \\
     \langle v, w \rangle & \mapsto \langle v, w \rangle _{\mathbb{R}^3}
 \end{align*}
-Das Feld von Skalarprodukten $p \mapsto \langle \cdot , \cdot \rangle _p $ heisst \underline{Riemannsche Metrik} auf $ \Sigma$. Die zugehörige quadratische Form $ I_p : T_p \Sigma \to \mathbb{R}$ heisst \underline{erste Fundamentalform} von $\Sigma$ an der Stelle $p$.
+Das Feld von Skalarprodukten $p \mapsto \langle \cdot , \cdot \rangle _p $ heisst \emph{Riemannsche Metrik} auf $ \Sigma$. Die zugehörige quadratische Form $ I_p : T_p \Sigma \to \mathbb{R}$ heisst \emph{erste Fundamentalform} von $\Sigma$ an der Stelle $p$.
 \subsubsection*{Beschreibung durch Koeffizienten}
 
 Sei $\langle \ , \ \rangle : \mathbb{R}^2 \times \mathbb{R}^2$ ein Skalarprodukt.
