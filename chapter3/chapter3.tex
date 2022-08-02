@@ -174,12 +174,50 @@ Setze $\tilde{h}(p)=A(p)+b$. Dann ist $h^{-1}\circ \tilde{h}: \mathbb{R}^2 \to \
 \end{proof}
 \begin{consequence}
     Die Isometrien von $\Sigma$ bilden unter der Komposition eine Gruppe mit neutralem Element $Id_{\Sigma}$.
-    $Iso(\Sigma)= \{h: \Sigma \to \Sigma \ | \ h \text{ ist eine Isometrie} \}$ Isometriegruppe von $\Sigma$.
+    $\Iso(\Sigma)= \{h: \Sigma \to \Sigma \ | \ h \text{ ist eine Isometrie} \}$ Isometriegruppe von $\Sigma$.
 \end{consequence}
 
 \begin{examples}
-    
+    \leavevmode
+    \begin{enumerate}
+        \item $\Sigma = \mathbb{R}^2$ (bzw. $\mathbb{R}^2 \times \{0\} \subset \mathbb{R}^3$). Sei $\varphi \in \Iso(\mathbb{R}^2)$.
+        Dann existiert (eindeutige) $A \in O(\mathbb{R}^2)$ und $b\in \mathbb{R}^2$ mit $h(p)=A(p)+b$.
+        \begin{question}
+            Gilt $\Iso(\mathbb{R}^2) \simeq O(\mathbb{R}^2) \times \mathbb{R}^2$? (D.h. isomorph )    
+        \end{question}
+        Nein! Grund: Schreibe $h_{1}(p)=A_1(p)+b_1$, bzw. $h_{2}(p)=A_2(p)+b_2$.
+        Dann gilt 
+        $$h_1 \circ h_2 (p) = h_1(A_2p+b_2)=A_1A_2p+\overbrace{A_1b_2+b_1}^{\not = b_1+b_2}$$
+        $\Iso (\mathbb{R}^2) \simeq O(\mathbb{R}^2) \ltimes_{\alpha} \mathbb{R}^2 $ ist ein \emph{semidirektes Produkt}.
+        \begin{align*}
+            \alpha : O(\mathbb{R}^2) &\to \Aut(\mathbb{R}^2) \text{ Automorphismus} \\
+            A &\mapsto h_A : \mathbb{R}^2 \to \mathbb{R}^2, b \mapsto Ab
+        \end{align*}
+        Multiplikationsvorschrift in einem semidirekten Produkt.
+        \begin{align*}
+            &G \ltimes_{\alpha}H, \alpha:G \to \Aut(H) \\
+            &(g_1,h_1) \circ (g_2,h_2) = (g_1g_2,h_1\alpha(g_1)(h_2))
+        \end{align*}
+        Im Spezialfall $\alpha = Id$ ist es ein direktes Produkt.
+
+        \item $\Sigma = S^2 = \{(x,y,z)\in \mathbb{R}^3 \ | \ x^2 + y^2 + z^2 = 1 \} \subset \mathbb{R}^3$
+        $$\Iso(S^2) \vertarrowbox[3ex]{\simeq}{$h \in \Iso(S^2)$ ist durch die Bilder dieser (allgemeiner) Punkte bestimmt} O(\mathbb{R}^3)$$
+
+        \item $\Sigma = S^1 \times S^1$
+        $$\Iso (S^1\times S^1) \simeq \underbrace{\mathbb{Z}/2\mathbb{Z}}_{=\{Id, s\}} \ltimes O(\mathbb{R}^2)$$
+        \item $\Gamma_f $ für $f(x,y)=x^2+y^2$ $$\Iso(\Gamma_f)=O(\mathbb{R}^2)$$
+        \item $\Sigma =$
+        \item \ctikzfig{kleiner huegel}
+        \item \ctikzfig{drei kleine huegel}
+    \end{enumerate}
 \end{examples}
+
+Weiterführend:
+\begin{theorem}[Hurwitz]
+    Sei $\Sigma$ eine geschlossene Fläche mit konstanter Krümmung $-1$ (insbesondere ist dies keine reguläre Fläche in $\mathbb{R}^3$).
+    Dann gilt:
+    $$|\Iso (\Sigma)| \le 84(g-1) \qquad \text{$g$ Geschlecht der Fläche}$$
+\end{theorem}
 
 \section{Paralleltransport und Geodäten}
 
