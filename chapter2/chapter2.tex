@@ -5,66 +5,94 @@
 \chapter{Die Geometrie der Gaussabbildung}
 
 \section{Gaussabbildung}
-\begin{definition}
-    Sei $\Sigma \subset \mathbb{R}^{3}$ eine reguläre Fläche und $V \subset \Sigma$ offen. Eine stetige Abbildung $N:V \to S^3$ heisst \emph{Einheitsnormalenfeld} (oder lokale Gauss-Abbildung), falls 
-    \begin{align*}
-        \forall p \in V \text{ gilt: } N(q)\perp T_{p}\Sigma
-    \end{align*}
-\end{definition}
-\begin{zusatz}
-    Flächenelement $\sqrt{EG-F^{2}}$
-    \begin{align*}
-        EG-F^{2} = \det\begin{pmatrix} E & F \\ F & G \end{pmatrix}
-    \end{align*}
-\end{zusatz}
+
+
+%% For figures without text: \includegraphics[width=8em]{figures/Einheitsnormalenfeld.pdf}
+
+\begin{minipage}{0.7\columnwidth}
+    \begin{definition}
+        Sei $\Sigma \subset \mathbb{R}^{3}$ eine reguläre Fläche und $V \subset \Sigma$ offen. Eine stetige Abbildung $N:V \to S^3$ heisst \emph{Einheitsnormalenfeld} (oder lokale Gaussabbildung), falls für alle $p \in V$ gilt
+        \begin{align*}
+            N(q)\perp T_{p}\Sigma
+        \end{align*}
+    \end{definition}
+\end{minipage}
+\hspace{0.05\linewidth}
+\begin{minipage}{0.3\columnwidth}
+    \begin{figure}[H]
+        \centering
+        \def\svgwidth{\textwidth}
+        \input{figures/Einheitsnormalenfeld.pdf_tex}
+        \caption*{Einheitsnormalenfeld}        
+    \end{figure}
+\end{minipage}
+
 \begin{existence}
-    Definiere $\begin{aligned}[t]
+    Definiere
+    \begin{align*}
         N : V & \to S^{2} \\
-        q & \mapsto \frac{\varphi{u}(q) \times \varphi_{v}(q)}{\lVert \varphi_{u}(q) \times \varphi_{v}(q) \rVert_{2}} 
-    \end{aligned}$ \qquad \\
+        q & \mapsto \frac{\varphi_{u}(q) \times \varphi_{v}(q)}{\lVert \varphi_{u}(q) \times \varphi_{v}(q) \rVert_{2}}
+    \end{align*}
     Dieser Ausdruck ist stetig in $q$, da $\varphi_{u}$ und $\varphi_{v}$ stetig sind.
 \end{existence}
 \begin{uniqueness}
-    Falls $V$ zusammenhängend ist, dan ist $N:V \to S^{2}$ bis auf Vorzeichen eindeutig festgelegt $:\pm N$.
+    Falls $V$ zusammenhängend ist, dann ist $N:V \to S^{2}$ bis auf Vorzeichen eindeutig festgelegt $:\pm N$.
 \end{uniqueness}
 \begin{remark}
     Falls $\Sigma \subset \mathbb{R}^{3}$ geschlossen ist (d.h. kompakt und ohne Rand), dann existiert sogar ein globales Einheitsnormalenfeld $N:\Sigma \to S^{2}$, genannt \emph{Gaussabbildung}.
     Tatsächlich trennt eine solche Fläche $\mathbb{R}^{3}$ in zwei Zusammenhangskomponenten. Für (nicht-geschlossene) reguläre Fläche $\Sigma \subset \mathbb{R}^{3}$ gilt: Es existiert $N:\Sigma \to S^{2}$ stetiges Einheitsnormalenfeld genau dann,
     wenn $\Sigma$ \emph{orientierbar} ist.
 \end{remark}
-\ctikzfig{zwei zeichnungen, torus und moebiusband}
-Sei nun $\varphi : U \to V \subset \Sigma$ eine lokale $C^{1}$-Parametrisierung und $N:V \to S^{2}$ eine lokale Gaussabbildung. Dann gilt $\forall q \in V$:
+\begin{figure}[H]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{figures/Orientierbarkeit.pdf_tex}
+    \caption*{orientierbarer Brezel, Möbiusband ist nicht orientierbar}        
+\end{figure}
+
+Sei nun $\varphi : U \to V \subset \Sigma$ eine lokale $C^{1}$-Parametrisierung und $N:V \to S^{2}$ eine lokale Gaussabbildung. Dann gilt für alle $q \in V$:
+
+
 \begin{itemize}
-    \item $N(q)\perp T_{q}\Sigma$
-    \item $N(q)\perp T_{N(q)}\Sigma$
+    \item $N(q) \perp T_{q}\Sigma$
+    \item $N(q) \perp T_{N(q)}\Sigma$
 \end{itemize}
-$\implies T_{q}\Sigma = T_{N(q)}S^{2}$
-für letzteres gilt $\forall p \in S^{2}: p\perp T_{p}S$\\ 
-Falls $N:V \to S^{2}$ sogar differenzierbar ist, dann erhalten wir $\forall p \in V$ eine Abbildung
+Wir schliessen (da in $\mathbb{R}^3$): $$T_{q}\Sigma = T_{N(q)}S^{2}$$
+Bei letzterem gilt also für alle $ p \in S^{2}: p\perp T_{p}S^2$.
+Falls $N:V \to S^{2}$ sogar differenzierbar ist, dann erhalten wir für alle $ p \in V$ eine Abbildung
 \begin{align*}
     (DN)_{p}: T_{p}\Sigma \to T_{N(p)}S^{2} = T_{p}\Sigma    
 \end{align*}
 die \emph{Weingartenabbildung}.
 
-\begin{definition}
-    \begin{align*}
-        K(p) = \det{(DN)_{p}}\in \mathbb{R}\\
-        \text{\emph{Gaussische Krümmung} im Punkt } p \in \Sigma
-    \end{align*}
+\begin{definition}$K(p) = \det{(DN)_{p}}\in \mathbb{R}$. Die \emph{Gausssche Krümmung} im Punkt $p \in \Sigma$
 \end{definition}
+
 \begin{remark}
-    $K(p)$ hängt nicht von der Wahl von N ab, \\da $\det{-(DN)_{p}} = (-1)^{2} \cdot \det{(DN)_{p}}$ ist.
+    $K(p)$ hängt nicht von der Wahl von $N$ ab, da $$\det(-(DN)_{p}) = (-1)^{2} \det(DN)_{p}$$
 \end{remark}
-\begin{example}
-    \begin{enumerate} \leavevmode
-        \item $\Sigma = \mathbb{R}^{2} \times \{0\} \subset \mathbb{R}^{3}\\
-        \begin{aligned}
-            N : \Sigma & \to S^{2}\\
-            q & \mapsto e_{3} \text{(oder $-e_{3}$)}\\
-        \end{aligned}\\
-        N$ ist konstant, also gilt $\forall q \in \Sigma$ 
-        $(DN)_{q} = 0; K(q) = 0$.
-        \ctikzfig{K equiv to 1}
+\begin{examples}
+    \leavevmode
+    \begin{enumerate}
+        \item 
+        \begin{minipage}[t]{0.6\columnwidth}
+            $\Sigma = \mathbb{R}^{2} \times \{0\} \subset \mathbb{R}^{3}$
+            \begin{align*}
+                N : \Sigma & \to S^{2}\\
+                q & \mapsto e_{3} \qquad \text{(oder$-e_{3}$)}\\
+            \end{align*}
+        \end{minipage}
+        \begin{minipage}[t]{0.2\columnwidth}
+            \begin{figure}[H]
+                \centering
+                \def\svgwidth{\textwidth}
+                \input{figures/kruemmung_ebene.pdf_tex}
+            \end{figure}
+        \end{minipage}
+
+        $N$ ist konstant, also gilt für alle $q \in \Sigma$: $(DN)_{q} = 0, K(q) = 0$.
+
+
         \item $\Sigma = S^{2} \subset \mathbb{R}^{3}$ (Einheitssphäre)\\
         $\begin{aligned}
             N: S^{2} &\to S^{2}\\
@@ -90,7 +118,7 @@ die \emph{Weingartenabbildung}.
         Wir bestimmen $(DN)_{q}\stackrel{(\text{*})}{=} v$\\
         (*) Erklärung: Die Einschränkung von $N$ auf $S'\times \{0\}$ ist die Identität. Folglich ist die Abbildungsmatrix von $(DN)_{q}$ bezüglich der Basis $\{ e_{3}, -y \cdot e_{1} + x \cdot e_{2} \}$
     \end{zusatz}
-\end{example}
+\end{examples}
 \begin{definition}
     Die \emph{mittlere Krümmung} im Punkt $p \in \Sigma$ ist $H(p) = \frac{1}{2} \text{Spur}((DN)_{p})\in \mathbb{R}$, welche allerdings nur bis auf Vorzeichen definiert ist:
     \begin{align*}
