@@ -640,26 +640,26 @@ Wir schliessen, dass $K(\varphi(u,v))$ nicht von $v$ abhängig ist!
 \end{goal}
 Sei $\varphi:U\to V \subset \Sigma$ eine lokale $C^{2}$-Parametrisierung und $N:V\to S^{2}$ die zugehörige lokale Gaussabbildung.
 Für alle $p\in V$ gilt. $$K(p) = \det(DN)_{p} = \frac{eg-f^{2}}{EG-F^{2}}$$
-Matrix von $(DN)_{p}:T_{p}\Sigma\to T_{p}\Sigma$ bezüglich der Basis $${\varphi_{u},\varphi_{v}}: \begin{pmatrix}
-    a_{11} & a_{12}\\ a_{21} & a_{22} \end{pmatrix}$$ das heisst \begin{align*}
-        N_{u} &= (DN)_{\varphi(u,v)}(\varphi_{u}) = a_{11}\cdot \varphi_{u} + a_{21}\cdot\varphi_{v}\\
-        N_{v} &= (DN)_{\varphi(u,v)}(\varphi_{v}) = a_{12}\cdot \varphi_{u} + a_{22}\cdot\varphi_{v}
+Matrix von $(DN)_{p}:T_{p}\Sigma\to T_{p}\Sigma$ bezüglich der Basis $$\{\varphi_{u},\varphi_{v}\}: \begin{pmatrix}
+    a_{11} & a_{12}\\ a_{21} & a_{22} \end{pmatrix}$$ dass heisst \begin{align*}
+        N_{u} &= (DN)_{\varphi(u,v)}(\varphi_{u}) = a_{11} \varphi_{u} + a_{21}\varphi_{v}\\
+        N_{v} &= (DN)_{\varphi(u,v)}(\varphi_{v}) = a_{12} \varphi_{u} + a_{22}\varphi_{v}
     \end{align*}
-Es gilt: $e = \langle\varphi_{uu}, N\rangle, f = \langle\varphi_{uv}, N\rangle, g = \langle\varphi_{vv}, N\rangle$ und wir folgern: $\varphi_{uu}-eN\perp N\\ \implies \varphi_{uu}-eN \in \spann{{\varphi_{u},\varphi_{v}}}$\\
+Es gilt: $e = \langle\varphi_{uu}, N\rangle, f = \langle\varphi_{uv}, N\rangle, g = \langle\varphi_{vv}, N\rangle$ und wir folgern: $$\varphi_{uu}-eN\perp N\\ \implies \varphi_{uu}-eN \in \spann{\{\varphi_{u},\varphi_{v}\}}$$
 Ähnlich existieren eindeutige Koeffizienten $\Gamma_{11}^{1},\Gamma_{11}^{2},\Gamma_{12}^{1},\Gamma_{12}^{2},\Gamma_{22}^{1},\Gamma_{22}^{2}\in\mathbb{R}$ sogenannte Christoffelsymbole, mit \begin{align*}
     \varphi_{uu} &= eN + \Gamma_{11}^{1}\cdot\varphi_{u} + \Gamma_{11}^{2}\cdot\varphi_{v}\\
     \varphi_{uv} &= fN + \Gamma_{12}^{1}\cdot\varphi_{u} + \Gamma_{12}^{2}\cdot\varphi_{v}\\
     \varphi_{vv} &= gN + \Gamma_{22}^{1}\cdot\varphi_{u} + \Gamma_{22}^{2}\cdot\varphi_{v}
-\end{align*} Berechne nun $$\langle\varphi_{uu},\varphi_{u}\rangle = \frac{1}{2}(\frac{\partial}{\partial u}(\langle\underbrace{\varphi_{u},\varphi_{u}}_{=E}\rangle)) = \frac{1}{2}E_{u}$$ und 
-$$\langle\varphi_{uu},\varphi_{v}\rangle = \frac{\partial}{\partial u}\langle\varphi_{u},\varphi_{v}\rangle - \langle\varphi_{u},\varphi_{uv}\rangle = F_{u} - \frac{1}{2}E_{v} \ \ (\frac{\partial}{\partial v}\langle\varphi_{u},\varphi_{u}\rangle = 2\cdot\langle\varphi_{u},\varphi_{vu}\rangle)$$
+\end{align*} Berechne nun $$\langle\varphi_{uu},\varphi_{u}\rangle = \frac{1}{2}\left(\frac{\partial}{\partial u}(\langle\underbrace{\varphi_{u},\varphi_{u}}_{=E}\rangle)\right) = \frac{1}{2}E_{u}$$ und 
+$$\langle\varphi_{uu},\varphi_{v}\rangle = \frac{\partial}{\partial u}\langle\underbrace{\varphi_{u},\varphi_{v}}_{=F}\rangle - \langle\varphi_{u},\varphi_{uv}\rangle = F_{u} - \frac{1}{2}E_{v} \qquad \left(\frac{\partial}{\partial v}\langle\varphi_{u},\varphi_{u}\rangle = 2\cdot\langle\varphi_{u},\varphi_{vu}\rangle\right)$$
 Anderseits gilt nach obrigen Ansatz für $\varphi_{uu},\varphi_{uv},\varphi_{vv}$ auch \begin{align*}
     \langle\varphi_{uu},\varphi_{u}\rangle &= \Gamma_{11}^{1}\cdot E + \Gamma_{11}^{2}\cdot F\\
     \langle\varphi_{uu},\varphi_{v}\rangle &= \Gamma_{11}^{1}\cdot F + \Gamma_{11}^{2}\cdot G
-\end{align*} die gleichheit folgt jeweils aus $\langle N,\varphi_{u}\rangle$
+\end{align*} die Gleichheiten folgt jeweils aus $\langle N,\varphi_{u}\rangle$
 $$\implies \begin{pmatrix}
     E&F\\F&G
 \end{pmatrix}\cdot \begin{pmatrix}
-    \Gamma_{11}^{2}\\\Gamma_{11}^{2}
+    \Gamma_{11}^{1}\\\Gamma_{11}^{2}
 \end{pmatrix} = \begin{pmatrix}
     \frac{1}{2} E_{u}\\ F_{u}-\frac{1}{2}E_{v}
 \end{pmatrix}$$
@@ -669,7 +669,7 @@ Analog erhalten wir via $\varphi_{uv}$ und $\varphi_{vv}$ \begin{itemize}
     \end{pmatrix}\cdot\begin{pmatrix}
         \Gamma_{12}^{1}\\\Gamma_{12}^{2}
     \end{pmatrix} = \begin{pmatrix}
-        \frac{1}{2}E_{v}\\\frac{1}{2}G_{v}
+        \frac{1}{2}E_{v}\\\frac{1}{2}G_{u}
     \end{pmatrix}$
     \item $\begin{pmatrix}
         E&F\\F&G
@@ -695,12 +695,12 @@ Analog erhalten wir via $\varphi_{uv}$ und $\varphi_{vv}$ \begin{itemize}
 Via $\langle\varphi_{uu},\varphi_{u}\rangle$ etc, erhalten wir $\Gamma_{ij}^{k}$ als Funktion von $E,F,G$ und ihren ersten partiellen Ableitungen.
 \begin{lemma}
     Sei $\varphi:U\to V\subset\Sigma$ eine lokale $C^{3}$-Parametrisierung. Dann gilt $\forall p\in V:$
-    $$-E\cdot K = (\Gamma_{12}^{2})_{u}-(\Gamma_{11}^{2})_{v}+\Gamma_{12}^{1}\cdot\Gamma_{11}^{2}+\Gamma_{12}^{2}\cdot\Gamma_{12}^{2}-\Gamma_{11}^{2}\cdot\Gamma_{22}^{2}-\Gamma_{11}^{1}\cdot\Gamma_{12}^{2}$$
+    $$-E K = (\Gamma_{12}^{2})_{u}-(\Gamma_{11}^{2})_{v}+\Gamma_{12}^{1}\cdot\Gamma_{11}^{2}+\Gamma_{12}^{2}\cdot\Gamma_{12}^{2}-\Gamma_{11}^{2}\cdot\Gamma_{22}^{2}-\Gamma_{11}^{1}\cdot\Gamma_{12}^{2}$$
 \end{lemma}
-\begin{corollary}[Theorema Egregium]
+\begin{corollary}[Theorema Egregium, Gauss 1827]
     Die Krümmung $K$ lässt sich durch $E,F,G$ und deren zwei partiellen Ableitungen ausdrücken.
 \end{corollary}
-\begin{proof}[Beweis Korollar]
+\begin{proof}[Beweis des Korollars]
     Es gilt $E=\langle\varphi_{u},\varphi_{u}\rangle > 0$ da $I_{p}:T_{p}\Sigma\to\mathbb{R}$ positiv definit ist.
     $$\implies K = -\frac{1}{E}(\dots)$$ wobei die $\dots$ ein Ausdruck in $\Gamma_{ij}^{k}$ und erste partielle Ableitungen, also Ausdruck in $E,F,G$ und zweite partielle Ableitungen sind.
 \end{proof}
@@ -709,37 +709,37 @@ Via $\langle\varphi_{uu},\varphi_{u}\rangle$ etc, erhalten wir $\Gamma_{ij}^{k}$
 \end{remark}
 \begin{proof}[Beweis Lemma]
     Wir berechnen $\varphi_{vuu}=\varphi_{uuv}$ \begin{enumerate}
-        \item $\varphi_{vuu} = \frac{\partial}{\partial v}(\varphi_{uu}) = e_{v}N+e\underbrace{N_{v}}_{a_{12\varphi_{u}+a_{22}\varphi_{v}}}+(\Gamma_{11}^{1})_{v}\varphi_{u}+\Gamma_{11}^{1}\varphi_{uu}+(\Gamma_{11}^{2})_{v}\varphi_{v}+\Gamma_{11}^{2}\varphi_{vu}$
-        \item $\varphi_{uuv} = \frac{\partial}{\partial u}(\varphi_{uv}) = f_{u}N+f\underbrace{N_{u}}_{a_{11\varphi_{u}+a_{21}\varphi_{v}}}+(\Gamma_{12}^{1})_{u}\varphi_{u}+\Gamma_{12}^{1}\varphi_{uu}+(\Gamma_{12}^{2})_{u}\varphi_{v}+\Gamma_{12}^{2}\varphi_{vu}$
+        \item $$\varphi_{vuu} = \frac{\partial}{\partial v}(\varphi_{uu}) = e_{v}N+e\underbrace{N_{v}}_{a_{12\varphi_{u}+a_{22}\varphi_{v}}}+(\Gamma_{11}^{1})_{v}\varphi_{u}+\Gamma_{11}^{1}\varphi_{vu}+(\Gamma_{11}^{2})_{v}\varphi_{v}+\Gamma_{11}^{2}\varphi_{vv}$$
+        \item $$\varphi_{uuv} = \frac{\partial}{\partial u}(\varphi_{uv}) = f_{u}N+f\underbrace{N_{u}}_{a_{11\varphi_{u}+a_{21}\varphi_{v}}}+(\Gamma_{12}^{1})_{u}\varphi_{u}+\Gamma_{12}^{1}\varphi_{uu}+(\Gamma_{12}^{2})_{u}\varphi_{v}+\Gamma_{12}^{2}\varphi_{uv}$$
     \end{enumerate}
     Die $\varphi_{v}$-Komponente von $\varphi_{vuu}$ und $\varphi_{uuv}$ ist gleich, also 
     $$e\cdot a_{22}+\Gamma_{11}^{1}\Gamma_{12}^{2}+(\Gamma_{11}^{2})_{v}+\Gamma_{11}^{2}\Gamma_{22}^{2} = f\cdot a_{21}+\Gamma_{12}^{1}\Gamma_{11}^{2}+(\Gamma_{12}^{2})_{u}+\Gamma_{12}^{2}\Gamma_{12}^{2} \ \ (*)$$
-    (Benutze $\varphi_{uv} = fN+\Gamma_{12}^{1}\varphi_{u}+\Gamma_{12}{2}\varphi_{v}$, etc.)
+    (Benutze $\varphi_{uv} = fN+\Gamma_{12}^{1}\varphi_{u}+\Gamma_{12}^{2}\varphi_{v}$, etc.)
     \begin{recall}
         \begin{align*}
             &\begin{pmatrix}
                 a_{11}&a_{21}\\a_{12}&a_{22}
-            \end{pmatrix}\cdot \begin{pmatrix}
+            \end{pmatrix} \begin{pmatrix}
                 E&F\\F&G
             \end{pmatrix} = -\begin{pmatrix}
                 e&f\\f&g
             \end{pmatrix}\\
             &\implies \begin{pmatrix}
                 E&F\\F&G
-            \end{pmatrix} = -(a_{ij})^{-1}\cdot\begin{pmatrix}
+            \end{pmatrix} = -(a_{ij})^{-1}\begin{pmatrix}
                 e&f\\f&g
-            \end{pmatrix} \underbrace{=}_{K = \det(a_{ij})} -\frac{1}{K}\begin{pmatrix}
+            \end{pmatrix} \underset{K = \det(a_{ij})}{=} -\frac{1}{K}\begin{pmatrix}
                 a_{22}&-a_{21}\\-a_{12}&a_{11}
-            \end{pmatrix}\cdot \begin{pmatrix}
+            \end{pmatrix} \begin{pmatrix}
                 e&f\\f&g
             \end{pmatrix}\\
-            &\implies E = -\frac{1}{K}\cdot (a_{22}e-a_{21}f)\\
-            &\text{bzw. } -E\cdot K = a_{22}e-a_{21}f \text{ (gilt auch für } K=0 \text{)}\\
-            &\implies -E\cdot K \overbrace{=}^{(*)} 6 \text{ Terme in } \Gamma_{ij}^{k} \text{ (siehe Lemma)}
+            &\implies E = -\frac{1}{K} (a_{22}e-a_{21}f)\\
+            &\text{bzw. } -E K = a_{22}e-a_{21}f \qquad \text{ (gilt auch für } K=0 \text{)}\\
+            &\implies -E K \overset{(*)}{=} 6 \text{ Terme in } \Gamma_{ij}^{k} \text{ (siehe Lemma)}
         \end{align*}
     \end{recall}
 \end{proof}
 \begin{remark}
-    Ähnliche Ausdrücke erhalten wir für $-F\cdot K$ und $-G\cdot K$.
+    Ähnliche Ausdrücke erhalten wir für $-F K$ und $-G K$.
 \end{remark}
 \end{document}
