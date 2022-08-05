@@ -1,0 +1,76 @@
+%% Creator: Inkscape 1.2 (dc2aedaf03, 2022-05-15), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'figure2.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{527.63311431bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.27299089)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{figures/figure2.pdf}}%
+    \put(0.60743251,0.11484774){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$A$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{figures/figure2.pdf}}%
+    \put(0.7122511,0.07761153){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\varphi (U) \subset  \Sigma$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{figures/figure2.pdf}}%
+    \put(0.0248889,0.08569047){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$q$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{figures/figure2.pdf}}%
+    \put(0.1038588,0.09986458){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$e_1$\end{tabular}}}}%
+    \put(0.05399639,0.16061065){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$e_2$\end{tabular}}}}%
+    \put(-0.00143439,0.17149428){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$U$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{figures/figure2.pdf}}%
+    \put(0.30558639,0.2117386){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\varphi$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{figures/figure2.pdf}}%
+    \put(0.53773076,0.25509342){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\varphi_v(q)$\end{tabular}}}}%
+    \put(0.47078726,0.03097841){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\varphi (q)$\end{tabular}}}}%
+    \put(0.69129119,0.00381271){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\varphi_u(q)$\end{tabular}}}}%
+    \put(0.80792281,0.22236917){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\varphi_u(q)=(D\varphi)_q(e_1)$\end{tabular}}}}%
+    \put(0.80792281,0.1825687){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\varphi_v(q)=(D\varphi)_q(e_2)$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{figures/figure2.pdf}}%
+  \end{picture}%
+\endgroup%
