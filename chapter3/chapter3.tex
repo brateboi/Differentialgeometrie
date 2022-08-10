@@ -27,7 +27,12 @@ Seien $\Sigma _1, \Sigma _2 \subset \mathbb{R}^3$ reguläre Flächen und $V_1 \s
     $E_i,F_i,G_i: U_1 \to \mathbb{R} \ (i=1,2)$ bzgl. der lokalen Parametrisierungen
     $\varphi_1: U_1 \to V_1$ und $\varphi_2 = h \circ \varphi_1 : U_1 \to V_2$ übereinstimmen:
     $$E_1=E_2, F_1=F_2, G_1=G_2$$
-    \ctikzfig{isometrie grafik} 
+    \begin{figure}[H]
+        \centering
+        \def\svgwidth{20em}
+        \input{figures/isometrie_grafik.pdf_tex}
+        % \caption*{Einheitsnormalenfeld}        
+    \end{figure}
 \end{proposition}
 
 \begin{proof}
@@ -44,12 +49,17 @@ Seien $\Sigma _1, \Sigma _2 \subset \mathbb{R}^3$ reguläre Flächen und $V_1 \s
     $$E_2(u,v)=\langle (Dh)_{\varphi_1(u,v)}(\varphi_{1u}), (Dh)_{\varphi_1(u,v)}(\varphi_{1u}) \rangle _{h \circ \varphi_1(u,v)}= \langle \varphi_{1u}, \varphi_{1,u}\rangle _{\varphi_1(u,v)}$$
     Beim letzen Schritt wird benutzt, dass $h$ eine lokale Isometrie ist! Also gilt $E_1=E_2$, analog $F_1=F_2, G_1=G_2$.
 
-    ``$\impliedby$'' Seien $p \in V, v,w \in T_p\Sigma_1$.
+    \noindent``$\impliedby$'' Seien $p \in V, v,w \in T_p\Sigma_1$.
     Wähle (die eindeutigen) $q \in U_1, a,b \in \mathbb{R}^2$ mit 
     $\varphi_1 (q)=p, (D\varphi_1)_q(a)=v, (D\varphi_1)_q(b)=w$
-    \ctikzfig{bildchen fürbeweis prop 1}
+    \begin{figure}[H]
+        \centering
+        \def\svgwidth{15em}
+        \input{figures/proof_isometric.pdf_tex}
+        % \caption*{Einheitsnormalenfeld}        
+    \end{figure}
 
-    Schreibe $a=a_1e_1 +a_2e_2, b=b_1e_1+b_2e_2$. Berechne
+    \noindent Schreibe $a=a_1e_1 +a_2e_2, b=b_1e_1+b_2e_2$. Berechne
     \begin{align*}
         \langle v,w \rangle _p &=\langle (D\varphi_1)_q(a), (D\varphi_1)_q(b)\rangle_{\varphi_1(q)} \\
         &\vertarrowbox[3ex]{=}{siehe Def. von $E,F,G$} \begin{pmatrix}
@@ -82,7 +92,6 @@ Seien $\Sigma _1, \Sigma _2 \subset \mathbb{R}^3$ reguläre Flächen und $V_1 \s
         \varphi : \mathbb{R}_{>0} \times (0, 2\pi) &\to K \\
         (u,v) &\mapsto (\frac{u}{\sqrt{2}}\cos(v), \frac{u}{\sqrt{2}}\sin(v), \frac{u}{\sqrt{2}})
     \end{align*}
-    \ctikzfig{Illustration Kegel, Isometrie, etc.}
     Sei $S\subset \mathbb{R}^2$ das Bild der lokalen Parametrisierung
     \begin{align*}
         \psi : \mathbb{R}_{>0} &\to \mathbb{R}^2 \qquad (\subset \mathbb{R}^2 \times \{0\}) \\
@@ -109,7 +118,12 @@ Seien $\Sigma _1, \Sigma _2 \subset \mathbb{R}^3$ reguläre Flächen und $V_1 \s
 \begin{remark}
     Die mittlere Krümmung ist nicht invariant unter (lokalen) Isometrien.
 \end{remark}
-\ctikzfig{isometrie kruemmung}
+\begin{figure}[H]
+    \centering
+    \def\svgwidth{15em}
+    \input{figures/invariant.pdf_tex}
+    % \caption*{Einheitsnormalenfeld}        
+\end{figure}
 
 \subsubsection*{Interne Distanzen}
 Sei $\Sigma \subset \mathbb{R}^3$ eine wegzusammende reguläre Fläche.
@@ -146,8 +160,13 @@ Sei $\Sigma \subset \mathbb{R}^3$ eine wegzusammende reguläre Fläche.
         \varphi : \mathbb{R}^2 &\to \Sigma \subset \mathbb{R}^3 \\
         (u,v) &\mapsto (a(u),b(u),v)
     \end{align*}
-    \ctikzfig{vorhang als isometrie}
-    Berechne $$E=\langle \varphi_u, \varphi_u \rangle = 1, F=\langle \varphi_u, \varphi_v \rangle = 0, G=\langle \varphi_v, \varphi_v \rangle = 1$$
+    \begin{figure}[H]
+        \centering
+        \def\svgwidth{15em}
+        \input{figures/vorhang.pdf_tex}
+        \caption*{durchgehender Vorhang als Isometrie}        
+    \end{figure}
+    \noindent Berechne $$E=\langle \varphi_u, \varphi_u \rangle = 1, F=\langle \varphi_u, \varphi_v \rangle = 0, G=\langle \varphi_v, \varphi_v \rangle = 1$$
     Also ist $\varphi : \mathbb{R}^2 \to \Sigma$ eine Isometrie! Im allgemeinen gilt für $(u_1,0),(u_2,0)\in \mathbb{R}^2 (\implies K=0 \text{ für alle } p \in \Sigma)$
     $$d_{\mathbb{R}^2}(\underbrace{(u_1, 0), (u_2, 0)}_{=|u_1 - u_2|}) \not = d_{\mathbb{R}^3}(\underbrace{\varphi(u_1,0)}_{p},\underbrace{\varphi(u_2,0)}_{q})$$
 \end{example}
@@ -162,7 +181,11 @@ Dann existieren (eindeutige) $A \in O(\mathbb{R}^2), b \in \mathbb{R}^2$ mit $h(
 Sei nun $h : \mathbb{R}^2 \to \mathbb{R}^2$ eine Isometrie. Dann erhält $h$ Distanzen in $\mathbb{R}^2$ (wende obiges Lemma an).
 Betrachte nun die Punkte $0, e_1, e_2 \in \mathbb{R}^2$ und deren Bilder $h(0), h(e_1), h(e_2) \in \mathbb{R}^2$.
 Setze $b=h(0)$
-\ctikzfig{bildchen isometrien der ebene}
+\begin{figure}[H]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{figures/isometrie_ebene.pdf_tex}
+\end{figure}
 Es existiert $A\in O(\mathbb{R}^2)$ mit $A(0)+b=h(0), A(e_1)+b=h(e_1), A(e_2)+b = h(e_2)$.
 Setze $\tilde{h}(p)=A(p)+b$. Dann ist $h^{-1}\circ \tilde{h}: \mathbb{R}^2 \to \mathbb{R}^2$ eine Isometrie mit Fixpunkten $0,e_1,e_2 \implies h^{-1}\circ \tilde{h} = Id_{\mathbb{R}^2}$, also $\tilde{h}= h$.
 
@@ -206,9 +229,13 @@ Setze $\tilde{h}(p)=A(p)+b$. Dann ist $h^{-1}\circ \tilde{h}: \mathbb{R}^2 \to \
         \item $\Sigma = S^1 \times S^1$
         $$\Iso (S^1\times S^1) \simeq \underbrace{\mathbb{Z}/2\mathbb{Z}}_{=\{Id, s\}} \ltimes O(\mathbb{R}^2)$$
         \item $\Gamma_f $ für $f(x,y)=x^2+y^2$ $$\Iso(\Gamma_f)=O(\mathbb{R}^2)$$
-        \item $\Sigma =$
-        \item \ctikzfig{kleiner huegel}
-        \item \ctikzfig{drei kleine huegel}
+        \item $\Sigma = \includegraphics[height=2em]{figures/brezel.pdf} \Iso (\Sigma) = (\mathbb{Z}/2\mathbb{Z})^3$ erzeugt von drei Spiegelungen an Koordinatenebenen.
+        \item \includegraphics[height=2em]{figures/ein_huegel.pdf} $\rightarrow O(\mathbb{R}^2)$ 
+        \item \includegraphics[height=2em]{figures/drei_huegel.pdf} $\Iso(\Sigma) = \begin{cases}
+            S_3  &\text{gleichseitiges Dreieck} \\
+            \mathbb{Z}/2\mathbb{Z}  &\text{gleichschenkliges Dreieck}\\
+            \{id\}  &\text{sonst}\\
+        \end{cases}$
     \end{enumerate}
 \end{examples}
 
@@ -234,12 +261,16 @@ Dazu stellen werden wir folgendes benötigen: Was bedeutet $\dot{\gamma}(t)$ ist
 \end{question}
 
 \begin{definition}
-Ein glattes Vektorfeld \underline{entlang} einer glatten Kurve $\alpha : [a,b] \to \Sigma$ ist eine glatte Abbildung $w : [a,b] \to \mathbb{R}^3$ mit $w(t) \in T_{\alpha(t)}\Sigma$. \\
-Die \underline{horizontale Ableitung} oder ( \underline{kovariante Ableitung} von $w$ im Punkt $\alpha(t)$ ist die orthogonale Projektion der Abbildung $\frac{dw}{dt}(t)$ auf $T_{\alpha(t)}\Sigma :$
+Ein glattes Vektorfeld \emph{entlang} einer glatten Kurve $\alpha : [a,b] \to \Sigma$ ist eine glatte Abbildung $w : [a,b] \to \mathbb{R}^3$ mit $w(t) \in T_{\alpha(t)}\Sigma$. \\
+Die \emph{horizontale Ableitung} oder ( \emph{kovariante Ableitung}) von $w$ im Punkt $\alpha(t)$ ist die orthogonale Projektion der Abbildung $\frac{dw}{dt}(t)$ auf $T_{\alpha(t)}\Sigma :$
 \begin{align*}
     \frac{Dw}{dt}(t) = \frac{dw}{dt}(t) - \left\langle \frac{dw}{dt}(t), N(\alpha(t))\right\rangle N(\alpha(t))
 \end{align*}
-\ctikzfig{Vektorfeld entlang einer Kurve}
+\begin{figure}[H]
+    \centering
+    \def\svgwidth{15em}
+    \input{figures/Vektorfeld.pdf_tex}
+\end{figure}
 \end{definition}
 
 \begin{remark}
@@ -261,7 +292,7 @@ Mit $\varphi_{uu} = eN + \Gamma^1_{11}\varphi_u + \Gamma^2_{11}\varphi_v$ etc.. 
 \end{align*}
 
 \begin{definition}
-$w$ heisst \underline{parallel}, falls $\dfrac{Dw}{dt} \equiv 0$ \\ ''keine Änderung in Richtung der Tangentialebene``
+$w$ heisst \emph{parallel}, falls $\dfrac{Dw}{dt} \equiv 0$ \\ ''keine Änderung in Richtung der Tangentialebene``
 \end{definition}
 
 \begin{examples}
@@ -300,8 +331,8 @@ Sei $\sigma : [a,b] \to [a,b]$ ein Diffeomorphismus mit $\sigma (a) = a$ und $\s
 \end{remark}
 
 \begin{definition}
-Eine glatte Kurve $\gamma : [a,b] \to \Sigma$ heisst \underline{geodätisch}, falls
-$\dfrac{D\dot{\gamma}}{dt}\equiv 0 $. Das Bild von $\gamma$ bezeichnen wir mit \underline{Geodäte}.
+Eine glatte Kurve $\gamma : [a,b] \to \Sigma$ heisst \emph{geodätisch}, falls
+$\dfrac{D\dot{\gamma}}{dt}\equiv 0 $. Das Bild von $\gamma$ bezeichnen wir mit \emph{Geodäte}.
 \end{definition}
 Beachte hier $\dot{\gamma}(t) \in T_{\gamma(t)}\Sigma$, also ist $\dot{\gamma}:[a,b] \to \mathbb{R}^3$ ein glattes Vektorfeld entlang $\gamma(t)$.
 
@@ -314,9 +345,9 @@ Beachte hier $\dot{\gamma}(t) \in T_{\gamma(t)}\Sigma$, also ist $\dot{\gamma}:[
     \end{align*} Also parametrisieren geodätische Kurven in der Ebene Geradenabschnitte.
     
     \item $\Sigma = S^2, \gamma(t) = (\cos t, \sin t, 0), \gamma : \mathbb{R} \to S^2$ ist geodätisch, da $\frac{D\dot{\gamma}}{dt}(t)=0$. \\
-    (Siehe oben: $\frac{d\dot{\gamma}}{dt} = \ddot{\gamma}(t)$ ist parallel zu $N(\gamma(t))$, also senkrecht zu $T_{\gamma(t)}S^2 \implies \frac{D\dot{\gamma}}{dt}=0$.) Analog sind alle \underline{Grosskreisenabschnitte} mit konstanter Geschwindigkeit parametrisiert Geodäten. Wir werden später sehen, dass \underline{alle} Geodäten von dieser Form sind.
+    (Siehe oben: $\frac{d\dot{\gamma}}{dt} = \ddot{\gamma}(t)$ ist parallel zu $N(\gamma(t))$, also senkrecht zu $T_{\gamma(t)}S^2 \implies \frac{D\dot{\gamma}}{dt}=0$.) Analog sind alle \emph{Grosskreisenabschnitte} mit konstanter Geschwindigkeit parametrisiert Geodäten. Wir werden später sehen, dass \emph{alle} Geodäten von dieser Form sind.
     \item $Z = \{(x,y,z) \in \mathbb{R}^3 | x^2 + y^2 = 1\}$
-    Betrachte die lokal \underline{isometrische} Parametrisierung.
+    Betrachte die lokal \emph{isometrische} Parametrisierung.
     $\begin{aligned}[t]
         \varphi : \mathbb{R}^2 & \to Z \\
         (u,v) & \mapsto (\cos u, \sin u, v)
