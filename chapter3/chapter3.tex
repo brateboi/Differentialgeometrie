@@ -135,7 +135,7 @@ Sei $\Sigma \subset \mathbb{R}^3$ eine wegzusammende reguläre Fläche.
 
 \begin{lemma}
     Sei $h: \Sigma_1 \to \Sigma_2$ eine Isometrie. Dann gilt für alle $p,q \in \Sigma_1$
-    $$d_{\Sigma_1}(h(p), h(q))=d_{\Sigma_1}(p,q)$$
+    $$d_{\Sigma_2}(h(p), h(q))=d_{\Sigma_1}(p,q)$$
     ``Isometrien erhalten interne Distanzen''.
 \end{lemma}
 
@@ -151,7 +151,7 @@ Sei $\Sigma \subset \mathbb{R}^3$ eine wegzusammende reguläre Fläche.
 \end{proof}
 
 \begin{remark}
-    Isometrien $h: \Sigma_1 \to Sigma_2$ erhalten Distanzen in $R^3$ im allgemeinen nicht!
+    Isometrien $h: \Sigma_1 \to \Sigma_2$ erhalten Distanzen in $R^3$ im allgemeinen nicht!
 \end{remark}
 \begin{example}
     Sei $\gamma : \mathbb{R} \to \mathbb{R}^2$ eine injektive, nach Bogenlänge parametrisierte $C^2$-Kurve (d.h. $\dot{a}^2+\dot{b}^2=1$).
@@ -203,14 +203,14 @@ Setze $\tilde{h}(p)=A(p)+b$. Dann ist $h^{-1}\circ \tilde{h}: \mathbb{R}^2 \to \
 \begin{examples}
     \leavevmode
     \begin{enumerate}
-        \item $\Sigma = \mathbb{R}^2$ (bzw. $\mathbb{R}^2 \times \{0\} \subset \mathbb{R}^3$). Sei $\varphi \in \Iso(\mathbb{R}^2)$.
+        \item $\Sigma = \mathbb{R}^2$ (bzw. $\mathbb{R}^2 \times \{0\} \subset \mathbb{R}^3$). Sei $h \in \Iso(\mathbb{R}^2)$.
         Dann existiert (eindeutige) $A \in O(\mathbb{R}^2)$ und $b\in \mathbb{R}^2$ mit $h(p)=A(p)+b$.
         \begin{question}
             Gilt $\Iso(\mathbb{R}^2) \simeq O(\mathbb{R}^2) \times \mathbb{R}^2$? (D.h. isomorph )    
         \end{question}
         Nein! Grund: Schreibe $h_{1}(p)=A_1(p)+b_1$, bzw. $h_{2}(p)=A_2(p)+b_2$.
         Dann gilt 
-        $$h_1 \circ h_2 (p) = h_1(A_2p+b_2)=A_1A_2p+\overbrace{A_1b_2+b_1}^{\not = b_1+b_2}$$
+        $$h_1 \circ h_2 (p) = h_1(A_2(p)+b_2)=A_1A_2(p)+\overbrace{A_1b_2+b_1}^{\not = b_1+b_2}$$
         $\Iso (\mathbb{R}^2) \simeq O(\mathbb{R}^2) \ltimes_{\alpha} \mathbb{R}^2 $ ist ein \emph{semidirektes Produkt}.
         \begin{align*}
             \alpha : O(\mathbb{R}^2) &\to \Aut(\mathbb{R}^2) \text{ Automorphismus} \\
@@ -471,7 +471,7 @@ $\exp (th)= \gamma_p(th,1) = \gamma_p(h,t)=\gamma(t)$.
 Berechne nun:
 \begin{align*}
     (D\exp)_0(h) = \lim_{t \to 0}\frac{\exp(th)-\exp(0)}{t} =
-    \lim_{t \to 0} \frac{\gamma(t)-\gamma(0)}{t} =\dot{\gamma}(t)=h \\
+    \lim_{t \to 0} \frac{\gamma(t)-\gamma(0)}{t} =\dot{\gamma}(0)=h \\
     \implies D(\exp)_0 = \text{Id}_{T_p\Sigma}  
 \end{align*}
 
