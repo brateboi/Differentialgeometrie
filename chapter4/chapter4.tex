@@ -140,7 +140,7 @@ Geraden durch 0 ab (1).
 \end{definition}
 
 Dann ist 
-$\mathbb{P}(\mathbb{C}^2) = \big (\mathbb{C}^2 \setminus \{0\} \big ) / \sim$.
+$\mathbb{P}(\mathbb{C}^2) := \big (\mathbb{C}^2 \setminus \{0\} \big ) / \sim$.
 Sei nun $\begin{pmatrix}
     a \\ b
 \end{pmatrix} \in \mathbb{C}^2 \setminus \{0\}$
@@ -248,9 +248,9 @@ mühsam zu beweisen.
     Die Kurve $\begin{aligned}[t]
         \gamma : \mathbb{R} & \to H \\
         t & \mapsto i e^t
-    \end{aligned}$
+    \end{aligned}$ ist geodätisch.
 \end{lemma}
-
+Anmerkung: Baader hat im Rückblick impliziert $\forall p\in H$ gilt $K(p) -1$
 \begin{proof}
     Wir bemerken zuerst, dass
     \begin{align*}
@@ -377,7 +377,7 @@ Wir erhalten also eine Abbildung
     $\Psi$ ist surjektiv, es gilt $\ker (\Psi) = \left \{ \pm  E = \pm  \begin{pmatrix}
         1 & 0 \\ 0 & 1
     \end{pmatrix} \right \}$
-    Insbesondere gilt $\Iso ^+ (H) \simeq SL(\mathbb{R}^2) / \pm E = PSL(\mathbb{R}^2)$
+    Insbesondere gilt $\Iso ^+ (H) \simeq SL(\mathbb{R}^2) / \pm E =: PSL(\mathbb{R}^2)$
 \end{theorem}
 
 \begin{proof}
@@ -449,7 +449,7 @@ Seien $p, q \in H$.
 
 \begin{proposition}
     Für alle $z,w \in H$ gilt 
-    $$\cosh (d_H(z,w))=1 \frac{|z-w|^2}{2 * \im (z) \im(w)}$$
+    $$\cosh (d_H(z,w))=1 + \frac{|z-w|^2}{2 * \im (z) \im(w)}$$
     Zur Erinnerung: $\cosh (x)=\frac{1}{2}(e^x + e^{-x})$
 \end{proposition}
 \begin{remarks}
@@ -491,7 +491,7 @@ Seien $p, q \in H$.
 \newpage
 \subsection*{Flächeninhalt}
 Sei $\Delta \in H$ ein geodätisches Dreieck. Nach Gauss-Bonnet (lokal) gilt:
-$$\int_{\Delta}K \ dA = \underbrace{\int _{\Delta} (-1)\ dA}_{area(\Delta)} = \alpha + \beta + \gamma - \pi$$
+$$\int_{\Delta}K \ dA = \underbrace{\int _{\Delta} (-1)\ dA}_{- area(\Delta)} = \alpha + \beta + \gamma - \pi$$
 Also gilt $area(\Delta)=\pi - (\alpha + \beta + \gamma)$
 
 Wir überprüfen dies durch Integration.
@@ -530,7 +530,7 @@ $\beta = \gamma = 0$.
 $\implies$ $$area(\Delta_\alpha)= \int _{-1}^{\cos(\alpha)}(\int_{\sqrt{-x^2}}^{+\infty}\frac{1}{y^2} \ dy) \ dx = \dots = \arcsin(\cos(\alpha))-\arcsin(-1)$$.
 Wir nutzen $cos \alpha = sin(\frac{\pi}{2}-\alpha) \implies area(\Delta _{\alpha})= \pi - \alpha$
 
-Im allgemeinen Fall $alpha, \beta, \gamma >0$ berechnen wir $area(\Delta)$ mit folgendem Ergänzungsbild.
+Im allgemeinen Fall $\alpha, \beta, \gamma >0$ berechnen wir $area(\Delta)$ mit folgendem Ergänzungsbild.
 
 \begin{figure}[htb]
     \centering
@@ -539,6 +539,9 @@ Im allgemeinen Fall $alpha, \beta, \gamma >0$ berechnen wir $area(\Delta)$ mit f
     \caption*{Allgemeiner Fall}        
 \end{figure}
 
+\begin{align*}
+    fehlt noch text
+\end{align*}
 
 \section{Ausblick Teichmüllertheorie}
 (Nicht mehr Prüfungsrelevant)
